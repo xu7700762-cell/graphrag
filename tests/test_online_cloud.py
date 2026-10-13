@@ -123,6 +123,46 @@ def test_real_judge_and_claim_id_reports_keep_three_domain_sources_separate(repo
         assert call['messages'][1]['role'] == 'user'
 
 
+def test_supervisor_can_reuse_supplied_vrms_semantic_citation(reporter_factory):
+    class SemanticCitationProvider(ProviderDouble):
+        def call(self, role, payload, tools=None, messages=None):
+            if role == 'VRMSIndependentJudge':
+                self.calls.append(copy.deepcopy({'role': role, 'payload': payload,
+                                                 'tools': tools, 'messages': messages}))
+                value = final()
+                value['rag_citations'] = ['state-path-supplied']
+                return {'choices': [{'finish_reason': 'stop',
+                                     'message': {'content': json.dumps(value, ensure_ascii=False)}}]}
+            if role == 'Supervisor':
+                self.calls.append(copy.deepcopy({'role': role, 'payload': payload,
+                                                 'tools': tools, 'messages': messages}))
+                wanted = {'measurements.theta_alpha', 'measurements.workload_index',
+                          'measurements.segments.0.predicted_class'}
+                selected = [fact['id'] for fact in payload['tool_facts'] if fact['path'] in wanted]
+                return {'explanation': '当前完整路径云端判为Low；疲劳指标θ/α为1.50，负荷指标为2.25。',
+                        'citations': ['state-path-supplied'],
+                        'measurement_claim_ids': selected}
+            return super().call(role, payload, tools=tools, messages=messages)
+
+    # The citation must be supplied by the actual VRMS request context. This
+    # mirrors semantic_graph retrieval, where citation IDs come from the
+    # reviewed state paths and are validated before the judge can return them.
+    row_prediction = prediction()
+    row_prediction['current_raw_contrastive_context'] = {
+        'available': True,
+        'provenance': 'offline_semantic_graph_fixture',
+        'validation_scope': 'fixture_only',
+        'state_evidence': {
+            'supporting_paths': [{'citation_id': 'state-path-supplied'}],
+            'contradictory_paths': [],
+        },
+    }
+    report = reporter_factory(SemanticCitationProvider()).report(completed_path(), row_prediction)
+    assert report['status'] == 'verified'
+    assert report['explanation_status'] == 'completed'
+    assert report['reports']['supervisor']['generation_status'] == 'cloud_verified'
+
+
 @pytest.mark.parametrize('role', ['FatigueAgent', 'EmotionAgent', 'Supervisor'])
 @pytest.mark.parametrize('damage', ['exception', 'invented_number', 'unknown_citation', 'unknown_fact', 'changed_claim'])
 def test_bad_domain_explanation_is_partial_and_preserves_valid_vrms_decision(reporter_factory, role, damage):
