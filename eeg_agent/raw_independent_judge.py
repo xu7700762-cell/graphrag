@@ -7,6 +7,7 @@ stays unavailable and is never converted into a numeric fallback class.
 import copy
 import hashlib
 import json
+import re
 
 from . import raw_tool_agent
 
@@ -118,6 +119,17 @@ def _validate_final(raw, payload):
     return raw
 
 
+def _complete_semantic_citations(raw, payload):
+    """Index only supplied path IDs actually mentioned in the model explanation."""
+    mentioned = set(re.findall(r'(?<![0-9A-Za-z_-])state-path-[0-9a-f]{16}(?![0-9A-Za-z_-])',
+                               raw['explanation']))
+    if not mentioned.issubset(_citation_ids(payload)):
+        raise ValueError('Final explanation cited an unsupplied semantic path')
+    additions = sorted(mentioned - set(raw['rag_citations']))
+    raw['rag_citations'].extend(additions)
+    return additions
+
+
 def classify(provider, prediction, teaching_context=None):
     result = {'available': False, 'final_class': None, 'generation_status': 'fallback',
               'provider_model': str(getattr(provider, 'model', '') or '') or None,
@@ -192,6 +204,9 @@ def classify(provider, prediction, teaching_context=None):
                 if isinstance(checked.get(field), list):
                     checked[field] = ['MIL' if item == 'baseline' else item for item in checked[field]]
         raw = _validate_final(checked, payload)
+        citation_additions = (_complete_semantic_citations(raw, payload)
+                              if pinned is not None and pinned['judge_profile'] == 'semantic_state_high_v1'
+                              else [])
         rag_ids = list(raw['rag_citations'])
         result.update(available=True, final_class=raw['final_class'], confidence=raw['confidence'],
                       explanation=raw['explanation'], supporting_tools=raw['supporting_tools'],
@@ -206,6 +221,8 @@ def classify(provider, prediction, teaching_context=None):
         if pinned is not None:
             result.update(rag_policy=copy.deepcopy(pinned), rag_mode=pinned['rag_mode'],
                           judge_profile=pinned['judge_profile'])
+        if citation_additions:
+            result['rag_citations_completed_from_explanation'] = citation_additions
     except Exception as exc:
         result['error_type'] = type(exc).__name__
         result['error_stage'] = stage

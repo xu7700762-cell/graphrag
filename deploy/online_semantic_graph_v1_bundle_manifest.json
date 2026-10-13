@@ -1,6 +1,6 @@
 {
   "schema": "private_online_pi_bundle_v1",
-  "created_utc": "2026-10-13T04:49:05.988324+00:00",
+  "created_utc": "2026-10-13T07:18:14.526133+00:00",
   "target": "Raspberry Pi 5 8GB, Raspberry Pi OS 64-bit, CPython 3.11",
   "backend": "mamba_minimal_cpu_fp32",
   "seed": 2026,
@@ -72,8 +72,8 @@
     },
     {
       "file": "docs/GRAPH_RAG.md",
-      "bytes": 9380,
-      "sha256": "2f724751d1595d656be970d22aecb660a5c429332b3bb8f68184d5bfb5d4ca65"
+      "bytes": 10197,
+      "sha256": "6038d1cb8013b8f6b47ba76806a50febee2f63ee55539419cd01f7de68152d85"
     },
     {
       "file": "docs/ONLINE_ANALYSIS.md",
@@ -187,8 +187,8 @@
     },
     {
       "file": "eeg_agent/brain_knowledge/vrms/04_graph_rag.md",
-      "bytes": 6568,
-      "sha256": "a3aff3ffec105b4f447f91af70e197234105c0ad9337b762d3f8218c793078c7"
+      "bytes": 7035,
+      "sha256": "865b7ee2897de72606049110a2679d60cd6d27e63583513b5ae9a8c425586d3f"
     },
     {
       "file": "eeg_agent/cli.py",
@@ -282,8 +282,8 @@
     },
     {
       "file": "eeg_agent/online/cloud.py",
-      "bytes": 10684,
-      "sha256": "2908ade5910ead26a74de2da58277e9c66d0cca24a599436fbdc3e216456b3c6"
+      "bytes": 12347,
+      "sha256": "d794bbff7d318bdde6a430afa3f95063f3bb1d0bfb0474765289cd9e08e2ce75"
     },
     {
       "file": "eeg_agent/online/features.py",
@@ -332,8 +332,8 @@
     },
     {
       "file": "eeg_agent/raw_independent_judge.py",
-      "bytes": 12993,
-      "sha256": "21acb043d372eb2ab0bfd1a3c924a2261164fcf5d52ab3e7c8fea74501fcfd02"
+      "bytes": 13879,
+      "sha256": "e07e1e7905423eec5263e248b43c6d181ee69379d0848bb85a8e84ba285250a7"
     },
     {
       "file": "eeg_agent/raw_model.py",
@@ -382,8 +382,8 @@
     },
     {
       "file": "eeg_agent/state_graph_rag.py",
-      "bytes": 23238,
-      "sha256": "983da44d2ae974068cee31a582868306eb6e8b6f90f251f1dd94ddfab9fb0010"
+      "bytes": 25465,
+      "sha256": "e129887e21d9c7e875939935a3847d0fed98f2b4d7c8669a344b9f44b15bfd31"
     },
     {
       "file": "eeg_agent/synthesis.py",
@@ -1797,8 +1797,8 @@
     },
     {
       "file": "tests/test_online_cloud.py",
-      "bytes": 17381,
-      "sha256": "46397ec0c9f1802b62713dfda09e2efd624f7a7fa6893a5b1b6f7ae7b82ba9d9"
+      "bytes": 19740,
+      "sha256": "2c54ad9e175552e30e59a4ebabaa0dec3154350eaac5eb531799a402254bd08d"
     },
     {
       "file": "tests/test_online_evaluation.py",
@@ -1833,7 +1833,7 @@
     {
       "file": "validation/arm64_wheel_preflight.json",
       "bytes": 35072,
-      "sha256": "77a48ac34edd2d5723418cff7a47d90ec5bbccdf455a3e89ee29176256534e98"
+      "sha256": "f45f6e813473016a1b103de23470b02fea1ab36a4825129c4008c6a68a8c6add"
     },
     {
       "file": "validation/engineering_audit.json",
@@ -2101,7 +2101,7 @@
       "sha256": "16246631db62bdfbf069b0645177d6e8a77ba950cfedbfd093acef9444e4d885"
     }
   ],
-  "payload_bytes": 360502656,
+  "payload_bytes": 360511075,
   "arm64_wheel_preflight": {
     "status": "passed",
     "selected_wheels": 42
@@ -2137,9 +2137,9 @@
       "legacy_system_sha256": "a84d03bf95a2de4b8903e9a1fc83da8fabe659b4b607461711c959f50d43ed99",
       "teaching_sha256": null,
       "semantic_manifest_sha256": "69dbb9fdd6dc933c5a0e0d635a123f24eaa0114d34a3245bc62a0de284f1a55a",
-      "semantic_code_sha256": "983da44d2ae974068cee31a582868306eb6e8b6f90f251f1dd94ddfab9fb0010",
+      "semantic_code_sha256": "e129887e21d9c7e875939935a3847d0fed98f2b4d7c8669a344b9f44b15bfd31",
       "observation_code_sha256": "e67ee644d663634d0acb55f0c7970a4f0ddfc802e1176ddc60a105360e98aa31",
-      "semantic_judge_code_sha256": "21acb043d372eb2ab0bfd1a3c924a2261164fcf5d52ab3e7c8fea74501fcfd02",
+      "semantic_judge_code_sha256": "e07e1e7905423eec5263e248b43c6d181ee69379d0848bb85a8e84ba285250a7",
       "semantic_schema": "raw_eeg_state_graph_v1",
       "semantic_variant": "state_reasoning_v1",
       "graph_manifest_sha256": "4e063d041e6f0b971fafc9462d42107a3f5bca005b23e6477e02990f9e03ff8f",
@@ -2167,8 +2167,8 @@
       }
     ]
   },
-  "archive_sha256": "e8393b14efdd89a233427dbfc8d1a23669ba83aae00be04dc93880af5aa07a3c",
-  "archive_bytes": 331314655,
+  "archive_sha256": "078c39312ed0cce4bbec0f189ba7c2437c43716286ee2203d02d933c59810170",
+  "archive_bytes": 331316952,
   "verified_entries": 412,
   "archive_verified": true
 }

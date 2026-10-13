@@ -37,18 +37,19 @@ def synthetic_graph(counter=True):
               'observed_direction': 'any'}
              for origin, target, relation in [('biomarker-alpha', 'mechanism-sensory-conflict', 'associated_with'),
                                              ('mechanism-sensory-conflict', 'state-vrms', 'explains'),
-                                             ('state-vrms', 'paper-a', 'documented_by')]]
+                                             ('biomarker-alpha', 'paper-a', 'documented_by')]]
     if counter:
         edges.append({'from': 'counter-alpha', 'to': 'biomarker-alpha', 'relation': 'contradicts',
                       'source_ref': 'paper-a', 'evidence_level': 'medium', 'review_status': 'reviewed',
-                      'claim': 'A spectral observation alone does not establish a state.',
-                      'scope': 'individual_inference_limitation'})
+                      'claim': 'Reviewed opposing finding for the measured alpha association.',
+                      'scope': 'direct_opposing_association_fixture',
+                      'material_counterevidence': True})
     sources = {'schema': 'eeg_state_sources_v1', 'sources': [source]}
     claims = {'schema': 'eeg_state_claims_v1', 'nodes': nodes, 'edges': edges}
     return sources, claims
 
 
-def test_reviewed_paths_are_citable_layered_and_counterevidence_lowers_strength():
+def test_reviewed_paths_are_citable_layered_and_material_counterevidence_lowers_strength():
     sources, claims = synthetic_graph()
     built = graph.build_graph(sources, claims)
     before = copy.deepcopy(built)
@@ -66,6 +67,46 @@ def test_reviewed_paths_are_citable_layered_and_counterevidence_lowers_strength(
     assert not judge._hidden(explanation)
     assert graph.explain({'eeg_observations': measured()}, built) == explanation
     assert all(all(row.get(key) for key in graph.META) for row in built['nodes'] + built['edges'])
+
+
+def test_association_without_direct_paper_support_remains_low():
+    sources, claims = synthetic_graph(False)
+    claims['edges'] = [edge for edge in claims['edges'] if edge['relation'] != 'documented_by']
+    built = graph.build_graph(sources, claims)
+    result = graph.explain({'eeg_observations': measured()}, built)
+    assert result['evidence_status'] == 'available'
+    assert result['supporting_paths']
+    assert result['evidence_strength'] == 'low'
+    assert 'reviewed_research_associations' in result['confidence_basis']
+
+
+def test_unclassified_counterclaim_is_conservatively_material():
+    sources, claims = synthetic_graph()
+    claims['edges'][-1].pop('material_counterevidence')
+    result = graph.explain({'eeg_observations': measured()}, graph.build_graph(sources, claims))
+    assert result['evidence_strength'] == 'low'
+    assert any(claim.get('material_counterevidence') is True
+               for path in result['contradictory_paths'] for claim in path['claims'])
+
+
+def test_state_documentation_does_not_replace_direct_biomarker_paper_support():
+    sources, claims = synthetic_graph(False)
+    claims['edges'][-1]['from'] = 'state-vrms'
+    result = graph.explain({'eeg_observations': measured()}, graph.build_graph(sources, claims))
+    assert result['supporting_paths'] and result['evidence_strength'] == 'low'
+
+
+def test_material_counterclaim_survives_path_limit(monkeypatch):
+    sources, claims = synthetic_graph()
+    claims['nodes'].append({**claims['nodes'][-1], 'id': 'counter-alpha-direction'})
+    claims['edges'].append({**claims['edges'][-1], 'from': 'counter-alpha-direction',
+                            'evidence_level': 'medium', 'material_counterevidence': False})
+    claims['edges'][-2]['evidence_level'] = 'low'
+    monkeypatch.setattr(graph, 'MAX_PATHS', 1)
+    result = graph.explain({'eeg_observations': measured()}, graph.build_graph(sources, claims))
+    assert result['evidence_strength'] == 'low'
+    assert len(result['contradictory_paths']) == 1
+    assert result['contradictory_paths'][0]['claims'][0]['material_counterevidence'] is True
 
 
 def test_candidate_claims_and_unreviewed_sources_never_enter_graph():
@@ -138,7 +179,7 @@ def test_complete_support_and_counter_packages_fit_budget_without_losing_observa
     assert any('method-raw-path' in path['nodes'] for path in result['supporting_paths'])
     assert any(claim['relation'] == 'solves' and claim['from'] == 'method-raw-path'
                for path in result['supporting_paths'] for claim in path['claims'])
-    assert result['evidence_strength'] == 'low'
+    assert result['evidence_strength'] == 'medium'
     assert len(json.dumps(result, ensure_ascii=False, allow_nan=False)) <= graph.MAX_CHARACTERS
     for path in result['supporting_paths'] + result['contradictory_paths']:
         assert path['content_sha256'] == graph._content(path)
@@ -175,6 +216,33 @@ def test_actual_outbound_request_and_six_fields_are_truth_blind():
     outbound = payload['initial_evidence']['policy_heldout_case_context']['state_evidence']
     assert outbound == state and set(result['raw_llm_final']) == set(judge.FIELDS)
     assert 'contradictory_paths' in provider.calls[0]['messages'][0]['content']
+
+
+def test_semantic_citations_mentioned_in_text_are_indexed_without_changing_native_response():
+    row = recorded_prediction(); row['eeg_observations'] = measured()
+    attached = default_rag.attach(1, row, default_rag.resolve('semantic_graph'))
+    state = attached['current_raw_contrastive_context']['state_evidence']
+    support = state['supporting_paths'][0]['citation_id']
+    counter = state['contradictory_paths'][0]['citation_id']
+    native = final()
+    native['explanation'] = f'实际支持路径{support}；范围限制{counter}。'
+    result = judge.classify(Provider(native), attached)
+    assert result['available']
+    assert result['raw_llm_final'] == native
+    assert result['final_class'] == native['final_class']
+    assert result['confidence'] == native['confidence']
+    assert set(result['rag_citations']) == {support, counter}
+    assert set(result['rag_citations_completed_from_explanation']) == {support, counter}
+
+
+def test_semantic_citation_completion_rejects_unsupplied_path_ids():
+    row = recorded_prediction(); row['eeg_observations'] = measured()
+    attached = default_rag.attach(1, row, default_rag.resolve('semantic_graph'))
+    native = final()
+    native['explanation'] = '图路径 state-path-0000000000000000 支持本次判断。'
+    result = judge.classify(Provider(native), attached)
+    assert not result['available']
+    assert result['error_stage'] == 'cloud_response_validation'
 
 
 def test_broken_semantic_source_sends_no_classification(tmp_path, monkeypatch):

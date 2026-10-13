@@ -31,16 +31,21 @@ META = ('source_layer', 'evidence_level', 'source_ref', 'source_sha256',
         'content_sha256', 'version')
 MAX_PATHS = 6
 MAX_CHARACTERS = 24000
+# These hash-reviewed MVP nodes describe scope, not a direct opposing finding.
+# New counterclaims default to material until their role has been reviewed.
+SCOPE_LIMIT_COUNTER_NODES = {
+    'counter-alpha-direction', 'counter-theta-direction', 'counter-beta-regional',
+    'counter-eeg-symptoms', 'counter-no-baseline', 'counter-autonomic-modality',
+}
 GUIDANCE = (
-    'Semantic paths concern VR motion sickness research, not clinical diagnosis '
-    'or a High/Low rule. First-versus-last path thirds are not resting baseline. '
-    'An association cannot establish an individual mechanism or causal chain. '
-    'Model evidence, literature and opposing evidence have separate provenance; '
-    'multiple paths from one paper or the same PSD are not independent sources. '
-    'Evidence strength is qualitative, never a disease probability or graph vote. '
-    'Unmeasured markers cannot be treated as absent or contradictory findings. '
-    'Explain actual supporting paths and applicable limitations, use supplied '
-    'citations, and retain all eight-tool and same-fold case evidence.'
+    'Semantic paths explain VRMS research associations, not diagnosis or High/Low rules. '
+    'Path thirds are not a resting baseline; associations do not establish individual causes. '
+    'Keep measurement, paper and counterclaim provenance separate; one paper or PSD is '
+    'one source. Strength is qualitative, never probability or a graph vote. Unmeasured '
+    'markers are not absent. State actual paths and one concrete scope limit. Generic '
+    'direction/baseline/modality/EEG-to-questionnaire limits are not direct contradictions. '
+    'Medium requires direct reviewed paper support; low requires missing evidence or a '
+    'material counterclaim.'
 )
 
 
@@ -220,6 +225,10 @@ def explain(prediction, graph):
                   'observation_edge': measured,
                   'claims': [{'from': edge['from'], 'to': edge['to'], 'relation': edge['relation'],
                               'text': edge['claim'], 'scope': edge['scope'],
+                              **({'material_counterevidence': True}
+                                 if edge['relation'] == 'contradicts' and
+                                 (edge.get('material_counterevidence') is True or
+                                  edge['from'] not in SCOPE_LIMIT_COUNTER_NODES) else {}),
                               **{key: edge[key] for key in META}} for edge in edges],
                   'evidence_level': level, 'source_refs': refs,
                   'independent_sources': sorted({sources[ref].get('independence_id', sources[ref].get('independence_group', sources[ref].get('doi') or ref))
@@ -298,8 +307,28 @@ def explain(prediction, graph):
                                                      [edge], 'limitation'))
 
     def rank(row):
-        return (-LEVELS[row['evidence_level']], -len(row['independent_sources']),
+        return (0 if has_material_counterevidence(row) else 1,
+                -LEVELS[row['evidence_level']], -len(row['independent_sources']),
                 0 if 'paper_evidence' in row['source_layers'] else 1, row['citation_id'])
+
+    def has_material_counterevidence(row):
+        # The reviewed MVP contains generic scope limits (directional,
+        # baseline, modality, and EEG-to-questionnaire boundaries). They remain
+        # visible as contradictory_paths but do not reduce the evidence level.
+        # Explicitly material and unclassified counterclaims take precedence
+        # over generic limitations when selecting a bounded context.
+        return any(claim.get('material_counterevidence') is True
+                   for claim in row.get('claims', []))
+
+    def has_direct_paper_support(row):
+        # Mechanism edges are hypotheses and are intentionally low. A direct
+        # reviewed biomarker-to-paper edge can still support a medium evidence
+        # grade for the observed association package.
+        return any(claim.get('relation') == 'documented_by' and
+                   claim.get('from') == row['observation_edge']['to'] and
+                   claim.get('source_layer') == 'paper_evidence' and
+                   LEVELS.get(claim.get('evidence_level'), 0) >= LEVELS['medium']
+                   for claim in row.get('claims', []))
     supporting.sort(key=rank)
     contradictory.sort(key=rank)
     total_supporting, total_contradictory = len(supporting), len(contradictory)
@@ -310,12 +339,22 @@ def explain(prediction, graph):
                   truncation={'supporting_paths_omitted': total_supporting - len(supporting),
                               'contradictory_paths_omitted': total_contradictory - len(contradictory)})
     if supporting:
-        # Research associations are capped at medium and qualified by any counterevidence.
-        strength = 'low' if contradictory else ('medium' if any(row['evidence_level'] != 'low' for row in supporting) else 'low')
+        material_limits = [row for row in contradictory if has_material_counterevidence(row)]
+        direct_paper = any(has_direct_paper_support(row) for row in supporting)
+        # Research associations are capped at medium. Generic scope limits stay
+        # visible, while only a directly applicable reviewed counterclaim lowers
+        # the grade to low.
+        strength = 'low' if material_limits or not direct_paper else 'medium'
+        basis = ['actual_intra_path_observation', 'direct_reviewed_biomarker_paper_evidence'
+                 if direct_paper else 'reviewed_research_associations']
+        if material_limits:
+            basis.append('material_counterevidence_limits_state_inference')
+        elif contradictory:
+            basis.append('generic_scope_limits_do_not_override_direct_association')
+        else:
+            basis.append('association_is_not_individual_diagnosis')
         result.update(evidence_status='available', fallback_reason=None, evidence_strength=strength,
-                      confidence_basis=['actual_intra_path_observation', 'reviewed_research_associations',
-                                        'counterevidence_limits_individual_state_inference' if contradictory else
-                                        'association_is_not_individual_diagnosis'])
+                      confidence_basis=basis)
     # Drop complete packages, retaining both polarities when they fit. Counts are
     # audit information only; observed measurements survive even if no path fits.
     while len(json.dumps(result, ensure_ascii=False, allow_nan=False)) > MAX_CHARACTERS:

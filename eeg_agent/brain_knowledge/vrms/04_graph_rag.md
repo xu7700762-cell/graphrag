@@ -1,5 +1,5 @@
 ---
-{"title":"普通 RAG、GraphRAG与语义状态推理：入口、来源与版本边界","source":"eeg_agent/default_rag.py; eeg_agent/state_graph_rag.py; eeg_agent/semantic_observations.py; knowledge/graph/sources.json; outputs/rag_assets/eeg_state_graph_v1/manifest.json; docs/GRAPH_RAG.md","evidence_type":"local_protocol","version":"graph-rag-entry-2.0","scope":"整路径 High/Low 的检索解释与来源边界；新语义版未评估，不包含当前查询答案"}
+{"title":"普通 RAG、GraphRAG与语义状态推理：入口、来源与版本边界","source":"eeg_agent/default_rag.py; eeg_agent/state_graph_rag.py; eeg_agent/semantic_observations.py; knowledge/graph/sources.json; outputs/rag_assets/eeg_state_graph_v1/manifest.json; docs/GRAPH_RAG.md","evidence_type":"local_protocol","version":"graph-rag-entry-2.1","scope":"整路径 High/Low 的检索解释与来源边界；15条开发抽查不代表146条发布评估，不包含当前查询答案"}
 ---
 # 普通 RAG 与 GraphRAG
 
@@ -7,7 +7,7 @@
 
 实际观测只测量合格整路径窗口的theta 4–8、alpha 8–13、beta 13–30 Hz功率，使用30通道mean log power的末三分之一减首三分之一。首段不是静息基线，分类工具分数不代表功率；增减阈值仅用于描述。沿biomarker→机制假说→VR motion sickness追溯论文的DOI、年份及章节，不把方向、图度数、路径数或案例类别比例当作概率或类别票。论文来源、领域知识、模型观测、反证和协议分别标注，每条节点及边带来源与内容哈希。两篇同作者团队文献属于同一来源独立组。
 
-语义上下文包含supporting_paths、contradictory_paths、evidence_strength、confidence_basis、evidence_status与fallback_reason。有反证时状态推断证据强度为low；未测或无适用审阅证据时明确unavailable，不补造观测。alpha方向差异、区域和显示器依赖及未显著EEG–SSQ相关均作为解释边界。gamma、entropy、connectivity当前只作候选，不进入已审阅上下文；没有EDA/ECG不能推断自主反应机制。
+语义上下文包含supporting_paths、contradictory_paths、evidence_strength、confidence_basis、evidence_status与fallback_reason。通用方向、基线、区域、模态和EEG–问卷边界会保留在反证路径中，但不自动把所有路径压成low；实测biomarker有直接审阅论文支持且没有直接适用的实质反证时为medium。缺少直接论文支持或存在material_counterevidence时为low；未分类的新反证按实质反证处理，实质反证优先保留。medium评价实测biomarker的论文关联，机制假说路径自身仍为low；它与LLM的分类置信等级分别报告。未测或无适用审阅证据时明确unavailable，不补造观测。alpha方向差异、区域和显示器依赖及未显著EEG–SSQ相关均作为解释边界。gamma、entropy、connectivity当前只作候选，不进入已审阅上下文；没有EDA/ECG不能推断自主反应机制。
 
 语义模式保留v3同折个别案例及边界反例、实际数值，排除整库类别统计摘要。LLM仍输出原六字段，支持与反证引用须存在于提供的上下文。动态model_evidence仅写入当前会话model_evidence.jsonl，无真实云端成功时预测为空；不读取真值、身份、问卷或融合类别，不进入静态图或下次检索。新建会话固定policy，旧会话不自动升级。旧图资产及method_source.md快照保持不变。
 
