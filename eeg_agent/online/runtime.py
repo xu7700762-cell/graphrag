@@ -20,6 +20,7 @@ from ..cloud_config import public_settings
 from ..config import EEG_CHANNELS, PROJECT
 from ..data import metadata
 from ..tools import _spectral
+from ..semantic_observations import append_session_evidence
 from .cloud import timeout_seconds
 from .stream import StreamingProcessor
 
@@ -517,6 +518,9 @@ class OnlineSession:
             'available': False, 'reason': self._path_model_error or self.manager._model_error}
         coverage = self._accepted / max(1, self._total)
         permitted = bool(event['complete'] and self._accepted >= 3 and coverage >= .8 and prediction.get('available'))
+        if self._path_model is not None and hasattr(self._path_model, 'observations'):
+            prediction['eeg_observations'] = self._path_model.observations(
+                complete=permitted and event['scope'] == 'task')
         fatigue, emotion = self._indicators()
         row = {key: event[key] for key in ('scope', 'ordinal', 'start_seconds', 'end_seconds', 'complete')}
         row.update(assessment_scope='path_end' if event['scope'] == 'task' else 'rest_end',
@@ -552,6 +556,18 @@ class OnlineSession:
                                                  'data_cutoff_seconds': row['data_cutoff_seconds']})
                 except queue.Full:
                     self._apply_cloud(row, {'status': 'fallback', 'reason': '云端队列已满，保留本地结果', 'final_class': None}, decrement=False)
+            if (permitted and event['scope'] == 'task' and
+                    isinstance(self.rag_policy, dict) and self.rag_policy.get('rag_mode') == 'semantic_graph' and
+                    next(item for item in self.paths if item['scope'] == row['scope'] and
+                         item['ordinal'] == row['ordinal'])['cloud']['status'] != 'pending'):
+                # An explicit semantic session also works without an API.
+                # Only completed paths incur retrieval; numeric labels are not saved.
+                from ..default_rag import attach
+                from ..state_graph_rag import session_evidence
+                semantic_prediction = attach(prediction.get('fold'), prediction, rag_policy=self.rag_policy)
+                record = session_evidence(semantic_prediction)
+                if record is not None:
+                    append_session_evidence(self.directory, record)
         self._path_model, self._band_sums, self._segment = None, {}, None
         self.persist()
 
@@ -569,6 +585,10 @@ class OnlineSession:
                 return
             if target['cloud'].get('status') != 'pending':
                 return
+            evidence = result.get('session_model_evidence')
+            if (isinstance(self.rag_policy, dict) and self.rag_policy.get('rag_mode') == 'semantic_graph'
+                    and isinstance(evidence, dict)):
+                append_session_evidence(self.directory, evidence)
             target['cloud'] = plain(result)
             if decrement:
                 self.cloud['pending'] -= 1

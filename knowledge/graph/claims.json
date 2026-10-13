@@ -1,0 +1,592 @@
+{
+  "schema": "eeg_state_claims_v1",
+  "nodes": [
+    {
+      "id": "biomarker-alpha",
+      "kind": "biomarker",
+      "label": "alpha 功率（8–13 Hz）",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "marker": "alpha",
+      "band_hz": [
+        8,
+        13
+      ],
+      "availability": "requires_actual_measurement"
+    },
+    {
+      "id": "biomarker-theta",
+      "kind": "biomarker",
+      "label": "theta 功率（4–8 Hz）",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "marker": "theta",
+      "band_hz": [
+        4,
+        8
+      ],
+      "availability": "requires_actual_measurement"
+    },
+    {
+      "id": "biomarker-beta",
+      "kind": "biomarker",
+      "label": "beta 功率（13–30 Hz）",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "marker": "beta",
+      "band_hz": [
+        13,
+        30
+      ],
+      "availability": "requires_actual_measurement"
+    },
+    {
+      "id": "biomarker-gamma",
+      "kind": "biomarker",
+      "label": "gamma_low 功率（30–45 Hz，文献30–50 Hz不可直接迁移）",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "marker": "gamma_low",
+      "band_hz": [
+        30,
+        45
+      ],
+      "candidate_reason": "Published gamma is 30–50 Hz; compatible band/region study not verified."
+    },
+    {
+      "id": "biomarker-entropy",
+      "kind": "biomarker",
+      "label": "EEG 熵（定义与估计器待核验）",
+      "source_ref": "local-knowledge-gaps",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "marker": "entropy",
+      "candidate_reason": "No compatible reviewed EEG entropy → VRMS claim in this MVP; do not substitute optical-flow or HRV entropy."
+    },
+    {
+      "id": "biomarker-connectivity",
+      "kind": "biomarker",
+      "label": "EEG 连接性（指标与观测待核验）",
+      "source_ref": "wang2025-connectivity-candidate",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "marker": "connectivity",
+      "candidate_reason": "Indexed abstract supports a modeling topic but not a verified compatible biomarker/mechanism relation; covariance tool score is not measured connectivity."
+    },
+    {
+      "id": "mechanism-sensory-conflict",
+      "kind": "mechanism",
+      "label": "感觉冲突（VRMS解释假说）",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "hypothesis": true
+    },
+    {
+      "id": "mechanism-vestibular-mismatch",
+      "kind": "mechanism",
+      "label": "视觉–前庭失配（解释假说）",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "hypothesis": true
+    },
+    {
+      "id": "mechanism-cognitive-load",
+      "kind": "mechanism",
+      "label": "视觉/认知加工负荷（非实测工作负荷）",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "hypothesis": true
+    },
+    {
+      "id": "mechanism-autonomic-response",
+      "kind": "mechanism",
+      "label": "自主神经反应（EDA/ECG研究背景）",
+      "source_ref": "long2025-autonomic",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "hypothesis": true,
+      "requires_modalities": [
+        "EDA",
+        "ECG"
+      ]
+    },
+    {
+      "id": "state-vrms",
+      "kind": "state",
+      "label": "VR motion sickness 研究状态",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "scope": "Research interpretation in VR exposure; not a clinical diagnosis or categorical severity rule."
+    },
+    {
+      "id": "method-raw-path",
+      "kind": "method",
+      "label": "冻结原始EEG整路径推理及真实描述工具",
+      "source_ref": "local-vrms-protocol",
+      "evidence_level": "high",
+      "review_status": "reviewed",
+      "scope": "Project inference protocol, not external medical validation."
+    },
+    {
+      "id": "paper-lee2025-alpha",
+      "kind": "paper_evidence",
+      "label": "Electroencephalography Changes During Cybersickness: Focusing on Delta and Alpha Waves",
+      "source_ref": "lee2025-alpha",
+      "evidence_level": "medium",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "paper-lee2026-eeg",
+      "kind": "paper_evidence",
+      "label": "Cybersickness-induced EEG responses in curved monitor and head-mounted display",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "medium",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "paper-lee2026-mechanism",
+      "kind": "paper_evidence",
+      "label": "Cybersickness-induced EEG responses in curved monitor and head-mounted display",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "paper-long2025-autonomic",
+      "kind": "paper_evidence",
+      "label": "Toward Accurate Cybersickness Prediction in Virtual Reality: A Multimodal Physiological Modeling Approach",
+      "source_ref": "long2025-autonomic",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "paper-wang2025-connectivity-candidate",
+      "kind": "paper_evidence",
+      "label": "Multimodal Contrastive Learning for Cybersickness Recognition Using Brain Connectivity Graph Representation",
+      "source_ref": "wang2025-connectivity-candidate",
+      "evidence_level": "low",
+      "review_status": "candidate"
+    },
+    {
+      "id": "counter-alpha-direction",
+      "kind": "counter_evidence",
+      "label": "alpha方向与主观严重度并不具有通用单调映射",
+      "source_ref": "lee2025-alpha",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "counter-theta-direction",
+      "kind": "counter_evidence",
+      "label": "theta变化依赖区域和显示器",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "counter-beta-regional",
+      "kind": "counter_evidence",
+      "label": "beta变化在不同脑区方向相反",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "counter-eeg-symptoms",
+      "kind": "counter_evidence",
+      "label": "EEG反应与事后症状问卷存在可分离性",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "counter-no-baseline",
+      "kind": "counter_evidence",
+      "label": "当前原始整路径协议无静息参考",
+      "source_ref": "local-vrms-protocol",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "counter-autonomic-modality",
+      "kind": "counter_evidence",
+      "label": "EEG单模态不足以声称EDA/ECG自主神经测量",
+      "source_ref": "long2025-autonomic",
+      "evidence_level": "low",
+      "review_status": "reviewed"
+    }
+  ],
+  "edges": [
+    {
+      "from": "biomarker-alpha",
+      "to": "mechanism-sensory-conflict",
+      "relation": "associated_with",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "作者提出alpha变化可能反映VR视觉–前庭冲突中的加工负荷；这是解释假说，不代表alpha高低可判定VRMS类别。",
+      "scope": "2026研究31名易感年轻男性、曲面显示器/HMD、相对真实实验基线；当前无基线观测只能讨论关联，不能引用方向或病例阈值。",
+      "observed_direction": "any"
+    },
+    {
+      "from": "biomarker-alpha",
+      "to": "mechanism-cognitive-load",
+      "relation": "associated_with",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "作者将部分alpha反应解释为视觉加工负荷；不能据此认定已测得心理工作负荷、疲劳或特定病理机制。",
+      "scope": "同一VR诱发研究中的解释性讨论；不等同于本系统theta/alpha或workload_index的标定。",
+      "observed_direction": "any"
+    },
+    {
+      "from": "biomarker-beta",
+      "to": "mechanism-vestibular-mismatch",
+      "relation": "associated_with",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "作者推测顶区beta改变可能与前庭相关的VRMS有关；全脑beta或分类工具分数不能当作前庭失配的直接测量。",
+      "scope": "2026研究讨论段；具有明确区域与显示器差异，当前检索不设单向或High/Low阈值。",
+      "observed_direction": "any"
+    },
+    {
+      "from": "biomarker-theta",
+      "to": "state-vrms",
+      "relation": "associated_with",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "VR诱发实验中theta有区域及显示器依赖的改变；这是研究关联，不能把单一theta增减作为VRMS严重度规则。",
+      "scope": "31名易感年轻男性；HMD和曲面显示器方向不一致；不迁移实验基线差到当前无静息基线协议。",
+      "observed_direction": "any"
+    },
+    {
+      "from": "mechanism-sensory-conflict",
+      "to": "state-vrms",
+      "relation": "explains",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "感觉冲突理论可解释部分VR暴露不适；本文明确病因尚未完全理解，因此该边为假说而非因果诊断。",
+      "scope": "VRMS研究背景与作者讨论；当前EEG并未直接测量视觉/前庭输入。",
+      "hypothesis": true
+    },
+    {
+      "from": "mechanism-vestibular-mismatch",
+      "to": "state-vrms",
+      "relation": "explains",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "视觉运动与前庭静止之间的失配是本文使用的VRMS解释框架，不能从EEG alone确定失配已发生。",
+      "scope": "视觉诱发VR任务的理论解释；无前庭传感器或实验输入时保留假说。",
+      "hypothesis": true
+    },
+    {
+      "from": "mechanism-cognitive-load",
+      "to": "state-vrms",
+      "relation": "associated_with",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "视觉加工负荷被作者用于解释VRMS暴露时EEG和SSQ不一致；不证明认知负荷导致VRMS或工具workload_index可给出类别。",
+      "scope": "2026 Discussion末段的假说，不是独立测量结果或工作负荷任务标签。",
+      "hypothesis": true
+    },
+    {
+      "from": "mechanism-autonomic-response",
+      "to": "state-vrms",
+      "relation": "associated_with",
+      "source_ref": "long2025-autonomic",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "VR导航研究中的EDA/ECG反映自主神经反应，可作为领域背景；本项目仅有EEG时不得声称已经观测到该反应。",
+      "scope": "EDA/ECG多模态研究，非EEG-only推断，不能迁移论文R²或问卷数值到本模型。",
+      "requires_modalities": [
+        "EDA",
+        "ECG"
+      ]
+    },
+    {
+      "from": "method-raw-path",
+      "to": "state-vrms",
+      "relation": "solves",
+      "source_ref": "local-vrms-protocol",
+      "evidence_level": "high",
+      "review_status": "reviewed",
+      "claim": "项目冻结模型处理原始EEG整路径分类任务；RAG解释不重标定模型，也不把领域假说当作当前类别答案。",
+      "scope": "本地方法协议；不构成临床效力或外部泛化证据。"
+    },
+    {
+      "from": "counter-alpha-direction",
+      "to": "biomarker-alpha",
+      "relation": "contradicts",
+      "source_ref": "lee2025-alpha",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "2025论文综述报告alpha增减均有先例，其实验未发现alpha与SSQ显著关系；限制从alpha单向变化直接推断严重度。",
+      "scope": "Introduction与Results/Discussion；反证约束通用规则，不否定当前个体症状。"
+    },
+    {
+      "from": "counter-theta-direction",
+      "to": "biomarker-theta",
+      "relation": "contradicts",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "2026研究theta在HMD中存在不同区域的相反方向，且跨显示器不一致；单一频带变化不能给类别票。",
+      "scope": "Results Tables 1–2与Discussion theta段；不选择性摘取增加方向。"
+    },
+    {
+      "from": "counter-beta-regional",
+      "to": "biomarker-beta",
+      "relation": "contradicts",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "2026研究beta在额区增加、其他部分区域减少；全局beta并不能唯一定位前庭机制或严重度。",
+      "scope": "Results Tables 1–2与Discussion beta段；不把区域观察迁移为全脑阈值。"
+    },
+    {
+      "from": "counter-eeg-symptoms",
+      "to": "state-vrms",
+      "relation": "contradicts",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "2026研究25项EEG指标均未与SSQ显著相关；即时加工反应和事后症状评价可能不一致，图路径不等于症状概率。",
+      "scope": "31名易感年轻男性；仅说明该研究的测量关系，非无症状结论。"
+    },
+    {
+      "from": "counter-no-baseline",
+      "to": "method-raw-path",
+      "relation": "contradicts",
+      "source_ref": "local-vrms-protocol",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "当前路径开始已处VR暴露，不将开头窗口当静息基线；分类分数、协方差距离及路径首末变化均不等于论文的相对静息基线差。",
+      "scope": "当前默认raw-only整路径协议；缺失基线不能填零后解释为Low。"
+    },
+    {
+      "from": "counter-autonomic-modality",
+      "to": "mechanism-autonomic-response",
+      "relation": "contradicts",
+      "source_ref": "long2025-autonomic",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "该论文测量的是EDA和ECG，不能将其结果作为本项目EEG直接测得交感神经反应的证据。",
+      "scope": "Section 2.1.3及4.2；缺少对应模态时仅保留背景。"
+    },
+    {
+      "from": "biomarker-gamma",
+      "to": "mechanism-sensory-conflict",
+      "relation": "associated_with",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "claim": "候选：文献gamma加工解释需要频带及脑区兼容性核验。",
+      "scope": "论文30–50 Hz，项目30–45 Hz；排除检索。",
+      "observed_direction": "any"
+    },
+    {
+      "from": "biomarker-connectivity",
+      "to": "state-vrms",
+      "relation": "associated_with",
+      "source_ref": "wang2025-connectivity-candidate",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "claim": "候选：BCGR论文摘要是建模线索，不能替代已核验机制关系。",
+      "scope": "仅摘要，目标连接性指标及当前观测未验证；排除检索。",
+      "observed_direction": "any"
+    },
+    {
+      "from": "biomarker-alpha",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "biomarker-theta",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "biomarker-beta",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "biomarker-gamma",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "biomarker-connectivity",
+      "to": "paper-wang2025-connectivity-candidate",
+      "relation": "documented_by",
+      "source_ref": "wang2025-connectivity-candidate",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "PubMed PMID 41052115, abstract"
+    },
+    {
+      "from": "mechanism-sensory-conflict",
+      "to": "paper-lee2026-mechanism",
+      "relation": "documented_by",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "Introduction, sensory conflict paragraph; Discussion, delta sensory-conflict paragraph, beta vestibular paragraph, final EEG–SSQ interpretation paragraph"
+    },
+    {
+      "from": "mechanism-vestibular-mismatch",
+      "to": "paper-lee2026-mechanism",
+      "relation": "documented_by",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "Introduction, sensory conflict paragraph; Discussion, delta sensory-conflict paragraph, beta vestibular paragraph, final EEG–SSQ interpretation paragraph"
+    },
+    {
+      "from": "mechanism-cognitive-load",
+      "to": "paper-lee2026-mechanism",
+      "relation": "documented_by",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "Introduction, sensory conflict paragraph; Discussion, delta sensory-conflict paragraph, beta vestibular paragraph, final EEG–SSQ interpretation paragraph"
+    },
+    {
+      "from": "mechanism-autonomic-response",
+      "to": "paper-long2025-autonomic",
+      "relation": "documented_by",
+      "source_ref": "long2025-autonomic",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "Abstract; Section 2.1.3 Apparatus and Data Collection; Section 4.2 Feature Importance and Physiological Mechanism Analysis; Section 4.4 Limitations and Future Directions"
+    },
+    {
+      "from": "state-vrms",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "counter-alpha-direction",
+      "to": "paper-lee2025-alpha",
+      "relation": "documented_by",
+      "source_ref": "lee2025-alpha",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "Introduction, alpha paragraph; EEG Recording and Data Process; Results, alpha paragraph; Discussion, alpha/SSQ paragraphs"
+    },
+    {
+      "from": "counter-theta-direction",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "counter-beta-regional",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "counter-eeg-symptoms",
+      "to": "paper-lee2026-eeg",
+      "relation": "documented_by",
+      "source_ref": "lee2026-eeg",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs"
+    },
+    {
+      "from": "counter-autonomic-modality",
+      "to": "paper-long2025-autonomic",
+      "relation": "documented_by",
+      "source_ref": "long2025-autonomic",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "来源定位见source_ref记录，遵守原研究范围及证据等级。",
+      "scope": "Abstract; Section 2.1.3 Apparatus and Data Collection; Section 4.2 Feature Importance and Physiological Mechanism Analysis; Section 4.4 Limitations and Future Directions"
+    },
+    {
+      "from": "biomarker-alpha",
+      "to": "paper-lee2026-mechanism",
+      "relation": "documented_by",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "支持此解释边的论文定位，独立性按independence_group合并。",
+      "scope": "Introduction, sensory conflict paragraph; Discussion, delta sensory-conflict paragraph, beta vestibular paragraph, final EEG–SSQ interpretation paragraph"
+    },
+    {
+      "from": "biomarker-beta",
+      "to": "paper-lee2026-mechanism",
+      "relation": "documented_by",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "claim": "支持此解释边的论文定位，独立性按independence_group合并。",
+      "scope": "Introduction, sensory conflict paragraph; Discussion, delta sensory-conflict paragraph, beta vestibular paragraph, final EEG–SSQ interpretation paragraph"
+    },
+    {
+      "from": "biomarker-gamma",
+      "to": "paper-lee2026-mechanism",
+      "relation": "documented_by",
+      "source_ref": "lee2026-mechanism",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "claim": "支持此解释边的论文定位，独立性按independence_group合并。",
+      "scope": "Introduction, sensory conflict paragraph; Discussion, delta sensory-conflict paragraph, beta vestibular paragraph, final EEG–SSQ interpretation paragraph"
+    }
+  ]
+}

@@ -30,7 +30,7 @@ def write_json(path, value):
     Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
-def wheel_preflight(wheelhouse, download=False):
+def wheel_preflight(wheelhouse, download=False, evidence=None):
     try:
         from packaging.markers import default_environment
         from packaging.requirements import Requirement
@@ -102,7 +102,9 @@ def wheel_preflight(wheelhouse, download=False):
         if key not in selected:
             selected[key] = item
             pending.extend(Requirement(value) for value in item['requirements'])
-    lock = DEFAULT_EVIDENCE / 'requirements-online-pi.lock.txt'
+    evidence = DEFAULT_EVIDENCE if evidence is None else Path(evidence)
+    evidence.mkdir(parents=True, exist_ok=True)
+    lock = evidence / 'requirements-online-pi.lock.txt'
     lock.write_text('# ARM64 CPython 3.11 dependency closure; generated from downloaded wheel metadata.\n' +
                    '\n'.join(f"{key}=={item['version']} --hash=sha256:{item['sha256']}"
                              for key, item in sorted(selected.items())) + '\n', encoding='utf-8')
@@ -114,11 +116,11 @@ def wheel_preflight(wheelhouse, download=False):
               'total_selected_bytes': sum(item['bytes'] for item in selected.values()),
               'unused_host_marker_wheels': sorted(set(packages) - set(selected)),
               'created_utc': datetime.now(timezone.utc).isoformat()}
-    write_json(DEFAULT_EVIDENCE / 'arm64_wheel_preflight.json', report)
+    write_json(evidence / 'arm64_wheel_preflight.json', report)
     return report, lock
 
 
-def bundle_files(asset_manifest, wheels, lock, fix_evidence=None):
+def bundle_files(asset_manifest, wheels, lock, fix_evidence=None, evidence=None):
     files = {}
     def add(path, destination=None):
         path = Path(path).resolve()
@@ -137,14 +139,16 @@ def bundle_files(asset_manifest, wheels, lock, fix_evidence=None):
                  'docs/ONLINE_ANALYSIS.md', 'docs/RAG_DEFAULT.md', 'docs/GRAPH_RAG.md',
                  'scripts/build_online_delivery.py', 'scripts/benchmark_online_pi.py',
                  'scripts/validate_online_stream.py', 'scripts/prepare_online_assets.py',
-                 'scripts/validate_online_model.py', 'scripts/freeze_online_baseline.py'):
+                 'scripts/validate_online_model.py', 'scripts/freeze_online_baseline.py',
+                 'scripts/build_state_graph_assets.py', 'scripts/audit_state_graph_rag.py'):
         add(PROJECT / name)
     optional_script = PROJECT / 'scripts/evaluate_online_numeric.py'
     if optional_script.is_file():
         add(optional_script)
     for pattern in ('eeg_agent/*.py', 'eeg_agent/online/*.py', 'eeg_agent/online/licenses/*',
                     'eeg_agent/web/*.html', 'eeg_agent/web/*.css', 'eeg_agent/web/*.js',
-                    'eeg_agent/brain_knowledge/*/*.md', 'knowledge/**/*.md'):
+                    'eeg_agent/brain_knowledge/*/*.md', 'knowledge/**/*.md',
+                    'knowledge/graph/**/*.json'):
         for path in sorted(PROJECT.glob(pattern)):
             # The unassessed v2 candidate is reviewed separately from this release.
             if path == PROJECT / 'eeg_agent/graph_rag_v2.py':
@@ -167,18 +171,33 @@ def bundle_files(asset_manifest, wheels, lock, fix_evidence=None):
         add(path)
     from eeg_agent.default_rag import SNAPSHOT, SNAPSHOT_SHA256
     from eeg_agent.graph_rag import GRAPH_MANIFEST, GRAPH_MANIFEST_SHA256
+    from eeg_agent.graph_rag_v3 import GRAPH_MANIFEST as GRAPH_V3_MANIFEST, GRAPH_MANIFEST_SHA256 as GRAPH_V3_SHA256
+    from eeg_agent import state_graph_rag
+    semantic_policy = state_graph_rag.asset_policy()
     for manifest_path, pinned_sha in ((SNAPSHOT, SNAPSHOT_SHA256),
-                                      (GRAPH_MANIFEST, GRAPH_MANIFEST_SHA256)):
+                                      (GRAPH_MANIFEST, GRAPH_MANIFEST_SHA256),
+                                      (GRAPH_V3_MANIFEST, GRAPH_V3_SHA256),
+                                      (state_graph_rag.GRAPH_MANIFEST, semantic_policy['semantic_manifest_sha256'])):
         if sha(manifest_path) != pinned_sha:
             raise ValueError('Pinned dual RAG manifest differs')
         add(manifest_path)
         manifest_value = json.loads(manifest_path.read_text(encoding='utf-8'))
         for name, expected in manifest_value['files'].items():
-            if Path(name).name != name:
+            if Path(name).name != name or '\\' in name:
                 raise ValueError('Unsafe dual RAG asset path')
             path = manifest_path.parent / name
             if sha(path) != expected:
                 raise ValueError('Dual RAG asset hash mismatch')
+            add(path)
+        for name, expected in manifest_value.get('source_files', {}).items():
+            relative = Path(name)
+            if relative.is_absolute() or '..' in relative.parts or '\\' in name:
+                raise ValueError('Unsafe semantic source path')
+            path = (state_graph_rag.KNOWLEDGE / relative).resolve()
+            if not path.is_relative_to(state_graph_rag.KNOWLEDGE.resolve()):
+                raise ValueError('Semantic source outside knowledge directory')
+            if sha(path) != expected:
+                raise ValueError('Semantic source hash mismatch')
             add(path)
     comparison = PROJECT / 'outputs/rag_assets/comparison_v1/comparison.json'
     if comparison.is_file():
@@ -205,11 +224,17 @@ def bundle_files(asset_manifest, wheels, lock, fix_evidence=None):
     for name in ('stream_validation.json', 'arm64_wheel_preflight.json',
                  'model_validation/report.json', 'model_validation/all_paths_report.json',
                  'numeric_evaluation.json', 'test_report.json', 'freeze_verify.json',
+                 'engineering_audit.json',
                  'local_1x_130s_final.json', 'pi_hardware_status_final.json',
                  '实施与验收.md'):
         path = DEFAULT_EVIDENCE / name
+        if evidence is not None and (Path(evidence) / name).is_file():
+            path = Path(evidence) / name
         if path.is_file():
             add(path, 'validation/' + name)
+    observed = PROJECT / 'outputs/graph_rag_audit/semantic_actual_observation_check.json'
+    if observed.is_file():
+        add(observed, 'validation/semantic_actual_observation_check.json')
     # Include the synthetic shared judge fixtures imported by online cloud tests.
     # No private recording, credentials or historical result fixtures are copied.
     add(PROJECT / 'tests/__init__.py')
@@ -226,13 +251,14 @@ def bundle_files(asset_manifest, wheels, lock, fix_evidence=None):
 
 
 def build(args):
-    wheels, lock = wheel_preflight(args.wheelhouse.resolve(), args.check_wheels)
+    wheels, lock = wheel_preflight(args.wheelhouse.resolve(), args.check_wheels, getattr(args, 'evidence', None))
     if args.wheels_only:
         print(json.dumps({key: wheels[key] for key in ('status', 'selected_wheels', 'total_selected_bytes')}, indent=2))
         return
-    files, assets = bundle_files(args.assets.resolve(), wheels, lock, args.fix_evidence)
+    files, assets = bundle_files(args.assets.resolve(), wheels, lock, args.fix_evidence, getattr(args, 'evidence', None))
     entries = [{'file': name, 'bytes': path.stat().st_size, 'sha256': sha(path)}
                for name, path in sorted(files.items())]
+    from eeg_agent.default_rag import catalog_fields
     manifest = {'schema': 'private_online_pi_bundle_v1', 'created_utc': datetime.now(timezone.utc).isoformat(),
                 'target': 'Raspberry Pi 5 8GB, Raspberry Pi OS 64-bit, CPython 3.11',
                 'backend': 'mamba_minimal_cpu_fp32', 'seed': 2026, 'hardware_tested': False,
@@ -240,7 +266,8 @@ def build(args):
                 'private_assets_included': True, 'raw_data_included': False,
                 'api_credentials_included': False, 'api_responses_included': False,
                 'entries': entries, 'payload_bytes': sum(item['bytes'] for item in entries),
-                'arm64_wheel_preflight': {'status': wheels['status'], 'selected_wheels': wheels['selected_wheels']}}
+                'arm64_wheel_preflight': {'status': wheels['status'], 'selected_wheels': wheels['selected_wheels']},
+                'rag_versions': catalog_fields()}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     temporary = args.out.with_suffix('.building.zip')
     with zipfile.ZipFile(temporary, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
@@ -273,6 +300,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--assets', type=Path, default=PROJECT / 'outputs/online_assets/seed2026/manifest.json')
     parser.add_argument('--wheelhouse', type=Path, default=DEFAULT_EVIDENCE / 'arm64_cp311_wheels')
+    parser.add_argument('--evidence', type=Path, help='Write fresh wheel preflight evidence here, preserving historical reports')
     parser.add_argument('--check-wheels', action='store_true', help='Download binary ARM64 dependencies before validating')
     parser.add_argument('--fix-evidence', type=Path, help='Optional current fix verification directory')
     parser.add_argument('--wheels-only', action='store_true')

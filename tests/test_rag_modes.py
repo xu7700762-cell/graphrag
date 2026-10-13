@@ -26,7 +26,7 @@ def policy(mode='default', version='one'):
             'reference_manifest_sha256': version, 'graph_manifest_sha256': version if mode == 'graph' else None}
 
 
-@pytest.mark.parametrize('mode', ['default', 'regular', 'graph'])
+@pytest.mark.parametrize('mode', ['default', 'regular', 'graph', 'semantic_graph'])
 def test_both_creation_schemas_accept_modes_and_omit_defaults_compatibly(mode):
     assert BrainRequest(rag_mode=mode).rag_mode == mode
     assert OnlineRequest(recording_id='subject-10', rag_mode=mode).rag_mode == mode
@@ -159,7 +159,7 @@ def test_online_browser_request_carries_explicit_mode_and_rejects_invalid_mode()
     script = """
 const assert=require('node:assert/strict');
 const ui=require('./eeg_agent/web/online.js');
-for (const mode of ['default','regular','graph']) {
+for (const mode of ['default','regular','graph','semantic_graph']) {
   assert.equal(ui.requestBody('subject-10','1',true,true,mode).rag_mode,mode);
 }
 assert.throws(()=>ui.requestBody('subject-10','1',true,true,'bad'));

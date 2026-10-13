@@ -14,6 +14,7 @@
     return (hours ? String(hours).padStart(2, '0') + ':' : '') + String(Math.floor(total / 60) % 60).padStart(2, '0') + ':' + String(total % 60).padStart(2, '0');
   }
   function className(value) { return /^(high|low)$/i.test(String(value)) ? (String(value).toLowerCase() === 'high' ? 'High' : 'Low') : '—'; }
+  function ragModeLabel(mode) { return {regular: '普通 RAG', graph: 'GraphRAG', semantic_graph: '语义 GraphRAG'}[mode] || mode; }
   function validOrdinal(value) { return Number.isInteger(value) && value >= 1; }
   function reportText(report) {
     if (!report) return '';
@@ -64,7 +65,7 @@
     if (![1, 10, 'max'].includes(parsed)) throw new Error('回放速度无效。');
     const body = {recording_id: recordingId, speed: parsed, cloud: Boolean(cloudEnabled && cloudConfigured), max_seconds: null};
     if (ragMode !== undefined) {
-      if (!['default', 'regular', 'graph'].includes(ragMode)) throw new Error('RAG 模式无效。');
+      if (!['default', 'regular', 'graph', 'semantic_graph'].includes(ragMode)) throw new Error('RAG 模式无效。');
       body.rag_mode = ragMode;
     }
     return body;
@@ -250,7 +251,7 @@
     text('pathCountValue', String(store.paths.filter(path => path.complete !== false).length));
     renderLatest(snapshot.latest);
     const policy = snapshot.rag_policy || snapshot.request?.rag_policy;
-    text('ragVersionNote', sessionId ? (policy ? (policy.rag_mode === 'graph' ? 'GraphRAG' : '普通 RAG') + ' · ' + (policy.judge_profile || policy.variant || '已固定版本') : '历史未记录版本') + '；本回放版本已固定，切换请新建回放。' : '创建回放时固定检索版本。默认：' + (catalog?.default_rag_mode === 'graph' ? 'GraphRAG' : '普通 RAG'));
+    text('ragVersionNote', sessionId ? (policy ? ragModeLabel(policy.rag_mode) + ' · ' + (policy.judge_profile || policy.variant || '已固定版本') : '历史未记录版本') + '；本回放版本已固定，切换请新建回放。' : '创建回放时固定检索版本。默认：' + ragModeLabel(catalog?.default_rag_mode || 'regular'));
     renderPaths();
     const clouds = store.paths.map(path => cloudView(path.cloud));
     const pending = clouds.filter(cloud => cloud.badge === 'pending').length;

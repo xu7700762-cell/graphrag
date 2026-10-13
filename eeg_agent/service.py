@@ -49,7 +49,7 @@ class BrainRequest(BaseModel):
     task_id: Optional[str] = Field(default=None, max_length=80)
     recording_id: Optional[str] = Field(default=None, pattern=r'^(?:subject-\d{2}|edf-[0-9a-f]{12})$')
     input_policy: Optional[Literal['raw_eeg_only', 'monitor_task']] = None
-    rag_mode: Literal['default', 'regular', 'graph'] = 'default'
+    rag_mode: Literal['default', 'regular', 'graph', 'semantic_graph'] = 'default'
 
 
 class KnowledgeDocumentRequest(BaseModel):
@@ -168,6 +168,11 @@ def create_app(cfg=None, task_manager=None, knowledge_index=None, cloud_config_p
         except (OSError, ValueError):
             return {'available': False, 'status': 'pending', 'arms': [],
                     'notes': ['尚未发布普通 RAG 与 GraphRAG 的配对结果。本页只读取已保存结果，不触发判读。']}
+
+    @app.get('/api/rag/version')
+    def rag_version():
+        from .default_rag import catalog_fields
+        return catalog_fields()
 
     @app.get('/api/brain/catalog')
     def brain_catalog():

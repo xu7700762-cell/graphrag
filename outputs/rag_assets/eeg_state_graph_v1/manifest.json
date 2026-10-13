@@ -1,0 +1,37 @@
+{
+  "schema": "raw_eeg_state_graph_v1",
+  "variant": "state_reasoning_v1",
+  "version": "eeg_state_graph_v1",
+  "base_graph_manifest_sha256": "4e063d041e6f0b971fafc9462d42107a3f5bca005b23e6477e02990f9e03ff8f",
+  "reference_manifest_sha256": "8e7c75aab8a1dc7957c555faa287ca8b6dff57bf09843f07c899246207b45ea1",
+  "files": {
+    "state_graph.json": "d93955023b1ff74464992f216cb7f80e4ef90b40fbe085e5219d9944bada3297"
+  },
+  "source_files": {
+    "biomarkers/alpha.md": "3e7fe9dbc58c4ef611101aab35c200fd6510ca261953964fe209c1f21bf18be5",
+    "biomarkers/beta.md": "f744d2b700a6430dd82b4d85c183ce4c124f8b13e95ddd3156c280b4c9d81417",
+    "biomarkers/connectivity.md": "f55e6ee6851a623b949e5db9edc860762d44fe32fd86ce82e54a2c2ce85b8baf",
+    "biomarkers/entropy.md": "309c3025443caa3489a04384eb983cd60fed198a81a4fb55a4b37810fe87e2e3",
+    "biomarkers/gamma.md": "832c621c7196fecc32d887d5083a6a43d6979613b3b4bc6e4c568956fc5cd38b",
+    "biomarkers/theta.md": "c804ee4b4a7582b84baab484d1862f2e558950baa97e0a9c9fd2a456f98b7675",
+    "claims.json": "ca98a10345970d09a2ba76ade016c5d4753cbe514dbddfc5c691a8049c1d2950",
+    "mechanisms/autonomic_response.md": "4142021383f4a4e4b6c1d3683725ef4defa40ec0826a10c646a13e61eb8a7d24",
+    "mechanisms/cognitive_load.md": "87e6011dd726c56681d25d8c518aaf32925ee9725ec7d278ece0337d9e7837fb",
+    "mechanisms/sensory_conflict.md": "27471d205c898bda8e4a48b04e173de5eec89ec9ce1fd70995308917324ecaee",
+    "mechanisms/vestibular_mismatch.md": "4ad6ff32826feb659c363c4d528805952ef77465d9cfea5ba679357a4b8c21b1",
+    "methods/raw_path.md": "499e18376d25859b6fe3c33d5c6fef6696860294e07427264ba03cff8e690372",
+    "protocols/source_and_label_isolation.md": "31ea8c701d04ff42cd8168458efad86235b0b0d9ad7923303cc81164bdfcedd1",
+    "README.md": "90089e1fd7e2a51846e268e0820a1531e5a42b8a84411c0131cb6e561f88dc5d",
+    "sources.json": "a3c0975b5591faba84006ab4e0002ccdaf8a88fc7d267753b584a0bb64d6577b",
+    "states/vr_motion_sickness.md": "ec39a5a1fd286ffa0bec1afd99b64c30b056164f143fe62128d6479e94708018"
+  },
+  "promotion_status": "not_evaluated",
+  "model_calls": 0,
+  "promotion_gate": {
+    "n": 146,
+    "minimum_correct": 112,
+    "minimum_bacc": 0.7321428571428571,
+    "all_valid": true,
+    "engineering_and_citation_audit": true
+  }
+}

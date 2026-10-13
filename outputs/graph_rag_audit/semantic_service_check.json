@@ -1,0 +1,33 @@
+{
+  "schema": "semantic_service_version_check_v1",
+  "service_url": "http://127.0.0.1:8880",
+  "health": "ok",
+  "default_mode": "regular",
+  "default_variant": "percentile_group",
+  "semantic_schema": "raw_eeg_state_graph_v1",
+  "semantic_variant": "state_reasoning_v1",
+  "promotion_status": "not_evaluated",
+  "semantic_manifest_sha256": "69dbb9fdd6dc933c5a0e0d635a123f24eaa0114d34a3245bc62a0de284f1a55a",
+  "semantic_code_sha256": "983da44d2ae974068cee31a582868306eb6e8b6f90f251f1dd94ddfab9fb0010",
+  "observation_code_sha256": "e67ee644d663634d0acb55f0c7970a4f0ddfc802e1176ddc60a105360e98aa31",
+  "brain_modes": [
+    "default",
+    "regular",
+    "graph",
+    "semantic_graph"
+  ],
+  "online_modes": [
+    "default",
+    "regular",
+    "graph",
+    "semantic_graph"
+  ],
+  "checks": {
+    "manifest_matches": true,
+    "code_matches": true,
+    "observation_code_matches": true,
+    "catalogs_match": true,
+    "home_semantic_mode": true,
+    "online_semantic_mode": true
+  }
+}

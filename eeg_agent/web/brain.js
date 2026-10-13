@@ -105,7 +105,7 @@ function applyDomains(domains) {
 function agentName(id) { return (catalog?.agents || defaultAgents).find(agent => agent.id === id)?.name || id || 'Agent'; }
 function ragLabel(policy) {
   if (!policy) return '历史未记录版本';
-  const label = policy.rag_mode === 'graph' ? 'GraphRAG' : '普通 RAG';
+  const label = {regular: '普通 RAG', graph: 'GraphRAG', semantic_graph: '语义 GraphRAG'}[policy.rag_mode] || policy.rag_mode;
   return label + ' · ' + (policy.judge_profile || policy.variant || '已固定版本');
 }
 function renderRagOptions(value) {
@@ -325,7 +325,7 @@ function updateControls() {
   $('sessionContext').textContent = [sessionId ? '当前对话：' + sessionId : '', retired ? '历史报告 · 只读' : recordingId ? (recording?.title || recordingId) + ' · 仅分析原始波形' : '在对话中指定被试或文件即可分析'].filter(Boolean).join(' · ');
   const selectedRag = $('ragMode').value || 'default';
   $('ragVersionNote').textContent = sessionId ? ragLabel(session?.rag_policy) + '；本对话版本已固定，切换请新建对话。' :
-    (selectedRag === 'default' ? '默认：' + ragLabel(catalog?.vrms_case_rag) : selectedRag === 'graph' ? 'GraphRAG' : '普通 RAG · 固定对照') + '；新对话创建时固定检索与判读版本。';
+    (selectedRag === 'default' ? '默认：' + ragLabel(catalog?.vrms_case_rag) : selectedRag === 'semantic_graph' ? '语义 GraphRAG · 状态推理实验' : selectedRag === 'graph' ? 'GraphRAG' : '普通 RAG · 固定对照') + '；新对话创建时固定检索与判读版本。';
   $('parameterSummary').textContent = plannedDomains.length + ' 个领域' + (adjusted ? ' · 按问题调整' : '') + ' · ' + (retired ? '历史只读' : recordingId ? '原始 EEG 已关联' : '自然语言指定原始 EEG');
   $('vrmsPipelineBadge').textContent = '原始 EEG 工具';
   $('vrmsPipelineNote').textContent = '原始 EEG 重新编码 → MIL 与八路工具 → 所选 GPT / DeepSeek 工具 Agent 最终判断；路径按 mark20→mark22、休息段按 mark22→下一次 mark20 划分；直接比较疲劳和心理负荷指标。问卷仅用于事后评价。';

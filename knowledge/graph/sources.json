@@ -1,0 +1,189 @@
+{
+  "schema": "eeg_state_sources_v1",
+  "sources": [
+    {
+      "id": "lee2025-alpha",
+      "title": "Electroencephalography Changes During Cybersickness: Focusing on Delta and Alpha Waves",
+      "year": 2025,
+      "doi": "10.1007/s10548-025-01109-y",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11903544/",
+      "locator": "Introduction, alpha paragraph; EEG Recording and Data Process; Results, alpha paragraph; Discussion, alpha/SSQ paragraphs",
+      "excerpt": "Occipital alpha (8–13 Hz) decreased during a sickness-inducing video. Alpha direction differs across prior studies; this study found no significant alpha–SSQ association. These observations do not establish a universal severity rule.",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "source_layer": "paper_evidence",
+      "excerpt_type": "paraphrase",
+      "verification_date": "2026-10-13",
+      "pmcid": "PMC11903544",
+      "fetched_content_sha256": "3bf55ee0e381eff670d732794660601041b4159f0b685a2144d81305e21c105c",
+      "authors": [
+        "Dong-Hyun Lee",
+        "Kyoung-Mi Jang",
+        "Hyun Kyoon Lim"
+      ],
+      "independence_group": "lee-jang-lim-eeg-cybersickness",
+      "verification_methods": [
+        "Crossref DOI metadata",
+        "Europe PMC JATS full text"
+      ],
+      "source_sha256": "af4646ba97706b6e84930e59e3febd5a3eafbd073afdb60fbd2c8e25e6324eaa"
+    },
+    {
+      "id": "lee2026-eeg",
+      "title": "Cybersickness-induced EEG responses in curved monitor and head-mounted display",
+      "year": 2026,
+      "doi": "10.1038/s41598-025-32858-2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12860796/",
+      "locator": "EEG recording and data process; Results, Evaluate cybersickness within each display, Tables 1–2; Discussion, alpha/theta/beta/gamma and final EEG–SSQ paragraphs",
+      "excerpt": "In 31 susceptible young men, alpha decreased during both displays. Theta and beta changes depended on region and display. Frontal gamma used 30–50 Hz. No EEG–SSQ measure was significantly correlated. Sensory-conflict interpretation remains an explanatory hypothesis.",
+      "evidence_level": "medium",
+      "review_status": "reviewed",
+      "source_layer": "paper_evidence",
+      "excerpt_type": "paraphrase",
+      "verification_date": "2026-10-13",
+      "pmcid": "PMC12860796",
+      "fetched_content_sha256": "46cb4384f3d7a922866e889a07627db89e6b9b0f7834f0e372e1bab3a30485df",
+      "publication_date": "2026-01-31",
+      "review_note": "Publication year is 2026 although the DOI contains 025. Tables and narrative disagree for central gamma in curved-VR; no central-gamma direction is admitted. Both Lee papers share one independence group.",
+      "authors": [
+        "Dong-Hyun Lee",
+        "Kyoung-Mi Jang",
+        "Hyun Kyoon Lim"
+      ],
+      "independence_group": "lee-jang-lim-eeg-cybersickness",
+      "verification_methods": [
+        "Crossref DOI metadata",
+        "Europe PMC JATS full text"
+      ],
+      "source_sha256": "2ac6fcc15f97c0b7638d65e51847be54dec71a2ab6404d4541e749d30ef9264b"
+    },
+    {
+      "id": "lee2026-mechanism",
+      "title": "Cybersickness-induced EEG responses in curved monitor and head-mounted display",
+      "year": 2026,
+      "doi": "10.1038/s41598-025-32858-2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12860796/",
+      "locator": "Introduction, sensory conflict paragraph; Discussion, delta sensory-conflict paragraph, beta vestibular paragraph, final EEG–SSQ interpretation paragraph",
+      "excerpt": "The authors describe visual–vestibular conflict as a widely used theory and propose that EEG responses reflect visual processing load during conflict resolution. The beta/vestibular interpretation is tentative; EEG is not a direct vestibular or cognitive-load measurement.",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "source_layer": "paper_evidence",
+      "excerpt_type": "paraphrase",
+      "verification_date": "2026-10-13",
+      "pmcid": "PMC12860796",
+      "fetched_content_sha256": "46cb4384f3d7a922866e889a07627db89e6b9b0f7834f0e372e1bab3a30485df",
+      "authors": [
+        "Dong-Hyun Lee",
+        "Kyoung-Mi Jang",
+        "Hyun Kyoon Lim"
+      ],
+      "independence_group": "lee-jang-lim-eeg-cybersickness",
+      "verification_methods": [
+        "Crossref DOI metadata",
+        "Europe PMC JATS full text"
+      ],
+      "source_sha256": "9ba89cf648b62468f6002e5ebe39985e5da2c02ea06093c4957f598a5db5d7ca"
+    },
+    {
+      "id": "long2025-autonomic",
+      "title": "Toward Accurate Cybersickness Prediction in Virtual Reality: A Multimodal Physiological Modeling Approach",
+      "year": 2025,
+      "doi": "10.3390/s25185828",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12473799/",
+      "locator": "Abstract; Section 2.1.3 Apparatus and Data Collection; Section 4.2 Feature Importance and Physiological Mechanism Analysis; Section 4.4 Limitations and Future Directions",
+      "excerpt": "EDA and ECG features were studied in VR navigation. Skin-conductance features were associated with predicted VRSQ severity and interpreted as sympathetic arousal. This supports autonomic context, but not an EEG-only autonomic inference or external generalization of reported performance.",
+      "evidence_level": "low",
+      "review_status": "reviewed",
+      "source_layer": "paper_evidence",
+      "excerpt_type": "paraphrase",
+      "verification_date": "2026-10-13",
+      "authors": [
+        "Yang Long",
+        "Tieyan Wang",
+        "Xiaoliang Liu",
+        "Yujiang Li",
+        "Da Tao"
+      ],
+      "independence_group": "long-wang-liu-li-tao-2025",
+      "pmcid": "PMC12473799",
+      "fetched_content_sha256": "2f2291840fd65a2c7f690b6f3943ea875e0706402dfc89798e7e7be62ef4c794",
+      "verification_methods": [
+        "Crossref DOI metadata",
+        "Europe PMC JATS full text"
+      ],
+      "source_sha256": "fa86821d993c6d64d5e3d0a2bf239ebd95a73b872d68f8cb987da7f613342ed6"
+    },
+    {
+      "id": "wang2025-connectivity-candidate",
+      "title": "Multimodal Contrastive Learning for Cybersickness Recognition Using Brain Connectivity Graph Representation",
+      "year": 2025,
+      "doi": "10.1109/tvcg.2025.3616797",
+      "url": "https://doi.org/10.1109/tvcg.2025.3616797",
+      "locator": "PubMed PMID 41052115, abstract",
+      "excerpt": "The abstract introduces EEG, video, and motion connectivity representations for recognition. It does not establish a specific observed EEG connectivity direction or a biomarker-to-mechanism relationship for this project.",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "source_layer": "paper_evidence",
+      "excerpt_type": "paraphrase",
+      "verification_date": "2026-10-13",
+      "authors": [
+        "P. Wang",
+        "M. Li",
+        "Z. Wang",
+        "Y.-J. Liu",
+        "L. Wang"
+      ],
+      "independence_group": "wang-li-wang-liu-wang-2025",
+      "verification_methods": [
+        "Europe PMC PubMed indexed metadata and abstract"
+      ],
+      "review_note": "Full text and target feature definition not verified; excluded from reviewed graph.",
+      "source_sha256": "acaf3321bfcac17cb9ebfe8c576ed0708512952ac0d1296c40a217bcd35764c7"
+    },
+    {
+      "id": "local-vrms-protocol",
+      "title": "Project raw EEG observation and frozen path-model protocol",
+      "year": 2026,
+      "doi": null,
+      "url": "local://eeg_agent/tools.py",
+      "locator": "eeg_agent/tools.py:BANDS, _spectral, _covariance; eeg_agent/online/features.py:BANDS; vrms knowledge cards, raw-only protocol and spectral/CSP sections",
+      "excerpt": "Measured bands are theta 4–8 Hz, alpha 8–13 Hz, beta 13–30 Hz, gamma_low 30–45 Hz. Online path model uses four bands through beta. Tool scores are learned outputs rather than physiological biomarker directions; covariance is not directed functional connectivity. No resting baseline is assumed for raw path classification.",
+      "evidence_level": "high",
+      "review_status": "reviewed",
+      "source_layer": "local_protocol",
+      "excerpt_type": "paraphrase",
+      "verification_date": "2026-10-13",
+      "independence_group": "local-protocol-vrms",
+      "local_file_sha256": {
+        "eeg_agent/tools.py": "d756814e34c788c897829ce69e49c0652bf3e367cd71244bd38f9aae84651122",
+        "eeg_agent/online/features.py": "cd31beee815b03305b58eace0a90cbe3e314657fb6bb9d5a5fb959c86ac25451",
+        "eeg_agent/brain_knowledge/vrms/02_raw_model.md": "195c20c2cf35ece2402bbbe1e036360a1d6a43a35c768246d67fa4431b43d1c1",
+        "eeg_agent/brain_knowledge/vrms/03_nine_evidence_guide.md": "92a50418c0714261ca61932f9c07a457f86dee1200b6fa5ca7c2e0e22c11514f"
+      },
+      "verification_methods": [
+        "Local code and method-card inspection"
+      ],
+      "source_sha256": "e1d5d011e0f3fa1f66c5d9ab8ad55ee68679dd90b01bc798abdb99e1274a4591"
+    },
+    {
+      "id": "local-knowledge-gaps",
+      "title": "Candidate inventory and unsupported transfer boundaries",
+      "year": 2026,
+      "doi": null,
+      "url": "local://knowledge/graph/README.md",
+      "locator": "README.md, candidate inventory and review boundaries",
+      "excerpt": "EEG entropy has no verified disease-specific relation in this MVP. Connectivity lacks verified compatible observations and mechanistic direction. Published 30–50 Hz gamma is not interchangeable with gamma_low 30–45 Hz. Candidate concepts are inventory items and cannot enter retrieval.",
+      "evidence_level": "low",
+      "review_status": "candidate",
+      "source_layer": "local_protocol",
+      "excerpt_type": "paraphrase",
+      "verification_date": "2026-10-13",
+      "independence_group": "local-knowledge-gap-inventory",
+      "verification_methods": [
+        "No compatible reviewed claim found in this limited search"
+      ],
+      "review_note": "A search gap is not evidence that a biomarker lacks an association.",
+      "source_sha256": "3d779a78f0cd2f6c115df36b86ed561eac22a8fc24dcca65b88c82bcfe25bcd3"
+    }
+  ]
+}

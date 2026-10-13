@@ -18,7 +18,7 @@ class OnlineRequest(BaseModel):
     recording_id: str = Field(pattern=r'^subject-\d{2}$')
     speed: Union[float, Literal['max']] = 1
     cloud: bool = True
-    rag_mode: Literal['default', 'regular', 'graph'] = 'default'
+    rag_mode: Literal['default', 'regular', 'graph', 'semantic_graph'] = 'default'
     max_seconds: Optional[float] = Field(default=None, ge=1 / 1024, allow_inf_nan=False)
 
 

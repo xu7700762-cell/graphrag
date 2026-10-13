@@ -138,11 +138,18 @@ def classify(provider, prediction, teaching_context=None):
                 local_failure = 'rag_assets_unavailable'
                 raise ValueError('Default RAG policy could not be pinned')
             default_rag.validate_policy(pinned)
-            if pinned['judge_profile'] == 'matched_decisive_high_v1':
+            if pinned['judge_profile'] in ('matched_decisive_high_v1', 'semantic_state_high_v1'):
                 contract = default_rag.judge_contract(pinned)
                 system = contract['system']
                 # The matched historical protocol did not contain teaching.
                 teaching_context = {'available': False}
+                if pinned['judge_profile'] == 'semantic_state_high_v1':
+                    from .state_graph_rag import GUIDANCE
+                    system += '\n' + GUIDANCE + (
+                        '\nUse state_evidence.supporting_paths and contradictory_paths in the concise explanation. '
+                        'Its evidence_strength is low, medium or high, never a calibrated probability. '
+                        'Keep exactly the existing six response fields and qualitative confidence. '
+                        'Do not increase confidence solely because more graph paths were returned.')
             else:
                 system = default_rag.legacy_system(pinned)
                 teaching_context = default_rag.frozen_teaching(pinned)

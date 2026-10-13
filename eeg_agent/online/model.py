@@ -11,6 +11,7 @@ from .assets import Assets
 from .features import cache_window
 from .minimal_mamba import MambaBlock, ModelArgs, UPSTREAM_COMMIT
 from .numeric import FrozenNumeric
+from ..semantic_observations import SpectralObservations
 
 
 class PatchEmbed(nn.Module):
@@ -147,6 +148,7 @@ class OnlinePathModel:
     def __init__(self, owner, bundle):
         self.owner, self.bundle = owner, bundle
         self.features, self.cached = [], []
+        self._observations = SpectralObservations()
         self._result = None
         self.encoding_seconds = []
 
@@ -173,6 +175,7 @@ class OnlinePathModel:
                 raise ValueError('CPU encoder returned nonfinite features')
             self.features.append(encoded)
             self.cached.append(cached)
+            self._observations.add(window, cached.get('powers'), quality_valid=True)
             self.encoding_seconds.append(time.perf_counter() - start)
             self._result = None
             return self.result()
@@ -191,6 +194,7 @@ class OnlinePathModel:
                           'baseline_policy': 'disabled', 'encoder_sha256': self.owner.encoder_sha256,
                           'model_sha256': self.bundle['model_sha256'],
                           'normalization_sha256': self.bundle['normalization_sha256'],
+                          'eeg_observations': self._observations.result(complete=False),
                           **self.bundle['numeric'].hashes}
                 if count:
                     features = np.asarray(self.features, np.float32)
@@ -207,3 +211,8 @@ class OnlinePathModel:
                     result['reason'] = 'fewer_than_three_accepted_windows; uncalibrated_MIL_preview_only'
                 self._result = result
             return copy.deepcopy(self._result)
+
+    def observations(self, complete=False):
+        """Publish measured changes only after the complete-path quality gate."""
+        with self.owner.lock:
+            return self._observations.result(complete=complete)

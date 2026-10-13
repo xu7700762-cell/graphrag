@@ -31,11 +31,13 @@ def _snapshot():
 
 def resolve(mode='default'):
     """Resolve once at session creation; this record is saved with the session."""
-    if mode not in ('default', 'regular', 'graph'):
+    if mode not in ('default', 'regular', 'graph', 'semantic_graph'):
         raise ValueError('Unknown RAG mode')
     manifest = _snapshot()
     actual = DEFAULT_MODE if mode == 'default' else mode
     profile = DEFAULT_JUDGE_PROFILE if mode == 'default' else 'matched_decisive_high_v1'
+    if actual == 'semantic_graph':
+        profile = 'semantic_state_high_v1'
     result = {'rag_mode': actual, 'requested_mode': mode, 'judge_profile': profile,
               'schema': SCHEMA, 'variant': DEFAULT_VARIANT,
               'reference_manifest_sha256': REFERENCE_MANIFEST_SHA256,
@@ -49,26 +51,36 @@ def resolve(mode='default'):
         result.update(graph_rag.asset_policy())
         result['graph_code_sha256'] = hashlib.sha256(Path(graph_rag.__file__).read_bytes()).hexdigest()
         result.update(schema=graph_rag.SCHEMA, variant=graph_rag.VARIANT)
+    elif actual == 'semantic_graph':
+        from . import state_graph_rag
+        result.update(state_graph_rag.asset_policy())
+        result.update(schema=state_graph_rag.SCHEMA, variant=state_graph_rag.VARIANT)
     return result
 
 
 def validate_policy(value):
     """Validate saved versions without resolving a potentially newer default."""
-    if not isinstance(value, dict) or value.get('rag_mode') not in ('regular', 'graph'):
+    if not isinstance(value, dict) or value.get('rag_mode') not in ('regular', 'graph', 'semantic_graph'):
         raise ValueError('Missing resolved RAG policy')
     expected = resolve(value['rag_mode'])
     for key in ('schema', 'variant', 'reference_manifest_sha256', 'regular_snapshot_sha256',
                 'retriever_sha256', 'judge_protocol_sha256', 'legacy_system_sha256',
-                'graph_manifest_sha256', 'graph_code_sha256', 'graph_schema', 'graph_variant'):
+                'graph_manifest_sha256', 'graph_code_sha256', 'graph_schema', 'graph_variant',
+                'semantic_manifest_sha256', 'semantic_code_sha256', 'semantic_schema', 'semantic_variant',
+                'observation_code_sha256', 'semantic_judge_code_sha256'):
         if value.get(key) != expected.get(key):
             raise ValueError('Pinned RAG version differs: ' + key)
-    if value.get('judge_profile') not in ('legacy_production', 'matched_decisive_high_v1'):
+    if value.get('judge_profile') not in ('legacy_production', 'matched_decisive_high_v1', 'semantic_state_high_v1'):
         raise ValueError('Unknown frozen judge profile')
     if value['judge_profile'] == 'legacy_production' and (value['rag_mode'] != 'regular' or
             value.get('teaching_sha256') != _snapshot()['files']['legacy_teaching.json']):
         raise ValueError('Invalid legacy teaching snapshot')
     if value['judge_profile'] == 'matched_decisive_high_v1' and value.get('teaching_sha256') is not None:
         raise ValueError('Matched judge has no teaching asset')
+    if (value['rag_mode'] == 'semantic_graph') != (value['judge_profile'] == 'semantic_state_high_v1'):
+        raise ValueError('Semantic mode requires its pinned judge profile')
+    if value['judge_profile'] == 'semantic_state_high_v1' and value.get('teaching_sha256') is not None:
+        raise ValueError('Semantic judge has no legacy teaching asset')
     return value
 
 
@@ -98,9 +110,11 @@ def legacy_system(value):
 
 def catalog_fields():
     return {'vrms_case_rag': policy(), 'default_rag_mode': DEFAULT_MODE,
+            'semantic_graph_rag': {**resolve('semantic_graph'), 'promotion_status': 'not_evaluated'},
             'rag_modes': [{'id': 'default', 'label': '默认版本'},
                           {'id': 'regular', 'label': '普通 RAG（固定基线，GPT high）'},
-                          {'id': 'graph', 'label': 'GraphRAG（实验，GPT high）'}]}
+                          {'id': 'graph', 'label': 'GraphRAG（实验，GPT high）'},
+                          {'id': 'semantic_graph', 'label': '语义 GraphRAG（状态推理实验，GPT high）'}]}
 
 
 def policy():
@@ -127,6 +141,9 @@ def retrieve(fold, prediction, rag_policy=None):
         if rag_policy['rag_mode'] == 'graph':
             from .graph_rag import retrieve as graph_retrieve
             return graph_retrieve(fold, prediction, rag_policy['graph_manifest_sha256'])
+        if rag_policy['rag_mode'] == 'semantic_graph':
+            from .state_graph_rag import retrieve as semantic_retrieve
+            return semantic_retrieve(fold, prediction, rag_policy['semantic_manifest_sha256'])
         if type(fold) is not int or fold < 1:
             raise ValueError('A verified model fold is required')
         manifest = _read_verified(REFERENCE_MANIFEST, REFERENCE_MANIFEST_SHA256)
@@ -142,6 +159,14 @@ def retrieve(fold, prediction, rag_policy=None):
         if mode == 'graph':
             return {'schema': 'raw_eeg_graph_rag_v1', 'variant': 'graph_v1', 'available': False,
                     'reason': 'graph_rag_pinned_assets_unavailable'}
+        if mode == 'semantic_graph':
+            return {'schema': 'raw_eeg_state_graph_v1', 'variant': 'state_reasoning_v1',
+                    'available': False, 'reason': 'semantic_graph_pinned_assets_unavailable',
+                    'state_evidence': {'supporting_paths': [], 'contradictory_paths': [],
+                                       'observations': [], 'model_evidence': [],
+                                       'evidence_strength': 'low', 'confidence_basis': [],
+                                       'evidence_status': 'unavailable',
+                                       'fallback_reason': 'semantic_graph_pinned_assets_unavailable'}}
         return {'schema': SCHEMA, 'variant': DEFAULT_VARIANT, 'available': False,
                 'reason': 'default_optimized_rag_reference_unavailable'}
 

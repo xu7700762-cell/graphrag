@@ -1,0 +1,38 @@
+{
+  "schema": "semantic_graph_v1_verification_report",
+  "date": "2026-10-13",
+  "pytest": {
+    "passed": 725,
+    "skipped": 1,
+    "reported_by": "root full-suite verification"
+  },
+  "semantic_integration": {
+    "passed": 67,
+    "includes": "state graph, observations, mode creation/pinning, session audit and old mode regression"
+  },
+  "engineering_audit": {
+    "paths_checked": 146,
+    "paths_passed": 146,
+    "engineering_passed": true,
+    "model_calls": 0,
+    "accuracy_computed": false
+  },
+  "frontend": {
+    "brain_ui_internal_checks_passed": 22,
+    "online_ui_tests_passed": 12,
+    "javascript_syntax_passed": true
+  },
+  "actual_eeg_observation_check": {
+    "passed": true,
+    "incremental_and_batch_observations_identical": true,
+    "original_features_and_all_nine_tool_readings_identical": true,
+    "llm_prediction_requested": false,
+    "report": "validation/semantic_actual_observation_check.json"
+  },
+  "new_real_llm_calls": 0,
+  "semantic_accuracy_evaluated": false,
+  "promotion_status": "not_evaluated",
+  "default_rag_mode": "regular",
+  "default_variant": "percentile_group",
+  "delivery_manifest": "deploy/online_semantic_graph_v1_bundle_manifest.json"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "semantic_observation_engineering_check_v1",
+  "path_complete": true,
+  "accepted_windows": 24,
+  "total_windows": 24,
+  "coverage": 1.0,
+  "encoding_and_original_feature_check_seconds": 1.9135136999999998,
+  "cached_observation_seconds": 8.190000000052322e-05,
+  "semantic_attach_seconds": 0.012380599999999298,
+  "original_cached_features_identical": true,
+  "mil_reading_identical": true,
+  "all_eight_tool_readings_identical": true,
+  "incremental_and_batch_observations_identical": true,
+  "evidence_status": "available",
+  "evidence_strength": "low",
+  "supporting_paths": 1,
+  "contradictory_paths": 2,
+  "no_llm_prediction": true,
+  "observations": [
+    {
+      "biomarker": "theta",
+      "value": -0.4135164707987773,
+      "direction": "decrease"
+    },
+    {
+      "biomarker": "alpha",
+      "value": 0.014965039015472748,
+      "direction": "stable"
+    },
+    {
+      "biomarker": "beta",
+      "value": -0.16362636708774847,
+      "direction": "decrease"
+    }
+  ]
+}

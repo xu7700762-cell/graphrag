@@ -13,6 +13,11 @@ outputs/*
 !outputs/rag_assets/**
 !outputs/graph_rag_audit/
 !outputs/graph_rag_audit/**
+!outputs/semantic_graphrag_v1_delivery_20261013/
+!outputs/semantic_graphrag_v1_delivery_20261013/engineering_audit.json
+!outputs/semantic_graphrag_v1_delivery_20261013/test_report.json
+!outputs/semantic_graphrag_v1_delivery_20261013/实施与验收.md
+!outputs/semantic_graphrag_v1_delivery_20261013/arm64_wheel_preflight.json
 !outputs/reports/
 !outputs/reports/**
 !outputs/vrms_rag_probes/

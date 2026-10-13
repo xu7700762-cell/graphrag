@@ -854,8 +854,17 @@ class BrainSession:
                 # Existing injected numerical test hooks retain their old signature.
                 if assess_raw_model is _ORIGINAL_ASSESS_RAW_MODEL:
                     options['rag_policy'] = self._classification_policy()
-                result = _plain(public_raw_model(assess_raw_model(self.manager.recordings, self.recording_id, evidence,
-                    **options)))
+                assessed = assess_raw_model(self.manager.recordings, self.recording_id, evidence, **options)
+                if self._classification_policy().get('rag_mode') == 'semantic_graph':
+                    from .state_graph_rag import session_evidence
+                    from .semantic_observations import append_session_evidence
+                    with self.lock:
+                        for prediction in assessed.get('measurements', {}).get('segments', []):
+                            if 'current_raw_contrastive_context' in prediction:
+                                record = session_evidence(prediction, prediction.get('cloud_judgment'))
+                                if record is not None:
+                                    append_session_evidence(self.directory, record)
+                result = _plain(public_raw_model(assessed))
                 results.append({'tool': tool_id, 'result': result})
                 self.emit('tool_result', {'agent': domain, 'tool': tool_id, 'result': result, 'turn_id': turn})
                 continue

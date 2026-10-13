@@ -110,6 +110,10 @@ class OnlineCloudReporter:
             if was_cancelled:
                 result.update(status='fallback', generation_status='cancelled', explanation_status='cancelled',
                               final_class=None, explanation=None, reason='任务已取消，后续云端请求未执行')
+            if (not was_cancelled and prediction is not None and self.rag_policy and
+                    self.rag_policy.get('rag_mode') == 'semantic_graph'):
+                from ..state_graph_rag import session_evidence
+                result['session_model_evidence'] = session_evidence(prediction, judgment)
             return result
 
         if cancelled():

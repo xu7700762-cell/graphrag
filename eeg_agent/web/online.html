@@ -22,7 +22,7 @@
       <label class="recording-control">原始记录<select id="recordingSelect" required aria-describedby="capabilityNote"><option value="">正在读取记录…</option></select></label>
       <label>回放速度<select id="speedSelect"><option value="1" selected>1 倍 · 实时</option><option value="10">10 倍 · 验证</option><option value="max">最快 · 验证</option></select></label>
       <label class="cloud-control"><input id="cloudEnabled" type="checkbox" checked><span>路径结束后请求云端判断</span></label>
-      <label>VRMS 证据检索<select id="ragMode"><option value="default" selected>默认版本</option><option value="regular">普通 RAG · 固定对照</option><option value="graph">GraphRAG</option></select></label>
+      <label>VRMS 证据检索<select id="ragMode"><option value="default" selected>默认版本</option><option value="regular">普通 RAG · 固定对照</option><option value="graph">GraphRAG</option><option value="semantic_graph">语义 GraphRAG · 状态推理实验</option></select></label>
       <div class="playback-buttons"><button id="startReplay" type="submit" class="primary-button">启动回放</button><button id="pauseReplay" type="button" disabled>暂停</button><button id="resumeReplay" type="button" disabled>继续</button><button id="stopReplay" type="button" disabled>停止</button></div>
       <p id="capabilityNote" class="control-note">正在检查本地模型和云端配置。</p>
       <p id="ragVersionNote" class="control-note">创建回放时固定检索版本。</p>

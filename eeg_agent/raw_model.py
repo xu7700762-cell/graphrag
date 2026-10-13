@@ -13,6 +13,7 @@ import numpy as np
 from . import raw_tool_agent
 from . import raw_independent_judge
 from .default_rag import attach as attach_default_rag
+from .semantic_observations import observations_from_windows
 
 _ORIGINAL_LEGACY_CLASSIFY = raw_tool_agent.classify
 
@@ -64,6 +65,7 @@ def assess(repository, recording_id, evidence, provider=None, cloud=False, rag_p
     directory.mkdir(parents=True)
     request = {'fold': fold,
                'signal_sha256': record['signal_sha256'], 'segments': [], 'baseline_file': False}
+    semantic_observations = {}
     # Recording starts during VR exposure. Its opening waveform is not an
     # established resting reference; use the trained missing-reference branch.
     for segment, (windows, stamps) in zip(record['segments'], inputs):
@@ -78,6 +80,9 @@ def assess(repository, recording_id, evidence, provider=None, cloud=False, rag_p
             filename = f"segment-{segment['ordinal']:03d}.npy"
             np.save(directory / filename, windows, allow_pickle=False)
             request['segments'].append({'ordinal': segment['ordinal'], 'file': filename})
+            if isinstance(rag_policy, dict) and rag_policy.get('rag_mode') == 'semantic_graph':
+                semantic_observations[segment['ordinal']] = observations_from_windows(
+                    windows, quality_valid=True, complete=True)
         result['measurements']['segments'].append(row)
     if not request['segments']:
         result['reason'] = '没有满足完整性、质量和覆盖率要求的路径'
@@ -101,8 +106,11 @@ def assess(repository, recording_id, evidence, provider=None, cloud=False, rag_p
             raise ValueError('Worker/source mismatch')
         for row in result['measurements']['segments']:
             if row['ordinal'] in actual:
+                if row['ordinal'] in semantic_observations:
+                    actual[row['ordinal']]['eeg_observations'] = semantic_observations[row['ordinal']]
+                semantic = isinstance(rag_policy, dict) and rag_policy.get('rag_mode') == 'semantic_graph'
                 prediction = (attach_default_rag(fold, actual[row['ordinal']], rag_policy=rag_policy)
-                              if rag_policy is not None else attach_default_rag(fold, actual[row['ordinal']])) if cloud else actual[row['ordinal']]
+                              if rag_policy is not None else attach_default_rag(fold, actual[row['ordinal']])) if cloud or semantic else actual[row['ordinal']]
                 p = prediction['numeric_fusion']['raw_combined_score']
                 if not isinstance(p, (int, float)) or not 0 <= p <= 1 or prediction['predicted_class'] != ('High' if p >= .5 else 'Low'):
                     raise ValueError('Invalid raw model prediction')

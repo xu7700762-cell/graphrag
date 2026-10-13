@@ -1,0 +1,62 @@
+{
+  "schema": "semantic_final_verification_v1",
+  "full_suite": {
+    "passed": 725,
+    "skipped": 1
+  },
+  "final_focused_suite": {
+    "passed": 102,
+    "includes_final_runtime_and_release_gate_changes": true
+  },
+  "release_gate_tests": {
+    "passed": 18
+  },
+  "historical_numeric_engineering_audit": {
+    "passed": 146,
+    "total": 146,
+    "model_calls": 0,
+    "is_new_accuracy_evaluation": false
+  },
+  "production_default": {
+    "rag_mode": "regular",
+    "requested_mode": "default",
+    "judge_profile": "legacy_production",
+    "schema": "raw_decisive_rag_v4",
+    "variant": "percentile_group",
+    "reference_manifest_sha256": "8e7c75aab8a1dc7957c555faa287ca8b6dff57bf09843f07c899246207b45ea1",
+    "regular_snapshot_sha256": "a20f257bec5263449a84fa351f8eda1f31cfb427fe36676dce3b89e3c45a44b0",
+    "retriever_sha256": "3cbe9678f8e2430baeaed6e70811f5bbc01e996fa70c736977712c0edd2bbffd",
+    "judge_protocol_sha256": "020f1a4d8360716413a927b07b990a7e7d95a19ed9e271a268587c7e95c72f7c",
+    "legacy_system_sha256": "a84d03bf95a2de4b8903e9a1fc83da8fabe659b4b607461711c959f50d43ed99",
+    "teaching_sha256": "4eae596c2c639dabd3214ca83985bb0b0f485199f86b7350f9b2f336c51d301a"
+  },
+  "semantic_policy": {
+    "rag_mode": "semantic_graph",
+    "requested_mode": "semantic_graph",
+    "judge_profile": "semantic_state_high_v1",
+    "schema": "raw_eeg_state_graph_v1",
+    "variant": "state_reasoning_v1",
+    "reference_manifest_sha256": "8e7c75aab8a1dc7957c555faa287ca8b6dff57bf09843f07c899246207b45ea1",
+    "regular_snapshot_sha256": "a20f257bec5263449a84fa351f8eda1f31cfb427fe36676dce3b89e3c45a44b0",
+    "retriever_sha256": "3cbe9678f8e2430baeaed6e70811f5bbc01e996fa70c736977712c0edd2bbffd",
+    "judge_protocol_sha256": "020f1a4d8360716413a927b07b990a7e7d95a19ed9e271a268587c7e95c72f7c",
+    "legacy_system_sha256": "a84d03bf95a2de4b8903e9a1fc83da8fabe659b4b607461711c959f50d43ed99",
+    "teaching_sha256": null,
+    "semantic_manifest_sha256": "69dbb9fdd6dc933c5a0e0d635a123f24eaa0114d34a3245bc62a0de284f1a55a",
+    "semantic_code_sha256": "983da44d2ae974068cee31a582868306eb6e8b6f90f251f1dd94ddfab9fb0010",
+    "observation_code_sha256": "e67ee644d663634d0acb55f0c7970a4f0ddfc802e1176ddc60a105360e98aa31",
+    "semantic_judge_code_sha256": "21acb043d372eb2ab0bfd1a3c924a2261164fcf5d52ab3e7c8fea74501fcfd02",
+    "semantic_schema": "raw_eeg_state_graph_v1",
+    "semantic_variant": "state_reasoning_v1",
+    "graph_manifest_sha256": "4e063d041e6f0b971fafc9462d42107a3f5bca005b23e6477e02990f9e03ff8f",
+    "graph_code_sha256": "ef935f82d175f10cc6355bcddc0e326b4d6582cf6563d3bc44bce8c2e0973940",
+    "graph_schema": "raw_eeg_graph_rag_v3",
+    "graph_variant": "graph_v3"
+  },
+  "semantic_promotion_status": "not_evaluated",
+  "service_verification": "semantic_service_check.json",
+  "actual_observation_verification": "semantic_actual_observation_check.json",
+  "bundle_manifest": "deploy/online_semantic_graph_v1_bundle_manifest.json",
+  "bundle_verified": true,
+  "new_real_llm_calls": 0
+}

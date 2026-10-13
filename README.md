@@ -2,6 +2,10 @@
 
 首页和在线页面新增普通 RAG / GraphRAG 模式选择，创建会话时固定版本。
 普通 RAG 固定基线保留；Graph 为按 fold 隔离的局部证据图。
+新增 `semantic_graph` 状态推理实验入口，以真实theta/alpha/beta路径功率变化查询
+已审阅的VR motion sickness关联、机制假说与反证。来源sidecar在`knowledge/graph/`，
+独立图资产在`outputs/rag_assets/eeg_state_graph_v1/`，动态证据仅记入当前会话。
+新版本尚未完成146条真实判读评估，默认仍为普通RAG；版本见`/api/rag/version`。
 访问 `/rag-comparison` 查看已保存的前后结果，不触发普通基线重判。
 实现、判读协议与默认发布门槛见 [GraphRAG说明](docs/GRAPH_RAG.md)。
 
