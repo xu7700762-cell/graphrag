@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VRMSAgent · EEG研究控制台</title><link rel="stylesheet" href="/assets/design-tokens.css"><link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/cloud.css"></head>
+<body data-page="console">
+<aside>
+  <div class="brand"><span class="brand-icon">∿</span><div>VRMS AGENT<small>LOCAL EEG MONITOR</small></div></div>
+  <div class="workspace">城市巡航 / VR晕动症研究</div>
+  <nav><a class="nav" href="/">↗　多 Agent 对话</a><button class="nav active" data-page="console">◉　监测控制台</button><button class="nav" data-page="results">▤　模型与评价</button><button class="nav" data-page="knowledge">⌕　知识检索</button><button class="nav" data-page="cloud">⚙　云端API设置</button><button class="nav" data-page="protocol">◇　运行协议</button></nav>
+  <div class="side-note"><span class="dot"></span> 本地数值处理<br><small>云端仅接收匿名摘要</small></div><div class="version">研究原型 v0.2.0</div>
+</aside>
+<main>
+  <header><div><div class="eyebrow">CAUSAL EEG · EVIDENCE BASED REPORTS</div><h1>VR晕动症脑电监测</h1><p>选择模型，持续监测，让 Agent 汇总可追溯证据。</p></div><div class="header-badges"><span id="modelBadge" class="badge">检查模型中</span><span id="backendBadge" class="badge amber">模拟云端 Agent</span></div></header>
+  <div id="notice" class="notice">窗口曲线是模型输出，不能作为即时症状真值。mock不代表真实云端收益；Pi性能另行实测。</div>
+  <section id="console" class="page">
+    <div class="top-grid">
+      <article class="card setup">
+        <div class="card-head"><h2>开始一次监测</h2><span id="taskId" class="tag">原始 CDT</span></div>
+        <label for="task">分析任务</label><textarea id="task" rows="2">分析VR晕动症模型输出的时间变化，并按需检查频谱和空间协方差，结合资料生成报告。</textarea>
+        <div class="form-grid">
+          <div><label for="model">深度学习模型</label><select id="model"><option value="eegnet">EEGNet</option><option value="eegconformer">EEGConformer</option></select></div>
+          <div><label for="checkpoint">冻结检查点</label><select id="checkpoint"></select></div>
+          <div class="wide model-detail" id="modelDetail">正在检查模型合同与部署状态。</div>
+          <div><label for="subject">回放数据</label><select id="subject"></select></div>
+          <div><label for="strategy">分析策略</label><select id="strategy"><option value="adaptive">Adaptive · 按需补充证据</option><option value="deep_only">Deep only · 检测与时间统计</option><option value="full_evidence">Full evidence · 全部辅助工具</option></select></div>
+          <div><label for="backend">语言规划接口</label><select id="backend"><option value="mock">mock · 模拟响应验收</option><option value="api">真实云端 API</option></select></div>
+          <div><label for="speed">回放速度</label><select id="speed"><option value="1">1× 实时验收</option><option value="20">20× 吞吐测试</option><option value="100">100× 压力测试</option></select></div>
+          <div><label for="limit">回放源时长 / 秒</label><input id="limit" type="number" min="1" value="130"></div>
+          <div class="small-note"><span id="inputProfile">随冻结检查点选择处理配置</span> · 30通道 · 256 Hz<br>每5秒一个完整窗口</div>
+        </div>
+        <div class="actions"><button id="start" class="primary">启动监测 <span>→</span></button><button id="stop" disabled>停止回放</button><button id="newTask" disabled>新建任务</button></div><div id="error" role="alert"></div>
+        <div class="task-history"><label for="history">任务恢复</label><div class="inline"><select id="history"><option value="">选择已有任务</option></select><button id="restore">打开</button></div></div>
+      </article>
+      <article class="card flow">
+        <div class="card-head"><h2>Supervisor计划</h2><span id="state" class="tag">待机</span></div><div id="plan" class="plan"><div class="empty">启动后显示分析计划。</div></div>
+        <div class="flow-item"><span class="step">01</span><div><b>本地数值链</b><small>因果预处理 → 质量门控 → 所选模型 → 时间统计</small></div></div>
+        <div class="flow-item"><span class="step">02</span><div><b>辅助证据</b><small>频谱／协方差按需调用，不改写分类结果</small></div></div>
+        <div class="flow-item"><span class="step">03</span><div><b>VRMSAgent → Supervisor</b><small>RAG引用 → 子报告 → 最终报告</small></div></div>
+        <div class="flow-footer">分类配置 <strong id="classificationProfile">—</strong><span id="calibration">先行基线尚未冻结</span></div><div id="policy" class="policy muted">分析策略等待第一个合法窗口。</div>
+      </article>
+    </div>
+    <div class="stats">
+      <article class="card stat"><small>信号质量 / 覆盖</small><strong id="quality">—</strong><span id="qualityDetail">等待完整窗口</span><span id="coverage">有效覆盖 —</span></article>
+      <article class="card stat"><small>模型高类概率</small><strong id="probability">—</strong><span id="threshold">冻结阈值 —</span><span id="rawProbability">原始概率 —</span></article>
+      <article class="card stat"><small>窗口发布延迟</small><strong id="latency">—</strong><span id="timingLabel">仅1×用于在线时序评价</span></article>
+      <article class="card stat"><small>语言接口调用</small><strong id="calls">0 / 50</strong><span id="tokens">mock不计真实token</span></article>
+    </div>
+    <article class="card eog-card">
+      <div class="card-head"><h2>眼电去伪迹</h2><span id="eogStatus" class="tag amber">等待校准</span></div>
+      <div class="eog-grid"><div><div id="eogDetails" class="metric-content">P1用先行无标签基线初始化眼电回归；任务冻结算法参数，自适应系数只用已到达样本更新。P0检查点保留原合同。</div><p id="eogCalibration" class="muted">先行眼电校准尚未冻结。</p><p id="eogCounts" class="muted">清理与拒绝统计等待完整窗口。</p></div><div id="eogMeasures" class="metric-content">等待显示同一窗口清理前后的EEG–EOG相关与幅值。</div></div>
+      <p class="muted eog-note">相关下降仅为质量测量。去伪迹效果和脑电保真需结合有干净参考的受控验证；不能据此声称眼电已完全去除。</p>
+    </article>
+    <div class="bottom-grid">
+      <article class="card chart"><div class="card-head"><h2>模型输出轨迹</h2><span class="tag">概率及冻结阈值</span></div><canvas id="chart" height="210" aria-label="模型输出轨迹"></canvas><div id="pathResult" class="path-result">路径结束后，依据有效覆盖形成最终预测。</div></article>
+      <article class="card"><div class="card-head"><h2>时间趋势</h2><span class="tag">最近30秒</span></div><div id="temporal" class="metric-content">至少3个有效窗口才发布趋势结论。</div><div id="candidate" class="candidate">尚无模型持续高类候选段。</div></article>
+    </div>
+    <div class="bottom-grid auxiliary-grid">
+      <article class="card"><div class="card-head"><h2>频谱辅助测量</h2><span class="tag">Welch · μV²</span></div><div id="biomarkers" class="metric-content">等待按需调用；没有基线时仍可测量绝对功率。</div></article>
+      <article class="card"><div class="card-head"><h2>空间协方差变化</h2><span class="tag">黎曼距离</span></div><div id="covariance" class="metric-content">等待调用。与静息基线的偏离不等于高类支持。</div></article>
+    </div>
+    <div class="bottom-grid auxiliary-grid">
+      <article class="card trace"><div class="card-head"><h2>工具与调用记录</h2><span id="eventCount" class="tag">0条</span></div><div id="logs" aria-live="polite"><div class="empty">质量、工具调用原因、Early Exit及云端事件将在这里显示。</div></div></article>
+      <article class="card"><div class="card-head"><h2>RAG引用证据</h2><span class="tag">本地检索</span></div><div id="citations" class="citations">尚未检索。无匹配时明确报告证据不足。</div></article>
+    </div>
+    <article class="card report-card"><div class="card-head"><h2>分析报告</h2><div class="inline"><button id="loadReport" disabled>读取报告</button><button id="downloadReport" disabled>下载Markdown</button><button id="downloadJson" disabled>下载JSON</button></div></div><pre id="report" class="report">报告数值由本地证据渲染，LLM负责解释和引用。</pre><div id="subreport" class="subreport muted"></div><form id="questionForm"><label for="question">基于已有证据追问</label><div class="inline"><input id="question" maxlength="2000" placeholder="例如：为什么调用频谱工具？当前覆盖是否足够？"><button id="ask" type="submit" disabled>发送追问</button></div></form><div id="messages" class="messages" aria-live="polite"></div></article>
+  </section>
+  <section id="results" class="page hidden"><article class="card"><div class="card-head"><h2>双模型与路径级评价</h2><button id="refresh">刷新</button></div><div id="modelCatalog"></div><div id="resultsContent">尚未读取结果。</div><p class="muted">指标针对接受路径，必须结合覆盖与拒绝数解读。当前固定划分用于原型开发，正式五折另行执行。</p></article></section>
+  <section id="knowledge" class="page hidden"><article class="card"><div class="card-head"><h2>本地知识检索</h2><span class="tag">BM25 · 最多5条</span></div><form id="knowledgeForm"><div class="inline"><input id="knowledgeQuery" placeholder="输入协议、模型或指标问题" maxlength="2000"><button type="submit">检索</button></div></form><div id="knowledgeResults" class="citations">知识资料不能覆盖冻结的模型合同。</div></article></section>
+  <section id="cloud" class="page hidden">
+    <div class="cloud-page-heading"><a href="/#conversation" class="cloud-back-link">返回科研工作台</a><h1>API 与模型配置</h1><p>分别管理 DeepSeek、CPA GPT 和中转站接口，为 Supervisor 与领域 Agent 选择当前云端模型。</p></div>
+    <div class="cloud-profile-overview" aria-label="模型配置档案">
+      <button type="button" class="cloud-profile-card" id="cloudDeepseekCard" data-cloud-profile="deepseek" aria-pressed="false"><strong>DeepSeek</strong><span id="cloudDeepseekSummary">读取配置…</span></button>
+      <button type="button" class="cloud-profile-card" id="cloudCpaCard" data-cloud-profile="cpa_gpt" aria-pressed="false"><strong>CPA GPT</strong><span id="cloudCpaSummary">读取配置…</span></button>
+      <button type="button" class="cloud-profile-card" id="cloudRelayCard" data-cloud-profile="relay" aria-pressed="false"><strong>中转站</strong><span id="cloudRelaySummary">读取配置…</span></button>
+    </div>
+    <article class="card cloud-settings">
+      <div class="card-head"><h2>编辑接口配置</h2><span id="cloudConfigStatus" class="tag amber">读取配置中</span></div>
+      <p class="muted">保存地址、型号与独立密钥后，可在工作台切换模型。脑电数值处理在本地执行。</p>
+      <p id="cloudActiveProfile" class="muted">正在读取当前云端模型…</p><form id="cloudSettingsForm" autocomplete="off"><div class="cloud-field"><label for="cloudProfile">配置档案 · 密钥分别保存</label><select id="cloudProfile"><option value="deepseek">DeepSeek</option><option value="cpa_gpt">CPA GPT</option><option value="relay">中转站</option></select><small id="cloudProfileNote" class="muted">各档案使用各自接口和密钥。</small></div>
+        <div class="cloud-field"><label for="cloudBaseUrl">Base URL · 接口地址</label><input id="cloudBaseUrl" name="base_url" type="url" placeholder="https://api.example.com/v1" required maxlength="2048" spellcheck="false" autocomplete="off"><small id="cloudBaseSource" class="muted">EEG_API_BASE_URL</small></div>
+        <div class="cloud-field"><label for="cloudModelId">Model ID · 云端模型ID</label><input id="cloudModelId" name="model_id" placeholder="填写服务商提供的模型ID" required maxlength="256" spellcheck="false" autocomplete="off"><small id="cloudModelSource" class="muted">EEG_API_MODEL</small></div>
+        <div class="cloud-field"><label for="cloudProtocol">请求协议</label><select id="cloudProtocol" name="protocol" aria-describedby="cloudProtocolNote"><option value="auto">自动 · GPT 用 Responses，其他用 Chat Completions</option><option value="chat_completions">Chat Completions · /chat/completions</option><option value="responses">Responses · /responses</option></select><small id="cloudProtocolNote" class="muted">按中转站文档选择协议。Base URL 填接口根地址（通常以 /v1 结尾），无需填写完整请求路径。模型需支持 JSON 输出；VRMS 工具分析还需支持工具调用。</small></div>
+        <div class="cloud-field"><div class="cloud-key-label"><label for="cloudApiKey">API Key · 密钥（明文）</label><span id="cloudKeyStatus" class="tag amber">未配置</span></div><input id="cloudApiKey" name="api_key" type="text" placeholder="填写此渠道的 API 密钥" maxlength="4096" spellcheck="false" autocomplete="off"><small id="cloudKeySource" class="muted">已保存密钥会显示在此处，可直接查看和编辑。</small></div>
+        <div id="cloudUsage" class="cloud-usage muted">保存后即可在监测控制台选择“真实云端 API”，无需重启服务。</div>
+        <div class="actions"><button id="cloudSave" type="submit" class="primary" disabled>保存并启用配置</button><button id="cloudActivate" type="button" disabled>使用此已保存配置</button><button id="cloudTestInput" type="button" disabled>连接测试 · 当前输入</button><button id="cloudTest" type="button" disabled>测试已启用配置</button></div>
+      </form>
+      <p class="muted cloud-test-note">“当前输入”可在保存前测试，使用输入框中的地址、模型、密钥和协议；测试不会保存或切换渠道。每次向所填接口发送一次固定文本请求，显示连接结果与耗时，可能产生少量API费用。</p>
+      <div id="cloudFeedback" class="cloud-feedback" role="status" aria-live="polite"></div>
+    </article>
+  </section>
+  <section id="protocol" class="page hidden"><article class="card protocol"><h2>当前运行协议</h2><dl>
+    <dt>监督与数据</dt><dd>24人、147条CSV候选路径，146条原始事件完整路径。评分&lt;30为低、≥30为高。训练87、验证36、测试23条路径，被试互不重叠；窗口没有逐时症状真值。</dd>
+    <dt>输入合同</dt><dd>30通道、256 Hz、5秒1280点、μV。乳突参考、因果50 Hz陷波、0.5–45 Hz带通及抗混叠；状态跨路径和休息连续，断流重新预热10秒。P0为原处理，P1增加先行基线初始化的因果眼电回归；任务冻结算法与参数，自适应系数仅由已到达样本更新。模型只能接受其训练及导出合同对应的处理配置。P1校准不足时持续质量测量，预测不可用。</dd>
+    <dt>模型与发布</dt><dd>EEGNet或EEGConformer，由用户在任务开始前选择并冻结。每种检查点具有独立归一化、温度与阈值；至少3个有效窗口、80%有效覆盖才能发布路径类别。辅助工具不能改写类别。</dd>
+    <dt>基线与时间</dt><dd>只取首任务前已到达的合格基线，预热后至少10秒、最多60秒。最近30秒趋势至少3个有效窗；连续3窗达到阈值只称为模型持续高类候选段，不称为真实症状onset。</dd>
+    <dt>云端与证据</dt><dd>Supervisor和VRMSAgent通过云端API调用；本地工具、依赖、预算、阈值及输入检查具有执行约束。每任务50次上限、10秒超时、不自动重试。原始数组、身份、评分与真实标签不上传。</dd>
+    <dt>部署与成本</dt><dd>树莓派承担本地运行，Windows负责训练与首轮验收。Windows延迟、mock报告和加速吞吐分别标注，不能代替Pi或真实API实测。</dd>
+  </dl></article></section>
+  <footer>VRMS AGENT / Supervisor + VRMSAgent <span>数据在本机，证据可追溯。</span></footer>
+</main><script src="/assets/app.js"></script></body></html>

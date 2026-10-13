@@ -1,0 +1,1401 @@
+{
+  "schema": "eeg_evidence_graph_v2",
+  "kind": "same_fold_reference_graph",
+  "algorithm_version": "same_fold_raw_calibration_conflict_two_hop_v2",
+  "outer_subject": 8,
+  "bank_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa",
+  "nodes": [
+    {
+      "id": "fold-08",
+      "kind": "fold",
+      "outer_subject": 8
+    },
+    {
+      "id": "subject-14",
+      "kind": "reference_subject",
+      "reference_subject": 14
+    },
+    {
+      "id": "subject-18",
+      "kind": "reference_subject",
+      "reference_subject": 18
+    },
+    {
+      "id": "subject-23",
+      "kind": "reference_subject",
+      "reference_subject": 23
+    },
+    {
+      "id": "subject-25",
+      "kind": "reference_subject",
+      "reference_subject": 25
+    },
+    {
+      "id": "reference-000",
+      "kind": "reference_case",
+      "bank_offset": 0,
+      "reference_index": 74,
+      "reference_subject": 14,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-001",
+      "kind": "reference_case",
+      "bank_offset": 1,
+      "reference_index": 75,
+      "reference_subject": 14,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-002",
+      "kind": "reference_case",
+      "bank_offset": 2,
+      "reference_index": 76,
+      "reference_subject": 14,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-003",
+      "kind": "reference_case",
+      "bank_offset": 3,
+      "reference_index": 77,
+      "reference_subject": 14,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-004",
+      "kind": "reference_case",
+      "bank_offset": 4,
+      "reference_index": 78,
+      "reference_subject": 14,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-005",
+      "kind": "reference_case",
+      "bank_offset": 5,
+      "reference_index": 102,
+      "reference_subject": 18,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-006",
+      "kind": "reference_case",
+      "bank_offset": 6,
+      "reference_index": 103,
+      "reference_subject": 18,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-007",
+      "kind": "reference_case",
+      "bank_offset": 7,
+      "reference_index": 104,
+      "reference_subject": 18,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-008",
+      "kind": "reference_case",
+      "bank_offset": 8,
+      "reference_index": 105,
+      "reference_subject": 18,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-009",
+      "kind": "reference_case",
+      "bank_offset": 9,
+      "reference_index": 125,
+      "reference_subject": 23,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-010",
+      "kind": "reference_case",
+      "bank_offset": 10,
+      "reference_index": 126,
+      "reference_subject": 23,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-011",
+      "kind": "reference_case",
+      "bank_offset": 11,
+      "reference_index": 136,
+      "reference_subject": 25,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-012",
+      "kind": "reference_case",
+      "bank_offset": 12,
+      "reference_index": 137,
+      "reference_subject": 25,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-013",
+      "kind": "reference_case",
+      "bank_offset": 13,
+      "reference_index": 138,
+      "reference_subject": 25,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-014",
+      "kind": "reference_case",
+      "bank_offset": 14,
+      "reference_index": 139,
+      "reference_subject": 25,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-015",
+      "kind": "reference_case",
+      "bank_offset": 15,
+      "reference_index": 140,
+      "reference_subject": 25,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-016",
+      "kind": "reference_case",
+      "bank_offset": 16,
+      "reference_index": 141,
+      "reference_subject": 25,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-017",
+      "kind": "reference_case",
+      "bank_offset": 17,
+      "reference_index": 142,
+      "reference_subject": 25,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-018",
+      "kind": "reference_case",
+      "bank_offset": 18,
+      "reference_index": 143,
+      "reference_subject": 25,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-019",
+      "kind": "reference_case",
+      "bank_offset": 19,
+      "reference_index": 144,
+      "reference_subject": 25,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-020",
+      "kind": "reference_case",
+      "bank_offset": 20,
+      "reference_index": 145,
+      "reference_subject": 25,
+      "reference_class": "High"
+    },
+    {
+      "id": "pattern-FEMBA-000",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-001",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-010",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-110",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-111",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "pattern-spatial-00",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spatial",
+      "signs": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "pattern-spatial-01",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spatial",
+      "signs": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "pattern-spatial-10",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spatial",
+      "signs": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "pattern-spatial-11",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spatial",
+      "signs": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "pattern-spectral-00",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spectral",
+      "signs": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "pattern-spectral-01",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spectral",
+      "signs": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "pattern-spectral-10",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spectral",
+      "signs": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "pattern-spectral-11",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spectral",
+      "signs": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "pattern-training_case_retrieval-0",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "training_case_retrieval",
+      "signs": [
+        false
+      ]
+    },
+    {
+      "id": "pattern-training_case_retrieval-1",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "training_case_retrieval",
+      "signs": [
+        true
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-0:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_features",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-0:01-4:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_features",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "femba_temporal",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-4:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_temporal",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spatial-2:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spatial",
+      "tool_transitions": [
+        {
+          "tool": "spatial_covariance",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spatial-2:01-6:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spatial",
+      "tool_transitions": [
+        {
+          "tool": "spatial_covariance",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "filterbank_csp",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spatial-6:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spatial",
+      "tool_transitions": [
+        {
+          "tool": "filterbank_csp",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spectral-1:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spectral",
+      "tool_transitions": [
+        {
+          "tool": "spectral",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spectral-1:01-5:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spectral",
+      "tool_transitions": [
+        {
+          "tool": "spectral",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "spectral_compact",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spectral-5:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spectral",
+      "tool_transitions": [
+        {
+          "tool": "spectral_compact",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "reference-000",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-000",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-001",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-001",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-002",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-002",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-003",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-003",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-004",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-004",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-005",
+      "to": "subject-18",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-005",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-000",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-0:01",
+      "to": "reference-005",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-005",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-01",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-005",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-006",
+      "to": "subject-18",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-006",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-010",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-0:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-4:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-4:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-5:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-1:01-5:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-01",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-007",
+      "to": "subject-18",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-007",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-008",
+      "to": "subject-18",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-008",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-009",
+      "to": "subject-23",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-009",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-000",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-0:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-4:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-4:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-6:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-2:01-6:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-010",
+      "to": "subject-23",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-010",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-001",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-0:01",
+      "to": "reference-010",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-01",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-010",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-01",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-010",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-011",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-011",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-6:01",
+      "to": "reference-011",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-012",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-012",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-013",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-013",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-10",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-5:01",
+      "to": "reference-013",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-6:01",
+      "to": "reference-013",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-014",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-014",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-110",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-FEMBA-4:01",
+      "to": "reference-014",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-014",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-5:01",
+      "to": "reference-014",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-1:01-5:01",
+      "to": "reference-014",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-6:01",
+      "to": "reference-014",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-015",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-015",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-015",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-015",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-015",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-015",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-016",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-016",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-016",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-016",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-016",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-016",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-017",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-017",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-017",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-017",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-017",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-017",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-018",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-018",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-018",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-018",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-018",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-018",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-019",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-019",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-019",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-019",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-019",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-019",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-020",
+      "to": "subject-25",
+      "relation": "belongs_to_subject",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "reference-020",
+      "to": "fold-08",
+      "relation": "belongs_to_fold",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-020",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spectral-10",
+      "to": "reference-020",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spectral-5:01",
+      "to": "reference-020",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-020",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "boundary-spatial-6:01",
+      "to": "reference-020",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-020",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "5f340a807b8ac5309e7e02186b8f52a134ba1cad09c4934148fa0c01dbd990fa"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "reference": "synthetic known clean sine+noise; independent held-out injection; not natural EEG truth",
+  "rmse_before_uv": 10.243593073875937,
+  "rmse_after_uv": 0.2451684402582464,
+  "alpha_power_relative_error": 2.5641482488403256e-05,
+  "beta_power_relative_error": 0.0005421100571696424,
+  "calibration": {
+    "available": true,
+    "reason": "frozen prior unlabeled baseline",
+    "samples": 4096,
+    "cutoff_sample": 16384,
+    "condition": 1.019969149233415
+  }
+}

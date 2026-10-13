@@ -1,0 +1,1141 @@
+{
+  "schema": "eeg_evidence_graph_v2",
+  "kind": "same_fold_reference_graph",
+  "algorithm_version": "same_fold_raw_calibration_conflict_two_hop_v2",
+  "outer_subject": 5,
+  "bank_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a",
+  "nodes": [
+    {
+      "id": "fold-05",
+      "kind": "fold",
+      "outer_subject": 5
+    },
+    {
+      "id": "subject-09",
+      "kind": "reference_subject",
+      "reference_subject": 9
+    },
+    {
+      "id": "subject-11",
+      "kind": "reference_subject",
+      "reference_subject": 11
+    },
+    {
+      "id": "subject-14",
+      "kind": "reference_subject",
+      "reference_subject": 14
+    },
+    {
+      "id": "subject-16",
+      "kind": "reference_subject",
+      "reference_subject": 16
+    },
+    {
+      "id": "reference-000",
+      "kind": "reference_case",
+      "bank_offset": 0,
+      "reference_index": 49,
+      "reference_subject": 9,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-001",
+      "kind": "reference_case",
+      "bank_offset": 1,
+      "reference_index": 50,
+      "reference_subject": 9,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-002",
+      "kind": "reference_case",
+      "bank_offset": 2,
+      "reference_index": 57,
+      "reference_subject": 11,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-003",
+      "kind": "reference_case",
+      "bank_offset": 3,
+      "reference_index": 58,
+      "reference_subject": 11,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-004",
+      "kind": "reference_case",
+      "bank_offset": 4,
+      "reference_index": 59,
+      "reference_subject": 11,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-005",
+      "kind": "reference_case",
+      "bank_offset": 5,
+      "reference_index": 74,
+      "reference_subject": 14,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-006",
+      "kind": "reference_case",
+      "bank_offset": 6,
+      "reference_index": 75,
+      "reference_subject": 14,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-007",
+      "kind": "reference_case",
+      "bank_offset": 7,
+      "reference_index": 76,
+      "reference_subject": 14,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-008",
+      "kind": "reference_case",
+      "bank_offset": 8,
+      "reference_index": 77,
+      "reference_subject": 14,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-009",
+      "kind": "reference_case",
+      "bank_offset": 9,
+      "reference_index": 78,
+      "reference_subject": 14,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-010",
+      "kind": "reference_case",
+      "bank_offset": 10,
+      "reference_index": 88,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-011",
+      "kind": "reference_case",
+      "bank_offset": 11,
+      "reference_index": 89,
+      "reference_subject": 16,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-012",
+      "kind": "reference_case",
+      "bank_offset": 12,
+      "reference_index": 90,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-013",
+      "kind": "reference_case",
+      "bank_offset": 13,
+      "reference_index": 91,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-014",
+      "kind": "reference_case",
+      "bank_offset": 14,
+      "reference_index": 92,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "pattern-FEMBA-000",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-100",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-101",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-110",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "id": "pattern-FEMBA-111",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "FEMBA",
+      "signs": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "pattern-spatial-00",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spatial",
+      "signs": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "pattern-spatial-10",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spatial",
+      "signs": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "pattern-spatial-11",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spatial",
+      "signs": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "pattern-spectral-00",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spectral",
+      "signs": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "pattern-spectral-01",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spectral",
+      "signs": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "pattern-spectral-11",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "spectral",
+      "signs": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "pattern-training_case_retrieval-0",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "training_case_retrieval",
+      "signs": [
+        false
+      ]
+    },
+    {
+      "id": "pattern-training_case_retrieval-1",
+      "kind": "raw_sign_pattern",
+      "retrieval_group": "training_case_retrieval",
+      "signs": [
+        true
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-0:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_features",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-0:01-3:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_features",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "femba_mean",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-0:01-3:01-4:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_features",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "femba_mean",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "femba_temporal",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-0:01-4:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_features",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "femba_temporal",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-3:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_mean",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-3:01-4:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_mean",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        },
+        {
+          "tool": "femba_temporal",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-FEMBA-4:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "FEMBA",
+      "tool_transitions": [
+        {
+          "tool": "femba_temporal",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spatial-2:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spatial",
+      "tool_transitions": [
+        {
+          "tool": "spatial_covariance",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    },
+    {
+      "id": "boundary-spectral-1:01",
+      "kind": "raw_calibration_boundary_pattern",
+      "retrieval_group": "spectral",
+      "tool_transitions": [
+        {
+          "tool": "spectral",
+          "raw_direction": "Low",
+          "calibrated_direction": "High"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "reference-000",
+      "to": "subject-09",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-000",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-000",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-3:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-4:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-3:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-4:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-3:01-4:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-3:01-4:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-000",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-000",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-001",
+      "to": "subject-09",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-001",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-01",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-001",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-001",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-002",
+      "to": "subject-11",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-002",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-110",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-4:01",
+      "to": "reference-002",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-002",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-003",
+      "to": "subject-11",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-003",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-003",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-004",
+      "to": "subject-11",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-004",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-11",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-004",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-005",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-005",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-005",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-005",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-006",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-006",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-006",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-006",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-007",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-007",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-007",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-008",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-008",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-008",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-008",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-009",
+      "to": "subject-14",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-009",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-11",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-009",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-1",
+      "to": "reference-009",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-010",
+      "to": "subject-16",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-010",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-100",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-3:01",
+      "to": "reference-010",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-4:01",
+      "to": "reference-010",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-3:01-4:01",
+      "to": "reference-010",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-01",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-010",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-010",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-011",
+      "to": "subject-16",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-011",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-101",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-3:01",
+      "to": "reference-011",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-011",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-011",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-011",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-012",
+      "to": "subject-16",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-012",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-000",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-3:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-4:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-3:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-4:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-3:01-4:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-FEMBA-0:01-3:01-4:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-012",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-012",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-013",
+      "to": "subject-16",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-013",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-00",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-013",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-00",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spatial-2:01",
+      "to": "reference-013",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-013",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-014",
+      "to": "subject-16",
+      "relation": "belongs_to_subject",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "reference-014",
+      "to": "fold-05",
+      "relation": "belongs_to_fold",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-FEMBA-111",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spectral-01",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "boundary-spectral-1:01",
+      "to": "reference-014",
+      "relation": "has_raw_calibration_boundary_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-spatial-10",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    },
+    {
+      "from": "pattern-training_case_retrieval-0",
+      "to": "reference-014",
+      "relation": "has_raw_sign_pattern",
+      "source_sha256": "785e2665ab945d5fb342ff217e79de28aad05a40e779d538824e5ddca78b733a"
+    }
+  ]
+}

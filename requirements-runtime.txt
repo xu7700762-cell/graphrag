@@ -1,0 +1,10 @@
+# ARM64/Pi inference and web service: no CUDA, PyTorch or training stack.
+numpy>=1.26,<3
+scipy>=1.11
+PyYAML>=6
+fastapi>=0.115,<0.116
+uvicorn>=0.34,<0.35
+openai>=1.109,<2
+pydantic>=2.11,<3
+onnxruntime>=1.19,<2
+psutil>=5.9

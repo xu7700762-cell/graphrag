@@ -1,0 +1,33 @@
+{
+  "schema": "default_rag_reference_assets_v1",
+  "reference_schema": "raw_policy_current_raw_v3",
+  "files": {
+    "fold_01.json": "97170fb74fe59ca12324dae195616046f40845366f88e905519c48986f08c1f0",
+    "fold_02.json": "e1feccf1c032f7422a0bcdcff6e4c93b78e464129ca79566e5348e15c8a15270",
+    "fold_03.json": "6403483a5e07c071ac3405b57864a5103a6e730535a1779d5756b598d7482686",
+    "fold_04.json": "b37cb2c36efe05f18f53190932fc378a1d45db0208969a78c989ec223c64754d",
+    "fold_05.json": "a02782542f97fb16e884bc707d2bbdf885e62238e6c222a7ff3b53ee104ef7e5",
+    "fold_06.json": "22afede813d587ed5f4fbd37aa69cacab192bd72daa221d0b338ab1470deab1c",
+    "fold_07.json": "dbb7442e99dec65f2a2d3d52db230da1f028069f333d3a12f765333608ac6297",
+    "fold_08.json": "735646e80238f9909677cd313640daabfe62c9de1d4aae0c83e7d045ae94026d",
+    "fold_09.json": "1d32343c202aa4bea682f67dc364b57c68c6f791149cd1b6235f160890f2cced",
+    "fold_10.json": "053a9529ea5b26b6a36d7a537f5451102fccf5f47016c8134607c14113a703d8",
+    "fold_11.json": "b0fc164997fe6aa1890c5f19a4d4086bd14b242e04170979ee90b96ed6f9684d",
+    "fold_12.json": "8157f6b16e9adeec8353993a4a0970eb496d125f5634626c5190fcec6f0229a3",
+    "fold_13.json": "a3901ae51084c55f47beaf6fb3ae24f1bb612e80f7d54e7d18065bef08718e18",
+    "fold_14.json": "de2f29418b2bebb3558f14e1e2e29c9de9bc31a2e7abee1013b438ae0b8fa5fb",
+    "fold_15.json": "b49a054c69c845cc1d5779160101b5f95cc4b58590a21127b171d4dfdfb5da0a",
+    "fold_16.json": "c581151969814082c281dc44e51650e6bdcad5621cea080157426ecb1e502750",
+    "fold_17.json": "f4f37685fe5edaf04d0a38cb6c9871e56f0ece81aeedd9abef8d13c56914ee7f",
+    "fold_18.json": "d09520d89a165f87c4f1729b8386471772283e9c60024aaf3f9a743989766f85",
+    "fold_19.json": "dd9038ecb340394fb7e11dee98d18a4663f6a2898ec3cb24bd0c4986394942fe",
+    "fold_20.json": "2af4bbea9b7e6c221c45ac9849c39c03b45230530b05cc7f16be2113c22d95a9",
+    "fold_21.json": "2655e137fa5cb5a73202325b093cdffa05c8dfa9dba5fc43178ce14a28719477",
+    "fold_23.json": "928644909dc48fcb1f932b0cd4f3679b88a651e3f2a378b55654a5997e16bc4c",
+    "fold_24.json": "1b9496ee56c854ed66294233dcbaab01daf41a0ffb038aa6655e005dad4da2f3",
+    "fold_25.json": "666115d3680ccab8765688abef1366ff1e69e506561054277610d405b09d68e4"
+  },
+  "provenance": "verified_export_of_current_raw_policy_heldout_banks",
+  "source_manifest": "D:\\桌面\\文献总\\EEGAGENT\\outputs\\vrms_case_rag\\v3_current_raw_policy_heldout_20261011\\manifest.json",
+  "source_manifest_sha256": "d40cfb4d557263d1b3124d877e92bda714be7e046e710d8cf1de3b5f941f8254"
+}

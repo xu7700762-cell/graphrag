@@ -1,0 +1,4298 @@
+{
+  "eegnet/fixed_seed42": {
+    "schema": 2,
+    "model_id": "eegnet",
+    "checkpoint_id": "fixed_seed42",
+    "architecture": {
+      "name": "EEGNet",
+      "version": "vrms-eegnet-2",
+      "description": "8 temporal filters, depth multiplier 2, separable convolution; dropout 0.25",
+      "source": "https://doi.org/10.1088/1741-2552/aace8c"
+    },
+    "contract": {
+      "schema_version": 2,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F11",
+        "F7",
+        "F3",
+        "Fz",
+        "F4",
+        "F8",
+        "F12",
+        "FT11",
+        "FC3",
+        "FCz",
+        "FC4",
+        "FT12",
+        "T7",
+        "C3",
+        "Cz",
+        "C4",
+        "T8",
+        "CP3",
+        "CPz",
+        "CP4",
+        "P7",
+        "P3",
+        "Pz",
+        "P4",
+        "P8",
+        "O1",
+        "Oz",
+        "O2"
+      ],
+      "unit": "uV",
+      "reference": "(M1+M2)/2",
+      "input_hz": 1024,
+      "output_hz": 256,
+      "window_samples": 1280,
+      "filter": "notch50Q30; butter4 0.5-45; elliptic AA wp100 ws128 ripple0.1dB stop80dB; causal SOS",
+      "warmup_seconds": 10,
+      "calibration_min_seconds": 10,
+      "calibration_max_seconds": 60,
+      "qc": {
+        "raw_peak_to_peak_uv": 5000,
+        "peak_to_peak_uv": 500,
+        "flat_std_uv": 0.05,
+        "jump_uv": 200,
+        "line_ratio_warning": 0.25,
+        "eog_enter_correlation": 0.4,
+        "eog_exit_correlation": 0.25
+      },
+      "threshold_score": 30,
+      "equality": "high",
+      "classification_profiles": [
+        "P0"
+      ],
+      "window_boundary": "half-open 5120 raw samples; no gap or path mixing",
+      "calibration": "first pre-task arrived QC-valid complete windows only; frozen before task; no classifier adaptation",
+      "normalization": "training-only P0 channel mean/std"
+    },
+    "contract_hash": "31ab3d6bfb2b354e23310b1bf51b879b9707629daa24cfb897b244a171f0bba3",
+    "allowed_profiles": [
+      "P0"
+    ],
+    "initialization": "random; no public or old-project weights",
+    "mean": [
+      0.037919625639915466,
+      0.02718712016940117,
+      0.021597813814878464,
+      0.011505300179123878,
+      0.02499552071094513,
+      0.027304716408252716,
+      0.021331723779439926,
+      0.007207237184047699,
+      0.0026937895454466343,
+      0.012816952541470528,
+      0.007161423098295927,
+      0.027790147811174393,
+      0.010446637868881226,
+      0.002023919951170683,
+      0.010177825577557087,
+      0.017992105334997177,
+      0.01614176295697689,
+      0.00015130486281123012,
+      0.006859315559267998,
+      0.011479517444968224,
+      0.008232618682086468,
+      0.0075944578275084496,
+      0.00519631989300251,
+      0.007187467999756336,
+      0.0052468315698206425,
+      0.006018359679728746,
+      -0.00277084787376225,
+      0.0038334219716489315,
+      -0.006961492821574211,
+      -0.0031105177477002144
+    ],
+    "std": [
+      39.13220977783203,
+      42.3564567565918,
+      28.93772315979004,
+      23.513774871826172,
+      24.934534072875977,
+      24.723976135253906,
+      23.42925262451172,
+      25.46795654296875,
+      26.65385627746582,
+      19.928804397583008,
+      17.622684478759766,
+      19.229177474975586,
+      17.556137084960938,
+      18.974899291992188,
+      14.595288276672363,
+      15.929418563842773,
+      16.084768295288086,
+      14.127421379089355,
+      14.182385444641113,
+      14.958029747009277,
+      15.361248970031738,
+      14.526824951171875,
+      14.25977897644043,
+      15.015125274658203,
+      14.797066688537598,
+      14.804728507995605,
+      14.324959754943848,
+      17.107492446899414,
+      15.092753410339355,
+      16.139448165893555
+    ],
+    "threshold": 0.5,
+    "temperature": 0.6373754678771923,
+    "calibration": {
+      "temperature": 0.6373754678771923,
+      "status": "fitted",
+      "accepted_paths": 25,
+      "class_counts": {
+        "0": 17,
+        "1": 8
+      },
+      "objective": "validation accepted-path mean-probability NLL",
+      "uncalibrated_NLL": 0.5951656756476207,
+      "calibrated_NLL": 0.5871082153392274,
+      "bounds": [
+        0.05,
+        20
+      ]
+    },
+    "threshold_selection": {
+      "threshold": 0.5,
+      "status": "frozen",
+      "BACC": 0.6875,
+      "tie_rule": "closest to 0.5, then smaller",
+      "search": [
+        {
+          "threshold": 0.1,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.11,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.12,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.13,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.14,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.15,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.16,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.17,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.18,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.19,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.2,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.21,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.22,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.23,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.24,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.25,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.26,
+          "BACC": 0.4963235294117647
+        },
+        {
+          "threshold": 0.27,
+          "BACC": 0.5257352941176471
+        },
+        {
+          "threshold": 0.28,
+          "BACC": 0.4632352941176471
+        },
+        {
+          "threshold": 0.29,
+          "BACC": 0.3382352941176471
+        },
+        {
+          "threshold": 0.3,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.31,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.32,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.33,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.34,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.35,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.36,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.37,
+          "BACC": 0.3970588235294118
+        },
+        {
+          "threshold": 0.38,
+          "BACC": 0.5147058823529411
+        },
+        {
+          "threshold": 0.39,
+          "BACC": 0.5441176470588236
+        },
+        {
+          "threshold": 0.4,
+          "BACC": 0.5735294117647058
+        },
+        {
+          "threshold": 0.41,
+          "BACC": 0.6323529411764706
+        },
+        {
+          "threshold": 0.42,
+          "BACC": 0.5992647058823529
+        },
+        {
+          "threshold": 0.43,
+          "BACC": 0.5992647058823529
+        },
+        {
+          "threshold": 0.44,
+          "BACC": 0.6286764705882353
+        },
+        {
+          "threshold": 0.45,
+          "BACC": 0.6286764705882353
+        },
+        {
+          "threshold": 0.46,
+          "BACC": 0.6580882352941176
+        },
+        {
+          "threshold": 0.47,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.48,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.49,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.5,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.51,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.52,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.53,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.54,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.55,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.56,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.57,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.58,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.59,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.6,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.61,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.62,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.63,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.64,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.65,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.66,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.67,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.68,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.69,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.7,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.71,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.72,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.73,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.74,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.75,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.76,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.77,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.78,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.79,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.8,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.81,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.82,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.83,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.84,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.85,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.86,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.87,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.88,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.89,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.9,
+          "BACC": 0.5
+        }
+      ]
+    },
+    "assigned_training_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      11,
+      14,
+      15,
+      16,
+      18,
+      21,
+      23,
+      24
+    ],
+    "normalization_fit_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      11,
+      15,
+      16,
+      18,
+      21,
+      23,
+      24
+    ],
+    "contributing_training_paths": 82,
+    "raw_complete_training_paths": 87,
+    "training_path_keys": [
+      "02:35202",
+      "02:374386",
+      "02:700677",
+      "02:1032981",
+      "02:1378333",
+      "02:1710645",
+      "03:25982",
+      "03:313691",
+      "03:656044",
+      "03:1007259",
+      "03:1327157",
+      "04:104345",
+      "04:423843",
+      "04:805352",
+      "04:1136634",
+      "04:1469286",
+      "04:1825994",
+      "04:2218069",
+      "05:211362",
+      "05:539690",
+      "05:867454",
+      "05:1205113",
+      "05:1545713",
+      "05:1914316",
+      "05:2249398",
+      "05:2593151",
+      "05:2926687",
+      "05:3241786",
+      "06:43992",
+      "06:253566",
+      "06:598036",
+      "06:940294",
+      "06:1245131",
+      "06:1562990",
+      "06:1900936",
+      "07:99560",
+      "07:433167",
+      "10:235458",
+      "10:562662",
+      "10:943058",
+      "10:1284174",
+      "10:1611765",
+      "10:1940935",
+      "11:24641",
+      "11:348144",
+      "11:711167",
+      "14:62651",
+      "14:383956",
+      "14:779255",
+      "14:1120199",
+      "14:1450406",
+      "15:39423",
+      "15:186825",
+      "15:512805",
+      "15:842764",
+      "15:1185444",
+      "15:1574058",
+      "15:1877267",
+      "15:2202491",
+      "15:2533939",
+      "16:15840",
+      "16:365379",
+      "16:708956",
+      "16:1040897",
+      "16:1373309",
+      "18:28393",
+      "18:427043",
+      "18:755231",
+      "18:1085170",
+      "21:21834",
+      "21:315787",
+      "21:653417",
+      "21:990725",
+      "21:1298319",
+      "21:1641296",
+      "21:2010151",
+      "23:26606",
+      "23:364368",
+      "24:82779",
+      "24:406327",
+      "24:772689",
+      "24:1110291",
+      "24:1453495",
+      "24:1799603",
+      "24:2106132",
+      "24:2448344",
+      "24:2793627"
+    ],
+    "validation_path_keys": [
+      "08:55158",
+      "08:357027",
+      "08:689395",
+      "08:1025103",
+      "08:1356782",
+      "08:1686717",
+      "08:2047409",
+      "13:144046",
+      "13:516330",
+      "13:871197",
+      "13:1201205",
+      "13:1541678",
+      "13:1882087",
+      "13:2216236",
+      "13:2544862",
+      "13:2903984",
+      "20:25210",
+      "20:311538",
+      "20:644614",
+      "20:990330",
+      "20:1316637",
+      "20:1649337",
+      "20:1990413",
+      "20:2318774",
+      "20:2624811",
+      "20:2952138",
+      "25:56962",
+      "25:227420",
+      "25:615075",
+      "25:946704",
+      "25:1247555",
+      "25:1641998",
+      "25:1977537",
+      "25:2307885",
+      "25:2647941",
+      "25:2956711"
+    ],
+    "validation_subjects": [
+      8,
+      13,
+      20,
+      25
+    ],
+    "splits": {
+      "train": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        14,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24
+      ],
+      "validation": [
+        8,
+        13,
+        20,
+        25
+      ],
+      "test": [
+        1,
+        9,
+        12,
+        17,
+        19
+      ]
+    },
+    "checkpoint_sha256": "0602b6b0d92c96dd9405a10421cab945fa436b7ca6348162464bf6e912f1ac44",
+    "selected_epoch": 2,
+    "seed": 42,
+    "device": "cuda",
+    "parameter_count": 2866,
+    "training": {
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "maximum_epochs": 20,
+      "patience": 5,
+      "selection": "validation P0 path BACC at raw probability threshold 0.5",
+      "weighting": "equal valid path contribution within class; equal class total"
+    },
+    "validation": {
+      "total_paths": 36,
+      "accepted_paths": 25,
+      "rejected_paths": 11,
+      "path_coverage": 0.6944444444444444,
+      "conditional_on_accepted": true,
+      "threshold": 0.5,
+      "rejection_reasons": {
+        "insufficient": 11
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 17,
+          "rejected": 8,
+          "acceptance_rate": 0.68
+        },
+        "1": {
+          "total": 11,
+          "accepted": 8,
+          "rejected": 3,
+          "acceptance_rate": 0.7272727272727273
+        }
+      },
+      "mean_valid_duration_coverage": 0.7680586315166775,
+      "BACC": 0.6875,
+      "AUROC": 0.5588235294117647,
+      "Macro_F1": 0.7086247086247086,
+      "sensitivity": 0.375,
+      "specificity": 1.0,
+      "confusion_matrix": [
+        [
+          17,
+          0
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "Brier": 0.19902108443458688,
+      "ECE_10_equal_width": 0.30420849519698906,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 1,
+          "mean_probability": 0.15935810736878342,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 7,
+          "mean_probability": 0.27557145321168475,
+          "observed_high_fraction": 0.5714285714285714
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 7,
+          "mean_probability": 0.37622953003115805,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 7,
+          "mean_probability": 0.4274795929024036,
+          "observed_high_fraction": 0.14285714285714285
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 1,
+          "mean_probability": 0.6955539844994324,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 1,
+          "mean_probability": 0.7207709606571837,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 1,
+          "mean_probability": 0.8347844703405799,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "validation_raw_0_5": {
+      "total_paths": 36,
+      "accepted_paths": 25,
+      "rejected_paths": 11,
+      "path_coverage": 0.6944444444444444,
+      "conditional_on_accepted": true,
+      "threshold": 0.5,
+      "rejection_reasons": {
+        "insufficient": 11
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 17,
+          "rejected": 8,
+          "acceptance_rate": 0.68
+        },
+        "1": {
+          "total": 11,
+          "accepted": 8,
+          "rejected": 3,
+          "acceptance_rate": 0.7272727272727273
+        }
+      },
+      "mean_valid_duration_coverage": 0.7680586315166775,
+      "BACC": 0.6875,
+      "AUROC": 0.5588235294117647,
+      "Macro_F1": 0.7086247086247086,
+      "sensitivity": 0.375,
+      "specificity": 1.0,
+      "confusion_matrix": [
+        [
+          17,
+          0
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "Brier": 0.20335986572900505,
+      "ECE_10_equal_width": 0.30796132648823765,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 1,
+          "mean_probability": 0.2368575970375107,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 7,
+          "mean_probability": 0.34444391736496455,
+          "observed_high_fraction": 0.5714285714285714
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 14,
+          "mean_probability": 0.4358126725369477,
+          "observed_high_fraction": 0.07142857142857142
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 1,
+          "mean_probability": 0.6978563034534467,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 1,
+          "mean_probability": 0.7131214147241324,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 1,
+          "mean_probability": 0.8171167106165077,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "training_seconds": 6.5780066,
+    "software": {
+      "torch": "2.7.1+cu128",
+      "numpy": "2.0.2",
+      "onnx": "1.17.0",
+      "onnxruntime": "1.19.2"
+    },
+    "cache_manifest_hash": "91942576ab0244031b2f73cc08d5ffe026172e91eac57bed9a31befaee7c09a3",
+    "window_label_note": "weak path labels; windows are not instantaneous symptom ground truth; temperature is fitted at path level",
+    "evaluation_boundary": "development dataset; not untouched independent testing",
+    "pi_hardware_status": "not_tested",
+    "onnx_sha256": "04a6101777b8cd0e72781e265622e5e7aa41e1a7220f5860a8907fad94dad4ad",
+    "onnx_max_abs_error": 2.980232238769531e-07,
+    "onnx_validation": {
+      "status": "passed",
+      "tolerance": 0.0001,
+      "cases": {
+        "synthetic_normalized": {
+          "windows": 3,
+          "logits_max_abs_error": 1.7881393432617188e-07,
+          "raw_probability_max_abs_error": 5.5571497348250176e-08,
+          "calibrated_probability_max_abs_error": 7.892457210001425e-08
+        },
+        "real_P0_training_normalized": {
+          "windows": 4,
+          "logits_max_abs_error": 2.980232238769531e-07,
+          "raw_probability_max_abs_error": 4.7332603086980285e-08,
+          "calibrated_probability_max_abs_error": 3.49769357366192e-08
+        }
+      }
+    },
+    "sos_coefficients": [
+      [
+        0.9949126991096832,
+        -1.8969125713727113,
+        0.9949126991096836,
+        1.0,
+        -1.8969125713727104,
+        0.9898253982193657
+      ],
+      [
+        0.0002489860723036474,
+        0.0004979721446072948,
+        0.0002489860723036474,
+        1.0,
+        -1.5460267541654473,
+        0.6045715166179431
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.74647088386776,
+        0.8147927115810187
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9942484967801843,
+        0.9942582472115498
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.997682143818496,
+        0.9976916042418777
+      ],
+      [
+        0.0004525091026841172,
+        -4.8304348199301834e-05,
+        0.0004525091026841172,
+        1.0,
+        -0.7870195123877334,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -1.572261212049685,
+        0.6741507687965409
+      ],
+      [
+        1.0,
+        -1.0887521954684318,
+        1.0,
+        1.0,
+        -1.570651556893615,
+        0.7887586308719718
+      ],
+      [
+        1.0,
+        -1.3621779425265914,
+        1.0,
+        1.0,
+        -1.5764709561431014,
+        0.892571175304564
+      ],
+      [
+        1.0,
+        -1.4447860464132583,
+        0.9999999999999997,
+        1.0,
+        -1.5982977796638775,
+        0.9678690053063692
+      ]
+    ],
+    "onnx_file_bytes": 13020,
+    "publication_policy": {
+      "window_seconds": 5,
+      "minimum_valid_windows": 3,
+      "minimum_duration_coverage": 0.8,
+      "aggregation": "mean of valid-window temperature-scaled high probabilities",
+      "class_rule": "high when probability >= frozen threshold"
+    },
+    "actual_subject_splits": {
+      "train": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        14,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24
+      ],
+      "validation": [
+        8,
+        13,
+        20,
+        25
+      ]
+    },
+    "inference_contract_hash": "dda5502f5fcb37cbdb705bebba0f982b36ec1b96efd7bd9ae51f5a7e5076100f"
+  },
+  "eegnet/eog_rls_seed42": {
+    "schema": 2,
+    "model_id": "eegnet",
+    "checkpoint_id": "eog_rls_seed42",
+    "architecture": {
+      "name": "EEGNet",
+      "version": "vrms-eegnet-2",
+      "description": "8 temporal filters, depth multiplier 2, separable convolution; dropout 0.25",
+      "source": "https://doi.org/10.1088/1741-2552/aace8c"
+    },
+    "contract": {
+      "schema_version": 3,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F11",
+        "F7",
+        "F3",
+        "Fz",
+        "F4",
+        "F8",
+        "F12",
+        "FT11",
+        "FC3",
+        "FCz",
+        "FC4",
+        "FT12",
+        "T7",
+        "C3",
+        "Cz",
+        "C4",
+        "T8",
+        "CP3",
+        "CPz",
+        "CP4",
+        "P7",
+        "P3",
+        "Pz",
+        "P4",
+        "P8",
+        "O1",
+        "Oz",
+        "O2"
+      ],
+      "unit": "uV",
+      "reference": "(M1+M2)/2",
+      "input_hz": 1024,
+      "output_hz": 256,
+      "window_samples": 1280,
+      "filter": "notch50Q30; butter4 0.5-45; elliptic AA wp100 ws128 ripple0.1dB stop80dB; causal SOS",
+      "warmup_seconds": 10,
+      "calibration_min_seconds": 10,
+      "calibration_max_seconds": 60,
+      "qc": {
+        "raw_peak_to_peak_uv": 5000,
+        "peak_to_peak_uv": 500,
+        "flat_std_uv": 0.05,
+        "jump_uv": 200,
+        "line_ratio_warning": 0.25,
+        "eog_enter_correlation": 0.4,
+        "eog_exit_correlation": 0.25
+      },
+      "threshold_score": 30,
+      "equality": "high",
+      "classification_profiles": [
+        "P1"
+      ],
+      "window_boundary": "half-open 5120 raw samples; no gap or path mixing",
+      "calibration": "QC-valid arrived pre-task windows initialize VEOG/HEOG RLS; algorithm parameters frozen; predict then update on arrived unlabeled samples including rests; reset to initialization after gaps; unavailable calibration rejects P1 classification",
+      "normalization": "training-only causal-EOG-RLS-cleaned P1 channel mean/std",
+      "eog_cleaning": {
+        "version": "causal-eog-rls-v1",
+        "method": "causal_reference_rls",
+        "adaptive_memory_seconds": 10.0,
+        "predict_before_update": true,
+        "initialize_from_prior_baseline": true,
+        "skip_warmup_and_raw_jumps": true,
+        "raw_jump_guard": "current and three preceding arrived raw samples",
+        "skip_update_above_centered_eeg_uv": 500.0,
+        "ridge_fraction": 0.001,
+        "minimum_eog_std_uv": 0.1,
+        "maximum_condition": 10000.0,
+        "maximum_coefficient": 50.0,
+        "residual_correlation_max": 0.6,
+        "removed_rms_ratio_max": 1.5
+      }
+    },
+    "contract_hash": "e97a4b7ea02b1fbefa08c7d2db16cefc692042a4023cdba071f15c1fb1bd22cf",
+    "allowed_profiles": [
+      "P1"
+    ],
+    "preprocessing_profile": "P1",
+    "initialization": "random; no public or old-project weights",
+    "mean": [
+      0.03379388153553009,
+      0.024776075035333633,
+      0.02376396581530571,
+      0.03032061643898487,
+      0.022670358419418335,
+      0.007825758308172226,
+      0.0229459498077631,
+      0.02083212323486805,
+      0.021301617845892906,
+      0.022836877033114433,
+      -0.014027869328856468,
+      0.008123842999339104,
+      0.004460363648831844,
+      0.016585122793912888,
+      0.00856285821646452,
+      -0.0001232498325407505,
+      -0.020252568647265434,
+      -0.00013227878662291914,
+      0.006113925948739052,
+      -0.012621019035577774,
+      -0.016942955553531647,
+      -0.013800477609038353,
+      -0.007997414097189903,
+      -0.016946665942668915,
+      -0.014608238823711872,
+      -0.017641188576817513,
+      -0.012975412420928478,
+      -0.00041004232480190694,
+      -0.00988626666367054,
+      -0.0022329206112772226
+    ],
+    "std": [
+      19.59984588623047,
+      20.97753143310547,
+      18.46251106262207,
+      14.771265029907227,
+      14.967220306396484,
+      15.935430526733398,
+      15.756861686706543,
+      15.573942184448242,
+      16.6168155670166,
+      15.170701026916504,
+      13.011408805847168,
+      14.986424446105957,
+      14.056316375732422,
+      14.804442405700684,
+      11.943341255187988,
+      13.808000564575195,
+      15.228135108947754,
+      12.87265682220459,
+      11.966201782226562,
+      14.434828758239746,
+      14.73584270477295,
+      13.6725435256958,
+      13.754636764526367,
+      14.534131050109863,
+      14.34748649597168,
+      14.347416877746582,
+      13.557631492614746,
+      16.27848243713379,
+      14.448969841003418,
+      15.623952865600586
+    ],
+    "threshold": 0.49,
+    "temperature": 0.0968783267066614,
+    "calibration": {
+      "temperature": 0.0968783267066614,
+      "status": "fitted",
+      "accepted_paths": 18,
+      "class_counts": {
+        "0": 13,
+        "1": 5
+      },
+      "objective": "validation accepted-path mean-probability NLL",
+      "uncalibrated_NLL": 0.3768140907411987,
+      "calibrated_NLL": 0.2945890428102078,
+      "bounds": [
+        0.05,
+        20
+      ]
+    },
+    "threshold_selection": {
+      "threshold": 0.49,
+      "status": "frozen",
+      "BACC": 0.9615384615384616,
+      "tie_rule": "closest to 0.5, then smaller",
+      "search": [
+        {
+          "threshold": 0.1,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.11,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.12,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.13,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.14,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.15,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.16,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.17,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.18,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.19,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.2,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.21,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.22,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.23,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.24,
+          "BACC": 0.8461538461538461
+        },
+        {
+          "threshold": 0.25,
+          "BACC": 0.8846153846153846
+        },
+        {
+          "threshold": 0.26,
+          "BACC": 0.8846153846153846
+        },
+        {
+          "threshold": 0.27,
+          "BACC": 0.8846153846153846
+        },
+        {
+          "threshold": 0.28,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.29,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.3,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.31,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.32,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.33,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.34,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.35,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.36,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.37,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.38,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.39,
+          "BACC": 0.9230769230769231
+        },
+        {
+          "threshold": 0.4,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.41,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.42,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.43,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.44,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.45,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.46,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.47,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.48,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.49,
+          "BACC": 0.9615384615384616
+        },
+        {
+          "threshold": 0.5,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.51,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.52,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.53,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.54,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.55,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.56,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.57,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.58,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.59,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.6,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.61,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.62,
+          "BACC": 0.8615384615384616
+        },
+        {
+          "threshold": 0.63,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.64,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.65,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.66,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.67,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.68,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.69,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.7,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.71,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.72,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.73,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.74,
+          "BACC": 0.7615384615384615
+        },
+        {
+          "threshold": 0.75,
+          "BACC": 0.6615384615384616
+        },
+        {
+          "threshold": 0.76,
+          "BACC": 0.6615384615384616
+        },
+        {
+          "threshold": 0.77,
+          "BACC": 0.6615384615384616
+        },
+        {
+          "threshold": 0.78,
+          "BACC": 0.6615384615384616
+        },
+        {
+          "threshold": 0.79,
+          "BACC": 0.5615384615384615
+        },
+        {
+          "threshold": 0.8,
+          "BACC": 0.5615384615384615
+        },
+        {
+          "threshold": 0.81,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.82,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.83,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.84,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.85,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.86,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.87,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.88,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.89,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.9,
+          "BACC": 0.5
+        }
+      ]
+    },
+    "assigned_training_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      11,
+      14,
+      15,
+      16,
+      18,
+      21,
+      23,
+      24
+    ],
+    "normalization_fit_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      15,
+      18,
+      21,
+      23,
+      24
+    ],
+    "contributing_training_paths": 73,
+    "raw_complete_training_paths": 87,
+    "training_path_keys": [
+      "02:35202",
+      "02:374386",
+      "02:700677",
+      "02:1032981",
+      "02:1378333",
+      "02:1710645",
+      "03:25982",
+      "03:313691",
+      "03:656044",
+      "03:1007259",
+      "03:1327157",
+      "04:104345",
+      "04:423843",
+      "04:805352",
+      "04:1136634",
+      "04:1469286",
+      "04:1825994",
+      "04:2218069",
+      "05:211362",
+      "05:539690",
+      "05:867454",
+      "05:1205113",
+      "05:1545713",
+      "05:1914316",
+      "05:2249398",
+      "05:2593151",
+      "05:2926687",
+      "05:3241786",
+      "06:43992",
+      "06:253566",
+      "06:598036",
+      "06:940294",
+      "06:1245131",
+      "06:1562990",
+      "06:1900936",
+      "07:99560",
+      "07:433167",
+      "10:235458",
+      "10:562662",
+      "10:943058",
+      "10:1284174",
+      "10:1611765",
+      "10:1940935",
+      "11:24641",
+      "11:348144",
+      "11:711167",
+      "14:62651",
+      "14:383956",
+      "14:779255",
+      "14:1120199",
+      "14:1450406",
+      "15:39423",
+      "15:186825",
+      "15:512805",
+      "15:842764",
+      "15:1185444",
+      "15:1574058",
+      "15:1877267",
+      "15:2202491",
+      "15:2533939",
+      "16:15840",
+      "16:365379",
+      "16:708956",
+      "16:1040897",
+      "16:1373309",
+      "18:28393",
+      "18:427043",
+      "18:755231",
+      "18:1085170",
+      "21:21834",
+      "21:315787",
+      "21:653417",
+      "21:990725",
+      "21:1298319",
+      "21:1641296",
+      "21:2010151",
+      "23:26606",
+      "23:364368",
+      "24:82779",
+      "24:406327",
+      "24:772689",
+      "24:1110291",
+      "24:1453495",
+      "24:1799603",
+      "24:2106132",
+      "24:2448344",
+      "24:2793627"
+    ],
+    "validation_path_keys": [
+      "08:55158",
+      "08:357027",
+      "08:689395",
+      "08:1025103",
+      "08:1356782",
+      "08:1686717",
+      "08:2047409",
+      "13:144046",
+      "13:516330",
+      "13:871197",
+      "13:1201205",
+      "13:1541678",
+      "13:1882087",
+      "13:2216236",
+      "13:2544862",
+      "13:2903984",
+      "20:25210",
+      "20:311538",
+      "20:644614",
+      "20:990330",
+      "20:1316637",
+      "20:1649337",
+      "20:1990413",
+      "20:2318774",
+      "20:2624811",
+      "20:2952138",
+      "25:56962",
+      "25:227420",
+      "25:615075",
+      "25:946704",
+      "25:1247555",
+      "25:1641998",
+      "25:1977537",
+      "25:2307885",
+      "25:2647941",
+      "25:2956711"
+    ],
+    "validation_subjects": [
+      8,
+      13,
+      20,
+      25
+    ],
+    "actual_subject_splits": {
+      "train": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        14,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24
+      ],
+      "validation": [
+        8,
+        13,
+        20,
+        25
+      ]
+    },
+    "checkpoint_sha256": "20ba5db5a6fdb813ee4c5a8a8036d70481e54a7a977283a1442de880b19dc91e",
+    "selected_epoch": 13,
+    "seed": 42,
+    "device": "cuda",
+    "parameter_count": 2866,
+    "training": {
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "maximum_epochs": 20,
+      "patience": 5,
+      "selection": "validation P1 path BACC at raw probability threshold 0.5",
+      "weighting": "equal valid path contribution within class; equal class total"
+    },
+    "validation": {
+      "total_paths": 36,
+      "accepted_paths": 18,
+      "rejected_paths": 18,
+      "path_coverage": 0.5,
+      "conditional_on_accepted": true,
+      "threshold": 0.49,
+      "rejection_reasons": {
+        "insufficient": 18
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 13,
+          "rejected": 12,
+          "acceptance_rate": 0.52
+        },
+        "1": {
+          "total": 11,
+          "accepted": 5,
+          "rejected": 6,
+          "acceptance_rate": 0.45454545454545453
+        }
+      },
+      "mean_valid_duration_coverage": 0.6354196710434921,
+      "BACC": 0.9615384615384616,
+      "AUROC": 0.9230769230769231,
+      "Macro_F1": 0.9345454545454546,
+      "sensitivity": 1.0,
+      "specificity": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          12,
+          1
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "Brier": 0.0879588569119938,
+      "ECE_10_equal_width": 0.1813920649598838,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 9,
+          "mean_probability": 0.03790510716362588,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 2,
+          "mean_probability": 0.2644986266244472,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 1,
+          "mean_probability": 0.39370956410625185,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1,
+          "mean_probability": 0.49881183352324404,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 1,
+          "mean_probability": 0.6273109585452682,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 2,
+          "mean_probability": 0.7637835726268891,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 2,
+          "mean_probability": 0.8274471623862101,
+          "observed_high_fraction": 0.5
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "validation_raw_0_5": {
+      "total_paths": 36,
+      "accepted_paths": 18,
+      "rejected_paths": 18,
+      "path_coverage": 0.5,
+      "conditional_on_accepted": true,
+      "threshold": 0.5,
+      "rejection_reasons": {
+        "insufficient": 18
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 13,
+          "rejected": 12,
+          "acceptance_rate": 0.52
+        },
+        "1": {
+          "total": 11,
+          "accepted": 5,
+          "rejected": 6,
+          "acceptance_rate": 0.45454545454545453
+        }
+      },
+      "mean_valid_duration_coverage": 0.6354196710434921,
+      "BACC": 0.9615384615384616,
+      "AUROC": 0.9230769230769231,
+      "Macro_F1": 0.9345454545454546,
+      "sensitivity": 1.0,
+      "specificity": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          12,
+          1
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "Brier": 0.1071519849352907,
+      "ECE_10_equal_width": 0.26039501423436817,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 1,
+          "mean_probability": 0.07360054823524428,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 5,
+          "mean_probability": 0.1550908879632094,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 4,
+          "mean_probability": 0.2550738151551734,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 2,
+          "mean_probability": 0.4264793106601486,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 1,
+          "mean_probability": 0.5312659648859768,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 1,
+          "mean_probability": 0.6853052345189647,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 2,
+          "mean_probability": 0.7282197862874344,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 2,
+          "mean_probability": 0.8189060791030779,
+          "observed_high_fraction": 0.5
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "training_seconds": 12.542465199999999,
+    "software": {
+      "torch": "2.7.1+cu128",
+      "numpy": "2.0.2",
+      "onnx": "1.17.0",
+      "onnxruntime": "1.19.2"
+    },
+    "cache_manifest_hash": "9c07358a49535252bf81bc55015a6db7b5ada86917c7fb5253a5096be9264fa7",
+    "window_label_note": "weak path labels; windows are not instantaneous symptom ground truth; temperature is fitted at path level",
+    "evaluation_boundary": "development dataset; not untouched independent testing",
+    "pi_hardware_status": "not_tested",
+    "onnx_sha256": "c800c6227d8c38cc9391ba4cd68678599c7653dc76ddac2df455b78031c2e7a8",
+    "onnx_max_abs_error": 1.6689300537109375e-06,
+    "onnx_validation": {
+      "status": "passed",
+      "tolerance": 0.0001,
+      "cases": {
+        "synthetic_normalized": {
+          "windows": 3,
+          "logits_max_abs_error": 1.4603137969970703e-06,
+          "raw_probability_max_abs_error": 2.2984719683094568e-07,
+          "calibrated_probability_max_abs_error": 4.218847493575595e-15
+        },
+        "real_P1_training_normalized": {
+          "windows": 4,
+          "logits_max_abs_error": 1.6689300537109375e-06,
+          "raw_probability_max_abs_error": 7.961482582918844e-08,
+          "calibrated_probability_max_abs_error": 1.3784484071983538e-16
+        }
+      }
+    },
+    "sos_coefficients": [
+      [
+        0.9949126991096832,
+        -1.8969125713727113,
+        0.9949126991096836,
+        1.0,
+        -1.8969125713727104,
+        0.9898253982193657
+      ],
+      [
+        0.0002489860723036474,
+        0.0004979721446072948,
+        0.0002489860723036474,
+        1.0,
+        -1.5460267541654473,
+        0.6045715166179431
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.74647088386776,
+        0.8147927115810187
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9942484967801843,
+        0.9942582472115498
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.997682143818496,
+        0.9976916042418777
+      ],
+      [
+        0.0004525091026841172,
+        -4.8304348199301834e-05,
+        0.0004525091026841172,
+        1.0,
+        -0.7870195123877334,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -1.572261212049685,
+        0.6741507687965409
+      ],
+      [
+        1.0,
+        -1.0887521954684318,
+        1.0,
+        1.0,
+        -1.570651556893615,
+        0.7887586308719718
+      ],
+      [
+        1.0,
+        -1.3621779425265914,
+        1.0,
+        1.0,
+        -1.5764709561431014,
+        0.892571175304564
+      ],
+      [
+        1.0,
+        -1.4447860464132583,
+        0.9999999999999997,
+        1.0,
+        -1.5982977796638775,
+        0.9678690053063692
+      ]
+    ],
+    "onnx_file_bytes": 13020,
+    "publication_policy": {
+      "window_seconds": 5,
+      "minimum_valid_windows": 3,
+      "minimum_duration_coverage": 0.8,
+      "aggregation": "mean of valid-window temperature-scaled high probabilities",
+      "class_rule": "high when probability >= frozen threshold"
+    },
+    "inference_contract_hash": "c98c7b4caf68ef8ad35833a87372008e0eab376f982859018e488e1b0d64e1f0"
+  },
+  "eegconformer/fixed_seed42": {
+    "schema": 2,
+    "model_id": "eegconformer",
+    "checkpoint_id": "fixed_seed42",
+    "architecture": {
+      "name": "EEGConformer",
+      "version": "vrms-conformer-1",
+      "description": "embedding 40; depth 6; heads 10; CNN 30 channels; 79 tokens; head 3160-256-32-2",
+      "source": "https://github.com/eeyhsong/EEG-Conformer",
+      "adaptation": "30-channel spatial convolution and binary head; supervised random initialization; no upstream training or test selection"
+    },
+    "contract": {
+      "schema_version": 2,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F11",
+        "F7",
+        "F3",
+        "Fz",
+        "F4",
+        "F8",
+        "F12",
+        "FT11",
+        "FC3",
+        "FCz",
+        "FC4",
+        "FT12",
+        "T7",
+        "C3",
+        "Cz",
+        "C4",
+        "T8",
+        "CP3",
+        "CPz",
+        "CP4",
+        "P7",
+        "P3",
+        "Pz",
+        "P4",
+        "P8",
+        "O1",
+        "Oz",
+        "O2"
+      ],
+      "unit": "uV",
+      "reference": "(M1+M2)/2",
+      "input_hz": 1024,
+      "output_hz": 256,
+      "window_samples": 1280,
+      "filter": "notch50Q30; butter4 0.5-45; elliptic AA wp100 ws128 ripple0.1dB stop80dB; causal SOS",
+      "warmup_seconds": 10,
+      "calibration_min_seconds": 10,
+      "calibration_max_seconds": 60,
+      "qc": {
+        "raw_peak_to_peak_uv": 5000,
+        "peak_to_peak_uv": 500,
+        "flat_std_uv": 0.05,
+        "jump_uv": 200,
+        "line_ratio_warning": 0.25,
+        "eog_enter_correlation": 0.4,
+        "eog_exit_correlation": 0.25
+      },
+      "threshold_score": 30,
+      "equality": "high",
+      "classification_profiles": [
+        "P0"
+      ],
+      "window_boundary": "half-open 5120 raw samples; no gap or path mixing",
+      "calibration": "first pre-task arrived QC-valid complete windows only; frozen before task; no classifier adaptation",
+      "normalization": "training-only P0 channel mean/std"
+    },
+    "contract_hash": "31ab3d6bfb2b354e23310b1bf51b879b9707629daa24cfb897b244a171f0bba3",
+    "allowed_profiles": [
+      "P0"
+    ],
+    "initialization": "random; no public or old-project weights",
+    "mean": [
+      0.037919625639915466,
+      0.02718712016940117,
+      0.021597813814878464,
+      0.011505300179123878,
+      0.02499552071094513,
+      0.027304716408252716,
+      0.021331723779439926,
+      0.007207237184047699,
+      0.0026937895454466343,
+      0.012816952541470528,
+      0.007161423098295927,
+      0.027790147811174393,
+      0.010446637868881226,
+      0.002023919951170683,
+      0.010177825577557087,
+      0.017992105334997177,
+      0.01614176295697689,
+      0.00015130486281123012,
+      0.006859315559267998,
+      0.011479517444968224,
+      0.008232618682086468,
+      0.0075944578275084496,
+      0.00519631989300251,
+      0.007187467999756336,
+      0.0052468315698206425,
+      0.006018359679728746,
+      -0.00277084787376225,
+      0.0038334219716489315,
+      -0.006961492821574211,
+      -0.0031105177477002144
+    ],
+    "std": [
+      39.13220977783203,
+      42.3564567565918,
+      28.93772315979004,
+      23.513774871826172,
+      24.934534072875977,
+      24.723976135253906,
+      23.42925262451172,
+      25.46795654296875,
+      26.65385627746582,
+      19.928804397583008,
+      17.622684478759766,
+      19.229177474975586,
+      17.556137084960938,
+      18.974899291992188,
+      14.595288276672363,
+      15.929418563842773,
+      16.084768295288086,
+      14.127421379089355,
+      14.182385444641113,
+      14.958029747009277,
+      15.361248970031738,
+      14.526824951171875,
+      14.25977897644043,
+      15.015125274658203,
+      14.797066688537598,
+      14.804728507995605,
+      14.324959754943848,
+      17.107492446899414,
+      15.092753410339355,
+      16.139448165893555
+    ],
+    "threshold": 0.5,
+    "temperature": 0.7982220678534193,
+    "calibration": {
+      "temperature": 0.7982220678534193,
+      "status": "fitted",
+      "accepted_paths": 25,
+      "class_counts": {
+        "0": 17,
+        "1": 8
+      },
+      "objective": "validation accepted-path mean-probability NLL",
+      "uncalibrated_NLL": 0.5841348416407769,
+      "calibrated_NLL": 0.5802437096749036,
+      "bounds": [
+        0.05,
+        20
+      ]
+    },
+    "threshold_selection": {
+      "threshold": 0.5,
+      "status": "frozen",
+      "BACC": 0.6875,
+      "tie_rule": "closest to 0.5, then smaller",
+      "search": [
+        {
+          "threshold": 0.1,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.11,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.12,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.13,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.14,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.15,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.16,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.17,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.18,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.19,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.21,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.22,
+          "BACC": 0.5294117647058824
+        },
+        {
+          "threshold": 0.23,
+          "BACC": 0.4963235294117647
+        },
+        {
+          "threshold": 0.24,
+          "BACC": 0.4963235294117647
+        },
+        {
+          "threshold": 0.25,
+          "BACC": 0.4632352941176471
+        },
+        {
+          "threshold": 0.26,
+          "BACC": 0.36764705882352944
+        },
+        {
+          "threshold": 0.27,
+          "BACC": 0.36397058823529416
+        },
+        {
+          "threshold": 0.28,
+          "BACC": 0.4522058823529412
+        },
+        {
+          "threshold": 0.29,
+          "BACC": 0.48161764705882354
+        },
+        {
+          "threshold": 0.3,
+          "BACC": 0.48161764705882354
+        },
+        {
+          "threshold": 0.31,
+          "BACC": 0.48161764705882354
+        },
+        {
+          "threshold": 0.32,
+          "BACC": 0.5110294117647058
+        },
+        {
+          "threshold": 0.33,
+          "BACC": 0.5698529411764706
+        },
+        {
+          "threshold": 0.34,
+          "BACC": 0.5992647058823529
+        },
+        {
+          "threshold": 0.35,
+          "BACC": 0.5992647058823529
+        },
+        {
+          "threshold": 0.36,
+          "BACC": 0.6580882352941176
+        },
+        {
+          "threshold": 0.37,
+          "BACC": 0.6580882352941176
+        },
+        {
+          "threshold": 0.38,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.39,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.4,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.41,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.42,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.43,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.44,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.45,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.46,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.47,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.48,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.49,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.5,
+          "BACC": 0.6875
+        },
+        {
+          "threshold": 0.51,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.52,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.53,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.54,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.55,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.56,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.57,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.58,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.59,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.6,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.61,
+          "BACC": 0.625
+        },
+        {
+          "threshold": 0.62,
+          "BACC": 0.5625
+        },
+        {
+          "threshold": 0.63,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.64,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.65,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.66,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.67,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.68,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.69,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.7,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.71,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.72,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.73,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.74,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.75,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.76,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.77,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.78,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.79,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.8,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.81,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.82,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.83,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.84,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.85,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.86,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.87,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.88,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.89,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.9,
+          "BACC": 0.5
+        }
+      ]
+    },
+    "assigned_training_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      11,
+      14,
+      15,
+      16,
+      18,
+      21,
+      23,
+      24
+    ],
+    "normalization_fit_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      11,
+      15,
+      16,
+      18,
+      21,
+      23,
+      24
+    ],
+    "contributing_training_paths": 82,
+    "raw_complete_training_paths": 87,
+    "training_path_keys": [
+      "02:35202",
+      "02:374386",
+      "02:700677",
+      "02:1032981",
+      "02:1378333",
+      "02:1710645",
+      "03:25982",
+      "03:313691",
+      "03:656044",
+      "03:1007259",
+      "03:1327157",
+      "04:104345",
+      "04:423843",
+      "04:805352",
+      "04:1136634",
+      "04:1469286",
+      "04:1825994",
+      "04:2218069",
+      "05:211362",
+      "05:539690",
+      "05:867454",
+      "05:1205113",
+      "05:1545713",
+      "05:1914316",
+      "05:2249398",
+      "05:2593151",
+      "05:2926687",
+      "05:3241786",
+      "06:43992",
+      "06:253566",
+      "06:598036",
+      "06:940294",
+      "06:1245131",
+      "06:1562990",
+      "06:1900936",
+      "07:99560",
+      "07:433167",
+      "10:235458",
+      "10:562662",
+      "10:943058",
+      "10:1284174",
+      "10:1611765",
+      "10:1940935",
+      "11:24641",
+      "11:348144",
+      "11:711167",
+      "14:62651",
+      "14:383956",
+      "14:779255",
+      "14:1120199",
+      "14:1450406",
+      "15:39423",
+      "15:186825",
+      "15:512805",
+      "15:842764",
+      "15:1185444",
+      "15:1574058",
+      "15:1877267",
+      "15:2202491",
+      "15:2533939",
+      "16:15840",
+      "16:365379",
+      "16:708956",
+      "16:1040897",
+      "16:1373309",
+      "18:28393",
+      "18:427043",
+      "18:755231",
+      "18:1085170",
+      "21:21834",
+      "21:315787",
+      "21:653417",
+      "21:990725",
+      "21:1298319",
+      "21:1641296",
+      "21:2010151",
+      "23:26606",
+      "23:364368",
+      "24:82779",
+      "24:406327",
+      "24:772689",
+      "24:1110291",
+      "24:1453495",
+      "24:1799603",
+      "24:2106132",
+      "24:2448344",
+      "24:2793627"
+    ],
+    "validation_path_keys": [
+      "08:55158",
+      "08:357027",
+      "08:689395",
+      "08:1025103",
+      "08:1356782",
+      "08:1686717",
+      "08:2047409",
+      "13:144046",
+      "13:516330",
+      "13:871197",
+      "13:1201205",
+      "13:1541678",
+      "13:1882087",
+      "13:2216236",
+      "13:2544862",
+      "13:2903984",
+      "20:25210",
+      "20:311538",
+      "20:644614",
+      "20:990330",
+      "20:1316637",
+      "20:1649337",
+      "20:1990413",
+      "20:2318774",
+      "20:2624811",
+      "20:2952138",
+      "25:56962",
+      "25:227420",
+      "25:615075",
+      "25:946704",
+      "25:1247555",
+      "25:1641998",
+      "25:1977537",
+      "25:2307885",
+      "25:2647941",
+      "25:2956711"
+    ],
+    "validation_subjects": [
+      8,
+      13,
+      20,
+      25
+    ],
+    "splits": {
+      "train": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        14,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24
+      ],
+      "validation": [
+        8,
+        13,
+        20,
+        25
+      ],
+      "test": [
+        1,
+        9,
+        12,
+        17,
+        19
+      ]
+    },
+    "checkpoint_sha256": "c0db1801775d9086ac98e1282983d986c1c529be2d681356697d716484c9a5b8",
+    "selected_epoch": 1,
+    "seed": 42,
+    "device": "cuda",
+    "parameter_count": 986626,
+    "training": {
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "maximum_epochs": 20,
+      "patience": 5,
+      "selection": "validation P0 path BACC at raw probability threshold 0.5",
+      "weighting": "equal valid path contribution within class; equal class total"
+    },
+    "validation": {
+      "total_paths": 36,
+      "accepted_paths": 25,
+      "rejected_paths": 11,
+      "path_coverage": 0.6944444444444444,
+      "conditional_on_accepted": true,
+      "threshold": 0.5,
+      "rejection_reasons": {
+        "insufficient": 11
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 17,
+          "rejected": 8,
+          "acceptance_rate": 0.68
+        },
+        "1": {
+          "total": 11,
+          "accepted": 8,
+          "rejected": 3,
+          "acceptance_rate": 0.7272727272727273
+        }
+      },
+      "mean_valid_duration_coverage": 0.7680586315166775,
+      "BACC": 0.6875,
+      "AUROC": 0.48529411764705876,
+      "Macro_F1": 0.7086247086247086,
+      "sensitivity": 0.375,
+      "specificity": 1.0,
+      "confusion_matrix": [
+        [
+          17,
+          0
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "Brier": 0.19362685574065686,
+      "ECE_10_equal_width": 0.20930257665089888,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 1,
+          "mean_probability": 0.19619990943316676,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 14,
+          "mean_probability": 0.2571989092191696,
+          "observed_high_fraction": 0.35714285714285715
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 7,
+          "mean_probability": 0.33992489233752565,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 1,
+          "mean_probability": 0.5088862048590816,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 2,
+          "mean_probability": 0.6167194027979593,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "validation_raw_0_5": {
+      "total_paths": 36,
+      "accepted_paths": 25,
+      "rejected_paths": 11,
+      "path_coverage": 0.6944444444444444,
+      "conditional_on_accepted": true,
+      "threshold": 0.5,
+      "rejection_reasons": {
+        "insufficient": 11
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 17,
+          "rejected": 8,
+          "acceptance_rate": 0.68
+        },
+        "1": {
+          "total": 11,
+          "accepted": 8,
+          "rejected": 3,
+          "acceptance_rate": 0.7272727272727273
+        }
+      },
+      "mean_valid_duration_coverage": 0.7680586315166775,
+      "BACC": 0.6875,
+      "AUROC": 0.48529411764705876,
+      "Macro_F1": 0.7086247086247086,
+      "sensitivity": 0.375,
+      "specificity": 1.0,
+      "confusion_matrix": [
+        [
+          17,
+          0
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "Brier": 0.1961945644131227,
+      "ECE_10_equal_width": 0.2713106047267325,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 8,
+          "mean_probability": 0.2808729869807193,
+          "observed_high_fraction": 0.5
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 14,
+          "mean_probability": 0.3395476799017015,
+          "observed_high_fraction": 0.07142857142857142
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 1,
+          "mean_probability": 0.5117760037399752,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 2,
+          "mean_probability": 0.6060712504348895,
+          "observed_high_fraction": 1.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "training_seconds": 13.039939400000002,
+    "software": {
+      "torch": "2.7.1+cu128",
+      "numpy": "2.0.2",
+      "onnx": "1.17.0",
+      "onnxruntime": "1.19.2"
+    },
+    "cache_manifest_hash": "91942576ab0244031b2f73cc08d5ffe026172e91eac57bed9a31befaee7c09a3",
+    "window_label_note": "weak path labels; windows are not instantaneous symptom ground truth; temperature is fitted at path level",
+    "evaluation_boundary": "development dataset; not untouched independent testing",
+    "pi_hardware_status": "not_tested",
+    "onnx_sha256": "fe4afd0c66758099937239711327bd74da408955a7becb021e95bbd66bac4606",
+    "onnx_max_abs_error": 4.76837158203125e-07,
+    "onnx_validation": {
+      "status": "passed",
+      "tolerance": 0.0001,
+      "cases": {
+        "synthetic_normalized": {
+          "windows": 3,
+          "logits_max_abs_error": 4.76837158203125e-07,
+          "raw_probability_max_abs_error": 8.781724353257303e-08,
+          "calibrated_probability_max_abs_error": 9.22145912685135e-08
+        },
+        "real_P0_training_normalized": {
+          "windows": 4,
+          "logits_max_abs_error": 2.384185791015625e-07,
+          "raw_probability_max_abs_error": 6.167823912717196e-08,
+          "calibrated_probability_max_abs_error": 6.973384941710847e-08
+        }
+      }
+    },
+    "sos_coefficients": [
+      [
+        0.9949126991096832,
+        -1.8969125713727113,
+        0.9949126991096836,
+        1.0,
+        -1.8969125713727104,
+        0.9898253982193657
+      ],
+      [
+        0.0002489860723036474,
+        0.0004979721446072948,
+        0.0002489860723036474,
+        1.0,
+        -1.5460267541654473,
+        0.6045715166179431
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.74647088386776,
+        0.8147927115810187
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9942484967801843,
+        0.9942582472115498
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.997682143818496,
+        0.9976916042418777
+      ],
+      [
+        0.0004525091026841172,
+        -4.8304348199301834e-05,
+        0.0004525091026841172,
+        1.0,
+        -0.7870195123877334,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -1.572261212049685,
+        0.6741507687965409
+      ],
+      [
+        1.0,
+        -1.0887521954684318,
+        1.0,
+        1.0,
+        -1.570651556893615,
+        0.7887586308719718
+      ],
+      [
+        1.0,
+        -1.3621779425265914,
+        1.0,
+        1.0,
+        -1.5764709561431014,
+        0.892571175304564
+      ],
+      [
+        1.0,
+        -1.4447860464132583,
+        0.9999999999999997,
+        1.0,
+        -1.5982977796638775,
+        0.9678690053063692
+      ]
+    ],
+    "onnx_file_bytes": 4017376,
+    "publication_policy": {
+      "window_seconds": 5,
+      "minimum_valid_windows": 3,
+      "minimum_duration_coverage": 0.8,
+      "aggregation": "mean of valid-window temperature-scaled high probabilities",
+      "class_rule": "high when probability >= frozen threshold"
+    },
+    "actual_subject_splits": {
+      "train": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        14,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24
+      ],
+      "validation": [
+        8,
+        13,
+        20,
+        25
+      ]
+    },
+    "inference_contract_hash": "45660e91b7b4ad7afdd8240c9edc40eded8f649383998a10201a150c60f5c235"
+  },
+  "eegconformer/eog_rls_seed42": {
+    "schema": 2,
+    "model_id": "eegconformer",
+    "checkpoint_id": "eog_rls_seed42",
+    "architecture": {
+      "name": "EEGConformer",
+      "version": "vrms-conformer-1",
+      "description": "embedding 40; depth 6; heads 10; CNN 30 channels; 79 tokens; head 3160-256-32-2",
+      "source": "https://github.com/eeyhsong/EEG-Conformer",
+      "adaptation": "30-channel spatial convolution and binary head; supervised random initialization; no upstream training or test selection"
+    },
+    "contract": {
+      "schema_version": 3,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F11",
+        "F7",
+        "F3",
+        "Fz",
+        "F4",
+        "F8",
+        "F12",
+        "FT11",
+        "FC3",
+        "FCz",
+        "FC4",
+        "FT12",
+        "T7",
+        "C3",
+        "Cz",
+        "C4",
+        "T8",
+        "CP3",
+        "CPz",
+        "CP4",
+        "P7",
+        "P3",
+        "Pz",
+        "P4",
+        "P8",
+        "O1",
+        "Oz",
+        "O2"
+      ],
+      "unit": "uV",
+      "reference": "(M1+M2)/2",
+      "input_hz": 1024,
+      "output_hz": 256,
+      "window_samples": 1280,
+      "filter": "notch50Q30; butter4 0.5-45; elliptic AA wp100 ws128 ripple0.1dB stop80dB; causal SOS",
+      "warmup_seconds": 10,
+      "calibration_min_seconds": 10,
+      "calibration_max_seconds": 60,
+      "qc": {
+        "raw_peak_to_peak_uv": 5000,
+        "peak_to_peak_uv": 500,
+        "flat_std_uv": 0.05,
+        "jump_uv": 200,
+        "line_ratio_warning": 0.25,
+        "eog_enter_correlation": 0.4,
+        "eog_exit_correlation": 0.25
+      },
+      "threshold_score": 30,
+      "equality": "high",
+      "classification_profiles": [
+        "P1"
+      ],
+      "window_boundary": "half-open 5120 raw samples; no gap or path mixing",
+      "calibration": "QC-valid arrived pre-task windows initialize VEOG/HEOG RLS; algorithm parameters frozen; predict then update on arrived unlabeled samples including rests; reset to initialization after gaps; unavailable calibration rejects P1 classification",
+      "normalization": "training-only causal-EOG-RLS-cleaned P1 channel mean/std",
+      "eog_cleaning": {
+        "version": "causal-eog-rls-v1",
+        "method": "causal_reference_rls",
+        "adaptive_memory_seconds": 10.0,
+        "predict_before_update": true,
+        "initialize_from_prior_baseline": true,
+        "skip_warmup_and_raw_jumps": true,
+        "raw_jump_guard": "current and three preceding arrived raw samples",
+        "skip_update_above_centered_eeg_uv": 500.0,
+        "ridge_fraction": 0.001,
+        "minimum_eog_std_uv": 0.1,
+        "maximum_condition": 10000.0,
+        "maximum_coefficient": 50.0,
+        "residual_correlation_max": 0.6,
+        "removed_rms_ratio_max": 1.5
+      }
+    },
+    "contract_hash": "e97a4b7ea02b1fbefa08c7d2db16cefc692042a4023cdba071f15c1fb1bd22cf",
+    "allowed_profiles": [
+      "P1"
+    ],
+    "preprocessing_profile": "P1",
+    "initialization": "random; no public or old-project weights",
+    "mean": [
+      0.03379388153553009,
+      0.024776075035333633,
+      0.02376396581530571,
+      0.03032061643898487,
+      0.022670358419418335,
+      0.007825758308172226,
+      0.0229459498077631,
+      0.02083212323486805,
+      0.021301617845892906,
+      0.022836877033114433,
+      -0.014027869328856468,
+      0.008123842999339104,
+      0.004460363648831844,
+      0.016585122793912888,
+      0.00856285821646452,
+      -0.0001232498325407505,
+      -0.020252568647265434,
+      -0.00013227878662291914,
+      0.006113925948739052,
+      -0.012621019035577774,
+      -0.016942955553531647,
+      -0.013800477609038353,
+      -0.007997414097189903,
+      -0.016946665942668915,
+      -0.014608238823711872,
+      -0.017641188576817513,
+      -0.012975412420928478,
+      -0.00041004232480190694,
+      -0.00988626666367054,
+      -0.0022329206112772226
+    ],
+    "std": [
+      19.59984588623047,
+      20.97753143310547,
+      18.46251106262207,
+      14.771265029907227,
+      14.967220306396484,
+      15.935430526733398,
+      15.756861686706543,
+      15.573942184448242,
+      16.6168155670166,
+      15.170701026916504,
+      13.011408805847168,
+      14.986424446105957,
+      14.056316375732422,
+      14.804442405700684,
+      11.943341255187988,
+      13.808000564575195,
+      15.228135108947754,
+      12.87265682220459,
+      11.966201782226562,
+      14.434828758239746,
+      14.73584270477295,
+      13.6725435256958,
+      13.754636764526367,
+      14.534131050109863,
+      14.34748649597168,
+      14.347416877746582,
+      13.557631492614746,
+      16.27848243713379,
+      14.448969841003418,
+      15.623952865600586
+    ],
+    "threshold": 0.29,
+    "temperature": 2.4799642814039466,
+    "calibration": {
+      "temperature": 2.4799642814039466,
+      "status": "fitted",
+      "accepted_paths": 18,
+      "class_counts": {
+        "0": 13,
+        "1": 5
+      },
+      "objective": "validation accepted-path mean-probability NLL",
+      "uncalibrated_NLL": 0.7399038600623035,
+      "calibrated_NLL": 0.603359188330607,
+      "bounds": [
+        0.05,
+        20
+      ]
+    },
+    "threshold_selection": {
+      "threshold": 0.29,
+      "status": "frozen",
+      "BACC": 0.5076923076923077,
+      "tie_rule": "closest to 0.5, then smaller",
+      "search": [
+        {
+          "threshold": 0.1,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.11,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.12,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.13,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.14,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.15,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.16,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.17,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.18,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.19,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.21,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.22,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.23,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.24,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.25,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.26,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.27,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.28,
+          "BACC": 0.2
+        },
+        {
+          "threshold": 0.29,
+          "BACC": 0.5076923076923077
+        },
+        {
+          "threshold": 0.3,
+          "BACC": 0.38461538461538464
+        },
+        {
+          "threshold": 0.31,
+          "BACC": 0.38461538461538464
+        },
+        {
+          "threshold": 0.32,
+          "BACC": 0.4230769230769231
+        },
+        {
+          "threshold": 0.33,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.34,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.35,
+          "BACC": 0.46153846153846156
+        },
+        {
+          "threshold": 0.36,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.37,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.38,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.39,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.4,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.41,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.42,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.43,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.44,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.45,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.46,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.47,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.48,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.49,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.5,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.51,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.52,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.53,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.54,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.55,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.56,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.57,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.58,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.59,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.6,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.61,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.62,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.63,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.64,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.65,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.66,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.67,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.68,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.69,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.7,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.71,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.72,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.73,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.74,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.75,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.76,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.77,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.78,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.79,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.8,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.81,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.82,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.83,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.84,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.85,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.86,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.87,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.88,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.89,
+          "BACC": 0.5
+        },
+        {
+          "threshold": 0.9,
+          "BACC": 0.5
+        }
+      ]
+    },
+    "assigned_training_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      11,
+      14,
+      15,
+      16,
+      18,
+      21,
+      23,
+      24
+    ],
+    "normalization_fit_subjects": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10,
+      15,
+      18,
+      21,
+      23,
+      24
+    ],
+    "contributing_training_paths": 73,
+    "raw_complete_training_paths": 87,
+    "training_path_keys": [
+      "02:35202",
+      "02:374386",
+      "02:700677",
+      "02:1032981",
+      "02:1378333",
+      "02:1710645",
+      "03:25982",
+      "03:313691",
+      "03:656044",
+      "03:1007259",
+      "03:1327157",
+      "04:104345",
+      "04:423843",
+      "04:805352",
+      "04:1136634",
+      "04:1469286",
+      "04:1825994",
+      "04:2218069",
+      "05:211362",
+      "05:539690",
+      "05:867454",
+      "05:1205113",
+      "05:1545713",
+      "05:1914316",
+      "05:2249398",
+      "05:2593151",
+      "05:2926687",
+      "05:3241786",
+      "06:43992",
+      "06:253566",
+      "06:598036",
+      "06:940294",
+      "06:1245131",
+      "06:1562990",
+      "06:1900936",
+      "07:99560",
+      "07:433167",
+      "10:235458",
+      "10:562662",
+      "10:943058",
+      "10:1284174",
+      "10:1611765",
+      "10:1940935",
+      "11:24641",
+      "11:348144",
+      "11:711167",
+      "14:62651",
+      "14:383956",
+      "14:779255",
+      "14:1120199",
+      "14:1450406",
+      "15:39423",
+      "15:186825",
+      "15:512805",
+      "15:842764",
+      "15:1185444",
+      "15:1574058",
+      "15:1877267",
+      "15:2202491",
+      "15:2533939",
+      "16:15840",
+      "16:365379",
+      "16:708956",
+      "16:1040897",
+      "16:1373309",
+      "18:28393",
+      "18:427043",
+      "18:755231",
+      "18:1085170",
+      "21:21834",
+      "21:315787",
+      "21:653417",
+      "21:990725",
+      "21:1298319",
+      "21:1641296",
+      "21:2010151",
+      "23:26606",
+      "23:364368",
+      "24:82779",
+      "24:406327",
+      "24:772689",
+      "24:1110291",
+      "24:1453495",
+      "24:1799603",
+      "24:2106132",
+      "24:2448344",
+      "24:2793627"
+    ],
+    "validation_path_keys": [
+      "08:55158",
+      "08:357027",
+      "08:689395",
+      "08:1025103",
+      "08:1356782",
+      "08:1686717",
+      "08:2047409",
+      "13:144046",
+      "13:516330",
+      "13:871197",
+      "13:1201205",
+      "13:1541678",
+      "13:1882087",
+      "13:2216236",
+      "13:2544862",
+      "13:2903984",
+      "20:25210",
+      "20:311538",
+      "20:644614",
+      "20:990330",
+      "20:1316637",
+      "20:1649337",
+      "20:1990413",
+      "20:2318774",
+      "20:2624811",
+      "20:2952138",
+      "25:56962",
+      "25:227420",
+      "25:615075",
+      "25:946704",
+      "25:1247555",
+      "25:1641998",
+      "25:1977537",
+      "25:2307885",
+      "25:2647941",
+      "25:2956711"
+    ],
+    "validation_subjects": [
+      8,
+      13,
+      20,
+      25
+    ],
+    "actual_subject_splits": {
+      "train": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        14,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24
+      ],
+      "validation": [
+        8,
+        13,
+        20,
+        25
+      ]
+    },
+    "checkpoint_sha256": "54fd386c6d08e202ed69791c9eabaca09c36e4bd53ae1b241d30a53b0157b54c",
+    "selected_epoch": 1,
+    "seed": 42,
+    "device": "cuda",
+    "parameter_count": 986626,
+    "training": {
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "maximum_epochs": 20,
+      "patience": 5,
+      "selection": "validation P1 path BACC at raw probability threshold 0.5",
+      "weighting": "equal valid path contribution within class; equal class total"
+    },
+    "validation": {
+      "total_paths": 36,
+      "accepted_paths": 18,
+      "rejected_paths": 18,
+      "path_coverage": 0.5,
+      "conditional_on_accepted": true,
+      "threshold": 0.29,
+      "rejection_reasons": {
+        "insufficient": 18
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 13,
+          "rejected": 12,
+          "acceptance_rate": 0.52
+        },
+        "1": {
+          "total": 11,
+          "accepted": 5,
+          "rejected": 6,
+          "acceptance_rate": 0.45454545454545453
+        }
+      },
+      "mean_valid_duration_coverage": 0.6354196710434921,
+      "BACC": 0.5076923076923077,
+      "AUROC": 0.2923076923076923,
+      "Macro_F1": 0.5,
+      "sensitivity": 0.4,
+      "specificity": 0.6153846153846154,
+      "confusion_matrix": [
+        [
+          8,
+          5
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "Brier": 0.20591333046618424,
+      "ECE_10_equal_width": 0.09481759819107544,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 15,
+          "mean_probability": 0.2854526792729523,
+          "observed_high_fraction": 0.3333333333333333
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 3,
+          "mean_probability": 0.32950231884454767,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "validation_raw_0_5": {
+      "total_paths": 36,
+      "accepted_paths": 18,
+      "rejected_paths": 18,
+      "path_coverage": 0.5,
+      "conditional_on_accepted": true,
+      "threshold": 0.5,
+      "rejection_reasons": {
+        "insufficient": 18
+      },
+      "class_acceptance": {
+        "0": {
+          "total": 25,
+          "accepted": 13,
+          "rejected": 12,
+          "acceptance_rate": 0.52
+        },
+        "1": {
+          "total": 11,
+          "accepted": 5,
+          "rejected": 6,
+          "acceptance_rate": 0.45454545454545453
+        }
+      },
+      "mean_valid_duration_coverage": 0.6354196710434921,
+      "BACC": 0.5,
+      "AUROC": 0.3076923076923077,
+      "Macro_F1": 0.41935483870967744,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "confusion_matrix": [
+        [
+          13,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "Brier": 0.236999187080323,
+      "ECE_10_equal_width": 0.1936573584224701,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 11,
+          "mean_probability": 0.09108533687733454,
+          "observed_high_fraction": 0.2727272727272727
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 6,
+          "mean_probability": 0.11975851961117741,
+          "observed_high_fraction": 0.3333333333333333
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 1,
+          "mean_probability": 0.20632227492220642,
+          "observed_high_fraction": 0.0
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_high_fraction": null
+        }
+      ]
+    },
+    "training_seconds": 10.845860799999997,
+    "software": {
+      "torch": "2.7.1+cu128",
+      "numpy": "2.0.2",
+      "onnx": "1.17.0",
+      "onnxruntime": "1.19.2"
+    },
+    "cache_manifest_hash": "9c07358a49535252bf81bc55015a6db7b5ada86917c7fb5253a5096be9264fa7",
+    "window_label_note": "weak path labels; windows are not instantaneous symptom ground truth; temperature is fitted at path level",
+    "evaluation_boundary": "development dataset; not untouched independent testing",
+    "pi_hardware_status": "not_tested",
+    "onnx_sha256": "66b2f07f05b511c404a7a502c1433ad4f0bd0949314a6adcd6f7d7c3490df44e",
+    "onnx_max_abs_error": 4.76837158203125e-07,
+    "onnx_validation": {
+      "status": "passed",
+      "tolerance": 0.0001,
+      "cases": {
+        "synthetic_normalized": {
+          "windows": 3,
+          "logits_max_abs_error": 4.76837158203125e-07,
+          "raw_probability_max_abs_error": 1.7011966391144995e-08,
+          "calibrated_probability_max_abs_error": 1.8904780185735603e-08
+        },
+        "real_P1_training_normalized": {
+          "windows": 4,
+          "logits_max_abs_error": 4.76837158203125e-07,
+          "raw_probability_max_abs_error": 6.990465914458177e-08,
+          "calibrated_probability_max_abs_error": 6.850793610180261e-08
+        }
+      }
+    },
+    "sos_coefficients": [
+      [
+        0.9949126991096832,
+        -1.8969125713727113,
+        0.9949126991096836,
+        1.0,
+        -1.8969125713727104,
+        0.9898253982193657
+      ],
+      [
+        0.0002489860723036474,
+        0.0004979721446072948,
+        0.0002489860723036474,
+        1.0,
+        -1.5460267541654473,
+        0.6045715166179431
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.74647088386776,
+        0.8147927115810187
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9942484967801843,
+        0.9942582472115498
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.997682143818496,
+        0.9976916042418777
+      ],
+      [
+        0.0004525091026841172,
+        -4.8304348199301834e-05,
+        0.0004525091026841172,
+        1.0,
+        -0.7870195123877334,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -1.572261212049685,
+        0.6741507687965409
+      ],
+      [
+        1.0,
+        -1.0887521954684318,
+        1.0,
+        1.0,
+        -1.570651556893615,
+        0.7887586308719718
+      ],
+      [
+        1.0,
+        -1.3621779425265914,
+        1.0,
+        1.0,
+        -1.5764709561431014,
+        0.892571175304564
+      ],
+      [
+        1.0,
+        -1.4447860464132583,
+        0.9999999999999997,
+        1.0,
+        -1.5982977796638775,
+        0.9678690053063692
+      ]
+    ],
+    "onnx_file_bytes": 4017376,
+    "publication_policy": {
+      "window_seconds": 5,
+      "minimum_valid_windows": 3,
+      "minimum_duration_coverage": 0.8,
+      "aggregation": "mean of valid-window temperature-scaled high probabilities",
+      "class_rule": "high when probability >= frozen threshold"
+    },
+    "inference_contract_hash": "d421dcdbd122234396d7e6705584120e6d424c8a44724df10796180ad7bc9219"
+  }
+}

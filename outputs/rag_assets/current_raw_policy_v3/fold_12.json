@@ -1,0 +1,2229 @@
+{
+  "bank": {
+    "schema": "raw_policy_current_raw_v3",
+    "outer_subject": 12,
+    "split": {
+      "outer_subject": 12,
+      "selection_attempt": 0,
+      "head_fit": [
+        10,
+        14,
+        19
+      ],
+      "probability_calibration": [
+        1,
+        6
+      ],
+      "base_train": [
+        9,
+        11,
+        2,
+        15,
+        23,
+        20,
+        5,
+        16,
+        3,
+        21,
+        25,
+        8,
+        18,
+        13
+      ],
+      "meta_calibration": [
+        10,
+        14,
+        19,
+        1,
+        6
+      ],
+      "policy_validation": [
+        24,
+        4,
+        17,
+        7
+      ],
+      "outer_test": [
+        12
+      ]
+    },
+    "cases": [
+      {
+        "reference_index": 16,
+        "reference_subject": 4,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.0007022041827440262,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.9192809208593897,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5567145235285064
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": -0.21433768455323265,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.526234671465011
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.6728036670605348,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4364246057715763
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.9603176338364332,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.43766503883859426
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -1.9207384227708184,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -2.577661133020368,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5506381492708217
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.7723024463377348,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.43613585656112996
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -11.512915464920228,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.30082428952289614
+          }
+        ],
+        "retrieval_vector": [
+          -7.260583886776326,
+          -0.9192809208593897,
+          -0.21433768455323265,
+          -0.6728036670605348,
+          -1.9603176338364332,
+          -1.9207384227708184,
+          -2.577661133020368,
+          -0.7723024463377348,
+          -11.512915464920228
+        ],
+        "current_raw_windows_sha256": "e4dcb6d1352d4cd60976829ac618e1b43ebb85056f698f92cc920d07aa3a5ebf",
+        "fresh_encoded_windows": 24
+      },
+      {
+        "reference_index": 17,
+        "reference_subject": 4,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.0003491101088002324,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.8753599050503118,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5598957579139227
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": -0.27342546926786937,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5086197639894976
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.5507587659874633,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4610533185214122
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.7617486328275678,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.45161813965433595
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -1.5406367608199527,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -3.900420188341714,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.49825093708657364
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.6254053675088226,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.47092583719377096
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          -7.959774016464017,
+          -0.8753599050503118,
+          -0.27342546926786937,
+          -0.5507587659874633,
+          -1.7617486328275678,
+          -1.5406367608199527,
+          -3.900420188341714,
+          -0.6254053675088226,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "280fc29ee15d9deae13c4b9bb99871a173fdbe80bb67e69212301678bafec746",
+        "fresh_encoded_windows": 36
+      },
+      {
+        "reference_index": 18,
+        "reference_subject": 4,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.00333462399430573,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.7262675553369711,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5706564980672154
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": -0.2535705375902605,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.514543367754318
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.4237964896343511,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4868759944569843
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.714069662492238,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4549806656689375
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -1.8884725766697934,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -1.919931625504822,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.57634624740174
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.7318223106869315,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4456750161712823
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -5.700055155062479,
+          -0.7262675553369711,
+          -0.2535705375902605,
+          -0.4237964896343511,
+          -1.714069662492238,
+          -1.8884725766697934,
+          -1.919931625504822,
+          -0.7318223106869315,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "9a4fca815345b100b2a0ab3582a733387a1427b0ca3948e77875addadfb305ac",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 19,
+        "reference_subject": 4,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.0026574842631816864,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.8106571375701395,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5645732100490145
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": -0.32876669887981536,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4921014831415299
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.5061804297592019,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.47010339132869583
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.2329731808489781,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.48908786818994593
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.6057574564399067,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -2.575907879274494,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5507071013711734
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.6454500626731845,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4661542275835386
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -5.927714347785391,
+          -0.8106571375701395,
+          -0.32876669887981536,
+          -0.5061804297592019,
+          -1.2329731808489781,
+          -0.6057574564399067,
+          -2.575907879274494,
+          -0.6454500626731845,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "28fbce7dd36458ce650e6b65aad5ef89d9ed03c3f4063266dc34544f3e934a28",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 20,
+        "reference_subject": 4,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.0003187510883435607,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.799828531967691,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5653549265587878
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": -0.31087834399042613,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4974406629264855
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.461626234089479,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4791682505672057
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.7294146280520413,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4538980096202186
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -2.058676123384075,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -2.7415295605231442,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5441852819219587
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.7073440709189467,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4514632635329134
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -8.050781245186027,
+          -0.799828531967691,
+          -0.31087834399042613,
+          -0.461626234089479,
+          -1.7294146280520413,
+          -2.058676123384075,
+          -2.7415295605231442,
+          -0.7073440709189467,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "d2f2585f34425a90a900859ba68a270761b38a047bb3ef59a6c7caed0754a070",
+        "fresh_encoded_windows": 31
+      },
+      {
+        "reference_index": 21,
+        "reference_subject": 4,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.011695136316120625,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.5546218876385061,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5829622303183113
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": -0.11097643361936727,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5568658271384024
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.3575371540601233,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5003890550864195
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.3454214902704473,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.48109499059496624
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.626553558501039,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -0.4860973669377851,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6308098440341189
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.6520696920407619,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.46457975101809285
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          -4.4368181607328205,
+          -0.5546218876385061,
+          -0.11097643361936727,
+          -0.3575371540601233,
+          -1.3454214902704473,
+          -0.626553558501039,
+          -0.4860973669377851,
+          -0.6520696920407619,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "468c2951a24fb4589c4bf3ba0864684344fb3306af2d899d9adceaa3dd6ff900",
+        "fresh_encoded_windows": 38
+      },
+      {
+        "reference_index": 22,
+        "reference_subject": 4,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.00654491176828742,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.5874242361388842,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5806180255398464
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": -0.3087843742842157,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.49806571664029764
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.4096729419546583,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.48975544029636925
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.334436523830275,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4818754468135107
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.4013592820471231,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -4.598876987385155,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4705311016358785
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.7334194427907986,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.44529784453463184
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          -5.022500936875495,
+          -0.5874242361388842,
+          -0.3087843742842157,
+          -0.4096729419546583,
+          -1.334436523830275,
+          -0.4013592820471231,
+          -4.598876987385155,
+          -0.7334194427907986,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "0fbca8054c2fa081fe2580309fe73433e77d5cfc6dac87a07c3fc5d96a1c3f37",
+        "fresh_encoded_windows": 19
+      },
+      {
+        "reference_index": 40,
+        "reference_subject": 7,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.16807767748832703,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.5549595613899558,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6594512797279315
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.7317443318845771,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7746378244127116
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.42835700804356314,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6553876087984337
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.038928107820021124,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.57891072134364
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.3342158437559094,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 7.305423702326831,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.85496860084284
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.8043677775249323,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7773717215303815
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -11.512915464920228,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.30082428952289614
+          }
+        ],
+        "retrieval_vector": [
+          -1.599312835549911,
+          0.5549595613899558,
+          0.7317443318845771,
+          0.42835700804356314,
+          0.038928107820021124,
+          0.3342158437559094,
+          7.305423702326831,
+          0.8043677775249323,
+          -11.512915464920228
+        ],
+        "current_raw_windows_sha256": "c4f5f34afb4420539bcafcd389faea17d93d37f7961628268c4d6f39ab8d8956",
+        "fresh_encoded_windows": 24
+      },
+      {
+        "reference_index": 41,
+        "reference_subject": 7,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9930322170257568,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.5078446490431817,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6563366698521251
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.55701866960548,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7361511153801277
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.1820885315917431,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.608703044678319
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.17499567214229103,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5883202329998939
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.2555594119372645,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 1.4684896787810178,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6998038723504596
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.2651417331405027,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6758845730730902
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -11.512915464920228,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.30082428952289614
+          }
+        ],
+        "retrieval_vector": [
+          4.959466014649963,
+          0.5078446490431817,
+          0.55701866960548,
+          0.1820885315917431,
+          0.17499567214229103,
+          0.2555594119372645,
+          1.4684896787810178,
+          0.2651417331405027,
+          -11.512915464920228
+        ],
+        "current_raw_windows_sha256": "0e40a6fa56ae8a06c649941e83b23d4a03d6da5f647fc6b34b9b11ca697587ec",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 93,
+        "reference_subject": 17,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.9001861810684204,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.22781214635366043,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6060970546929975
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 1.060430546076709,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8357786364611376
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.08599969201241064,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5898777684310991
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.06250819385066766,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5805456749105312
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.2379935187568929,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 2.8622860005179205,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7441974989990462
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 1.6372787912157853,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8856103510457314
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          2.1992949698037627,
+          -0.22781214635366043,
+          1.060430546076709,
+          0.08599969201241064,
+          0.06250819385066766,
+          0.2379935187568929,
+          2.8622860005179205,
+          1.6372787912157853,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "597d352256ec7c16d32fba125507d1fa9bf44eb866c07812914e1885d5643ba4",
+        "fresh_encoded_windows": 34
+      },
+      {
+        "reference_index": 94,
+        "reference_subject": 17,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.5680107474327087,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.24144597178240668,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6051406008996646
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 1.1813279023530976,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8546445759484428
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.1210658790842496,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5967814773426782
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -0.21980244234475707,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.560865064826004
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.6649987794095445,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 4.317664699596979,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7857046380600728
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 1.40630892912878,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8612680961269339
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          0.27373963046041594,
+          -0.24144597178240668,
+          1.1813279023530976,
+          0.1210658790842496,
+          -0.21980244234475707,
+          0.6649987794095445,
+          4.317664699596979,
+          1.40630892912878,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "6708b0203e234300989f30baac16a6c2d1ffe21153607ce68d96db5895c4c7bf",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 95,
+        "reference_subject": 17,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.7312198877334595,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.11806104641462967,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6137662691500411
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 1.1645380099797076,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8521363619799592
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.280074685609384,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6275722138270132
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.12677305189735644,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5849924899205415
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.4670063833574304,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 2.9345914098082906,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7463791649423082
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 1.3164591456650512,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8506829212244553
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          1.0008205997220925,
+          -0.11806104641462967,
+          1.1645380099797076,
+          0.280074685609384,
+          0.12677305189735644,
+          0.4670063833574304,
+          2.9345914098082906,
+          1.3164591456650512,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "4de709e73d934be02404417537f23a05a1ffc4127f70bd7fbdb06142ee4b17ae",
+        "fresh_encoded_windows": 25
+      },
+      {
+        "reference_index": 96,
+        "reference_subject": 17,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9919277429580688,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.32934993841348337,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6444162901128448
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 1.2635696377095211,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8664239032875631
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.4327192897104476,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6561910715762651
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.8762917398172309,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6356657409903222
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 1.2500112186178898,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 5.410308594738056,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.813497128821367
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 1.1985296763282598,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8357896099560298
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          4.8112171386790505,
+          0.32934993841348337,
+          1.2635696377095211,
+          0.4327192897104476,
+          0.8762917398172309,
+          1.2500112186178898,
+          5.410308594738056,
+          1.1985296763282598,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "0dfd549b337d7a227de3472c074722d5bad0b38921b9f360b5525f703e0c35f2",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 97,
+        "reference_subject": 17,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.05508715286850929,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.25760671105568544,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6040058334595194
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.9765851983308285,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8215720135700095
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.05244137944862315,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5622993456610309
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -0.3613315136516867,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5509221221385086
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 1.2634590300902742,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 3.804864511763466,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7716618433613834
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.9289794428149294,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7973061768525339
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -2.842176169291404,
+          -0.25760671105568544,
+          0.9765851983308285,
+          -0.05244137944862315,
+          -0.3613315136516867,
+          1.2634590300902742,
+          3.804864511763466,
+          0.9289794428149294,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "7d3fb9055091ca3b6e1309f944b7f55861840f860689b91a7928e019d4b64ee5",
+        "fresh_encoded_windows": 25
+      },
+      {
+        "reference_index": 98,
+        "reference_subject": 17,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.559621274471283,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.18390195303716117,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6091719317996007
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 1.0423913283360076,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8328008749958
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.21204535907261113,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6145093158867236
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.020564771988265597,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5776362757693118
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.41846475164569774,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 2.5979144905896288,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7361164286039849
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.8990075443689441,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7926361764134029
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          0.23962516282498536,
+          -0.18390195303716117,
+          1.0423913283360076,
+          0.21204535907261113,
+          0.020564771988265597,
+          0.41846475164569774,
+          2.5979144905896288,
+          0.8990075443689441,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "fdf33fa1706f54fdec1c61dbd3b183cc6633aec218f960f2c67136d8044250b5",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 99,
+        "reference_subject": 17,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9649379253387451,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.08385683695826318,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6161451019780527
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.9808124067418947,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8223107215287913
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.19080652977886647,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6103960360094836
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.21103710644384288,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5908021321512368
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 1.0314905500740839,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 3.715928466230101,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7691615359081044
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.9407955164403089,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7991255831808318
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          3.314943720860102,
+          -0.08385683695826318,
+          0.9808124067418947,
+          0.19080652977886647,
+          0.21103710644384288,
+          1.0314905500740839,
+          3.715928466230101,
+          0.9407955164403089,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "1e7ae8ce8255d800d93a90e100f6d3bc64d45615b58b59eb0b496f9ee75a4ec2",
+        "fresh_encoded_windows": 27
+      },
+      {
+        "reference_index": 100,
+        "reference_subject": 17,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9839023947715759,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.18538343500591314,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6090683285176742
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.8889792671168317,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8057191243007935
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.08884320549083835,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5904389500265824
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.11603479981827355,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5842503972949188
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.580855561092117,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 2.3707062709171147,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7290418468446022
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.8274869558801906,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.781173275729712
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          4.112856182476213,
+          -0.18538343500591314,
+          0.8889792671168317,
+          0.08884320549083835,
+          0.11603479981827355,
+          0.580855561092117,
+          2.3707062709171147,
+          0.8274869558801906,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "8b4f2a86247210d991431a9fd65456ce1f2a9ec9993477dc03df558db62250a9",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 101,
+        "reference_subject": 17,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9949411153793335,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.05559430513418451,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6257852008508589
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 1.0570018451050267,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.8352159543502053
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.19405843986350446,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6110268621564333
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.2682349148672377,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.59473138164648
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.9676063162696407,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 3.8596114829071344,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7731914642566823
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.8950849771580187,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7920191480090807
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          5.2815375265814355,
+          0.05559430513418451,
+          1.0570018451050267,
+          0.19405843986350446,
+          0.2682349148672377,
+          0.9676063162696407,
+          3.8596114829071344,
+          0.8950849771580187,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "f70d5c13372c27eb097c5a360b7a1dd28da9eb523f4f8c090cf8b58bd62b6e7b",
+        "fresh_encoded_windows": 27
+      },
+      {
+        "reference_index": 127,
+        "reference_subject": 24,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.21081498265266418,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.18162246844362906,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6344125610939676
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.11749889413191861,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6227550268729691
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.13576381395175408,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.599663959858443
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.4131388372076432,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.47628601244675683
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.43783165897666,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -2.7814071465021577,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5426126374711953
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.9382526329169125,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.3975927164826514
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -1.320019900016335,
+          0.18162246844362906,
+          0.11749889413191861,
+          0.13576381395175408,
+          -1.4131388372076432,
+          -0.43783165897666,
+          -2.7814071465021577,
+          -0.9382526329169125,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "2ed2cc78e66e49010f6c1a5577dfa2388e5e7033c138f87ec46aeb53554f7a56",
+        "fresh_encoded_windows": 23
+      },
+      {
+        "reference_index": 128,
+        "reference_subject": 24,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.029493482783436775,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.5551142353478669,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5829270723454544
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.34478287659415585,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6840922799553472
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.20368560963376114,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5317301485229857
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.5723841505507261,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.46499601752905256
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.5217674850285422,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -1.5530111212175517,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5905192194302228
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.6868447479041525,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4563208280792351
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          -3.4936488015615557,
+          -0.5551142353478669,
+          0.34478287659415585,
+          -0.20368560963376114,
+          -1.5723841505507261,
+          -0.5217674850285422,
+          -1.5530111212175517,
+          -0.6868447479041525,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "e5177208b8628dbe1a12ab37476bed8a43e82c62b3b5b8542b8b323f2faad4c5",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 129,
+        "reference_subject": 24,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.06962254643440247,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.007731480045837791,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6214194149619654
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.2989073321260376,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6721368858205851
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.25977850625984744,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5203193998852924
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.4857864083098173,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.47113182071046533
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.06374605552586399,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -0.609438232766544,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6262326098003309
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.8231771524072923,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4242147231411079
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -2.5925019099506112,
+          -0.007731480045837791,
+          0.2989073321260376,
+          -0.25977850625984744,
+          -1.4857864083098173,
+          -0.06374605552586399,
+          -0.609438232766544,
+          -0.8231771524072923,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "b2da28a8384ac754f8b188cca715ccef84700af02a0f3fa20580ab02e22a276b",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 130,
+        "reference_subject": 24,
+        "reference_class": "Low",
+        "mil_raw_high_probability": 0.004765731748193502,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.49561777808259166,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5871694397228588
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.3351897059988981,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6816116335619171
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.29784170780403474,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5125635346597693
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.646383149984612,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4597611964767716
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.20856797418486606,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -2.1772144215342633,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5663312935417306
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.7156718942594436,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.4494924700793688
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -11.512915464920228,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.30082428952289614
+          }
+        ],
+        "retrieval_vector": [
+          -5.341527062307055,
+          -0.49561777808259166,
+          0.3351897059988981,
+          -0.29784170780403474,
+          -1.646383149984612,
+          -0.20856797418486606,
+          -2.1772144215342633,
+          -0.7156718942594436,
+          -11.512915464920228
+        ],
+        "current_raw_windows_sha256": "4cf5690c6468d15b8b19636520da8e5ccc1a063950bde18a612d78b33141fb2f",
+        "fresh_encoded_windows": 27
+      },
+      {
+        "reference_index": 131,
+        "reference_subject": 24,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.0067432839423418045,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.29891984694181506,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6010998570612575
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.2662106889423175,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6634764019243912
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.1955972819836429,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5333730716539236
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.1690381513237895,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.49363515164084437
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.26261692917856805,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -3.414526402369893,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5175512899822672
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.8886211610051454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.409010211294449
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -4.992442118304178,
+          -0.29891984694181506,
+          0.2662106889423175,
+          -0.1955972819836429,
+          -1.1690381513237895,
+          -0.26261692917856805,
+          -3.414526402369893,
+          -0.8886211610051454,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "01fd91cd96d28809ea2d31f3b884a5f6b059ac69846ae5bb8086a917dfba1e2d",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 132,
+        "reference_subject": 24,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.005919093266129494,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": -0.43870511292356507,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5912155025740587
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.2216559379010511,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6514968377750863
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": -0.2634945008854006,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5195625892744767
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": -1.823926048513311,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.44723979479586357
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": -0.5882500128965921,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -0.9110600967008233,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6149450824645243
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.9687779113813146,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.39062463576647555
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": -0.6931471805599454,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5775509467911292
+          }
+        ],
+        "retrieval_vector": [
+          -5.123635325788789,
+          -0.43870511292356507,
+          0.2216559379010511,
+          -0.2634945008854006,
+          -1.823926048513311,
+          -0.5882500128965921,
+          -0.9110600967008233,
+          -0.9687779113813146,
+          -0.6931471805599454
+        ],
+        "current_raw_windows_sha256": "f03c87e215c4118ba87643fab2b790872d9f87468cff8eea0c7fc10a724d7bbf",
+        "fresh_encoded_windows": 17
+      },
+      {
+        "reference_index": 133,
+        "reference_subject": 24,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9676252007484436,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.37968334053846475,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6477966380632241
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.5572056830053669,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7361944852204519
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.1545923775652367,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6033464396521386
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 0.3770792996211718,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.602174733535851
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.8475411244495624,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 0.38396804779575683,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6623948936078564
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.2072640800055619,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5703573409640528
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          3.3974645037136324,
+          0.37968334053846475,
+          0.5572056830053669,
+          0.1545923775652367,
+          0.3770792996211718,
+          0.8475411244495624,
+          0.38396804779575683,
+          -0.2072640800055619,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "3a2758fffa39c575e23dc587efb5ca41aecec9405a7dab18f117f9055303494b",
+        "fresh_encoded_windows": 26
+      },
+      {
+        "reference_index": 134,
+        "reference_subject": 24,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9999020099639893,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.9038408800255032,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6820746917261129
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.7747686303530725,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7834794183946551
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.5864878445309837,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6839173617437446
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 2.00136020116136,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7061533006631655
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.3578199275378605,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": -0.9039948580003339,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6152109566081423
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": -0.08675554750335758,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.5983305119588167
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 11.51291546492478,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.834375222201058
+          }
+        ],
+        "retrieval_vector": [
+          9.230546762985215,
+          0.9038408800255032,
+          0.7747686303530725,
+          0.5864878445309837,
+          2.00136020116136,
+          0.3578199275378605,
+          -0.9039948580003339,
+          -0.08675554750335758,
+          11.51291546492478
+        ],
+        "current_raw_windows_sha256": "78963ff54a2e8645a13b074b2bf87d33788aa718d251d8de3d60284b13f6215d",
+        "fresh_encoded_windows": 24
+      },
+      {
+        "reference_index": 135,
+        "reference_subject": 24,
+        "reference_class": "High",
+        "mil_raw_high_probability": 0.9999631643295288,
+        "individual_tools": [
+          {
+            "tool": "femba_features",
+            "raw_decision_score": 0.9663318998393445,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.686041529317726
+          },
+          {
+            "tool": "spectral",
+            "raw_decision_score": 0.8025183362073671,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7890474456865874
+          },
+          {
+            "tool": "spatial_covariance",
+            "raw_decision_score": 0.4884057828918517,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6663679696562728
+          },
+          {
+            "tool": "femba_mean",
+            "raw_decision_score": 1.9050376277133974,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.7004334131035366
+          },
+          {
+            "tool": "femba_temporal",
+            "raw_decision_score": 0.8165680070822323,
+            "calibration_usable": false,
+            "calibrated_high_probability": null
+          },
+          {
+            "tool": "spectral_compact",
+            "raw_decision_score": 0.10653008827585769,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6524639938553699
+          },
+          {
+            "tool": "filterbank_csp",
+            "raw_decision_score": 0.03762809807729519,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6265449205039634
+          },
+          {
+            "tool": "case_retrieval",
+            "raw_decision_score": 0.6931471805599452,
+            "calibration_usable": true,
+            "calibrated_high_probability": 0.6132169397933476
+          }
+        ],
+        "retrieval_vector": [
+          10.209007039632075,
+          0.9663318998393445,
+          0.8025183362073671,
+          0.4884057828918517,
+          1.9050376277133974,
+          0.8165680070822323,
+          0.10653008827585769,
+          0.03762809807729519,
+          0.6931471805599452
+        ],
+        "current_raw_windows_sha256": "dd0088279cdfc50a71f26733455503188f1912d11f67fb9181558b95ee1d6391",
+        "fresh_encoded_windows": 25
+      }
+    ],
+    "source_paths": {
+      "first_common": "outputs/vrms_agent_loso/v4_tools_r1_20261008/features/common.npz",
+      "second_common": "outputs/vrms_agent_loso/v5_tools_portable_20261008/features/common.npz",
+      "first_fold": "outputs/vrms_agent_loso/v4_tools_r1_20261008/features/fold_12.npz",
+      "second_fold": "outputs/vrms_agent_loso/v5_tools_portable_20261008/features/fold_12.npz",
+      "first_policy": "outputs/vrms_agent_loso/v4_tools_r1_20261008/internal_validation/fold_12.npz",
+      "second_policy": "outputs/vrms_agent_loso/v5_tools_portable_20261008/internal_validation/fold_12.npz",
+      "first_checkpoint": "outputs/vrms_agent_loso/v4_tools_r1_20261008/checkpoints/fold_12.joblib",
+      "second_checkpoint": "outputs/vrms_agent_loso/v5_tools_portable_20261008/checkpoints/fold_12.joblib",
+      "mil_checkpoint": "outputs/vrms_model_ablation/v3_20261008/model_results/checkpoints/outer_subject_12_femba_frozen_mil.pt",
+      "first_protocol": "outputs/vrms_agent_loso/v4_tools_r1_20261008/protocol.json",
+      "second_protocol": "outputs/vrms_agent_loso/v5_tools_portable_20261008/protocol.json",
+      "first_training_summary": "outputs/vrms_agent_loso/v4_tools_r1_20261008/training_summary.json",
+      "second_training_summary": "outputs/vrms_agent_loso/v5_tools_portable_20261008/training_summary.json",
+      "previous_policy_bank": "outputs/vrms_case_rag/v2_policy_heldout_no_rest_20261011/fold_12.json",
+      "current_raw_worker_result": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/worker_result.json",
+      "current_raw_worker_request": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/request.json",
+      "raw_inference_code": "vrms_cloud/raw_inference.py",
+      "raw_numeric_code": "vrms_cloud/raw_numeric.py",
+      "current_raw_window_sources": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/window_sources.json",
+      "raw_window_segment-017.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-017.npy",
+      "raw_window_segment-018.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-018.npy",
+      "raw_window_segment-019.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-019.npy",
+      "raw_window_segment-020.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-020.npy",
+      "raw_window_segment-021.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-021.npy",
+      "raw_window_segment-022.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-022.npy",
+      "raw_window_segment-023.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-023.npy",
+      "raw_window_segment-041.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-041.npy",
+      "raw_window_segment-042.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-042.npy",
+      "raw_window_segment-094.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-094.npy",
+      "raw_window_segment-095.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-095.npy",
+      "raw_window_segment-096.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-096.npy",
+      "raw_window_segment-097.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-097.npy",
+      "raw_window_segment-098.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-098.npy",
+      "raw_window_segment-099.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-099.npy",
+      "raw_window_segment-100.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-100.npy",
+      "raw_window_segment-101.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-101.npy",
+      "raw_window_segment-102.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-102.npy",
+      "raw_window_segment-128.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-128.npy",
+      "raw_window_segment-129.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-129.npy",
+      "raw_window_segment-130.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-130.npy",
+      "raw_window_segment-131.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-131.npy",
+      "raw_window_segment-132.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-132.npy",
+      "raw_window_segment-133.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-133.npy",
+      "raw_window_segment-134.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-134.npy",
+      "raw_window_segment-135.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-135.npy",
+      "raw_window_segment-136.npy": "outputs/vrms_case_rag/v3_current_raw_policy_heldout_20261011/workers/fold_12/segment-136.npy"
+    },
+    "source_hashes": {
+      "first_common": "860c48f382037eead6621207c29051e174fe21c8ab9f31590f47b772d515bdef",
+      "second_common": "56a71a26c33997c52849366f48cbc40e56193300882107fe91f70e18473eb081",
+      "first_fold": "80b9a4af1743dcf39d8ea20a1aab1a24b023008529d45018de3aef020f1223f7",
+      "second_fold": "3362d8a50c39b67a6c2aea1b5040bb540fcbb09fd0d5b1de60104d4d8dd6c268",
+      "first_policy": "e973f691bc20a174f476576f0f2d5efc688bc692272de14cfea182069ce84546",
+      "second_policy": "8c5ac6652977ad084e6ca34312d06e47d5717b01e95f690a5482938e4c054653",
+      "first_checkpoint": "c2a8b435acaab1a2088d7ea6c3254d0a915b8ce7f9171303cef88f3207e6fae8",
+      "second_checkpoint": "c8c53cd81e5d76b0cdb62d8017b31da58c264d5ea1866de099eb1d41f4142581",
+      "mil_checkpoint": "0d5c52a355ebb5759592f1379a00f41df4476ec22c8a9400bb36612c72688ea3",
+      "first_protocol": "807bb80b290b4bb6319424e81f68ff59ad05689fb97c679f26b844a2f9911437",
+      "second_protocol": "23798e84252a7280cfe9e2af25158c895d5f3ff6abcd04c5373c735b208b8c37",
+      "first_training_summary": "b647297f05223e47a50432c6f1fa7389efd5043b38757da7ab5c4313ac6ae8a0",
+      "second_training_summary": "3dd9fe0954741f0542483f262d90203a5a12ba97c8df3666dfb43fb7238560ff",
+      "previous_policy_bank": "50810b91e67be0ab488308b7f04346faa2243c1de4cf477284eabb6e62f4d26c",
+      "current_raw_worker_result": "41c73268a3652919ab9d2c25570beee85c5936211d91691c72da9e6b26bf3279",
+      "current_raw_worker_request": "dafa899ffe4cbc677ac68b50b91aa958277a51ce44b508cafc31305aac75a014",
+      "raw_inference_code": "dc3855a655ae59d440709f260cc5037c356c426158883f2269146be808d46ab9",
+      "raw_numeric_code": "e384e164306b0462028e2eeeb85b986a1cfc2d311d9ce8f51b44f754b888a618",
+      "current_raw_window_sources": "ee3864990159bc07acac5294daa18bb4a2337491cc0f9d4f36f816f065f672a1",
+      "raw_window_segment-017.npy": "e4dcb6d1352d4cd60976829ac618e1b43ebb85056f698f92cc920d07aa3a5ebf",
+      "raw_window_segment-018.npy": "280fc29ee15d9deae13c4b9bb99871a173fdbe80bb67e69212301678bafec746",
+      "raw_window_segment-019.npy": "9a4fca815345b100b2a0ab3582a733387a1427b0ca3948e77875addadfb305ac",
+      "raw_window_segment-020.npy": "28fbce7dd36458ce650e6b65aad5ef89d9ed03c3f4063266dc34544f3e934a28",
+      "raw_window_segment-021.npy": "d2f2585f34425a90a900859ba68a270761b38a047bb3ef59a6c7caed0754a070",
+      "raw_window_segment-022.npy": "468c2951a24fb4589c4bf3ba0864684344fb3306af2d899d9adceaa3dd6ff900",
+      "raw_window_segment-023.npy": "0fbca8054c2fa081fe2580309fe73433e77d5cfc6dac87a07c3fc5d96a1c3f37",
+      "raw_window_segment-041.npy": "c4f5f34afb4420539bcafcd389faea17d93d37f7961628268c4d6f39ab8d8956",
+      "raw_window_segment-042.npy": "0e40a6fa56ae8a06c649941e83b23d4a03d6da5f647fc6b34b9b11ca697587ec",
+      "raw_window_segment-094.npy": "597d352256ec7c16d32fba125507d1fa9bf44eb866c07812914e1885d5643ba4",
+      "raw_window_segment-095.npy": "6708b0203e234300989f30baac16a6c2d1ffe21153607ce68d96db5895c4c7bf",
+      "raw_window_segment-096.npy": "4de709e73d934be02404417537f23a05a1ffc4127f70bd7fbdb06142ee4b17ae",
+      "raw_window_segment-097.npy": "0dfd549b337d7a227de3472c074722d5bad0b38921b9f360b5525f703e0c35f2",
+      "raw_window_segment-098.npy": "7d3fb9055091ca3b6e1309f944b7f55861840f860689b91a7928e019d4b64ee5",
+      "raw_window_segment-099.npy": "fdf33fa1706f54fdec1c61dbd3b183cc6633aec218f960f2c67136d8044250b5",
+      "raw_window_segment-100.npy": "1e7ae8ce8255d800d93a90e100f6d3bc64d45615b58b59eb0b496f9ee75a4ec2",
+      "raw_window_segment-101.npy": "8b4f2a86247210d991431a9fd65456ce1f2a9ec9993477dc03df558db62250a9",
+      "raw_window_segment-102.npy": "f70d5c13372c27eb097c5a360b7a1dd28da9eb523f4f8c090cf8b58bd62b6e7b",
+      "raw_window_segment-128.npy": "2ed2cc78e66e49010f6c1a5577dfa2388e5e7033c138f87ec46aeb53554f7a56",
+      "raw_window_segment-129.npy": "e5177208b8628dbe1a12ab37476bed8a43e82c62b3b5b8542b8b323f2faad4c5",
+      "raw_window_segment-130.npy": "b2da28a8384ac754f8b188cca715ccef84700af02a0f3fa20580ab02e22a276b",
+      "raw_window_segment-131.npy": "4cf5690c6468d15b8b19636520da8e5ccc1a063950bde18a612d78b33141fb2f",
+      "raw_window_segment-132.npy": "01fd91cd96d28809ea2d31f3b884a5f6b059ac69846ae5bb8086a917dfba1e2d",
+      "raw_window_segment-133.npy": "f03c87e215c4118ba87643fab2b790872d9f87468cff8eea0c7fc10a724d7bbf",
+      "raw_window_segment-134.npy": "3a2758fffa39c575e23dc587efb5ca41aecec9405a7dab18f117f9055303494b",
+      "raw_window_segment-135.npy": "78963ff54a2e8645a13b074b2bf87d33788aa718d251d8de3d60284b13f6215d",
+      "raw_window_segment-136.npy": "dd0088279cdfc50a71f26733455503188f1912d11f67fb9181558b95ee1d6391"
+    },
+    "vector_median": [
+      -1.599312835549911,
+      -0.22781214635366043,
+      0.55701866960548,
+      0.08599969201241064,
+      -0.3613315136516867,
+      0.2379935187568929,
+      -0.4860973669377851,
+      -0.2072640800055619,
+      -0.6931471805599454
+    ],
+    "vector_scale": [
+      8.42927224361901,
+      0.6734764482820932,
+      0.975437572280086,
+      0.5201219157532645,
+      1.6799696414500953,
+      1.177935919213398,
+      5.274999855567484,
+      1.6207933632366691,
+      1.3862943611198906
+    ],
+    "no_rest_policy_confusion": {
+      "scope": "same_fold_frozen_heads_on_current_raw_preprocessed_policy_windows",
+      "paths": 27,
+      "subjects": 4,
+      "true_Low_paths": 12,
+      "true_High_paths": 15,
+      "rows": [
+        {
+          "tool": "MIL",
+          "boundary": "raw_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 9,
+          "true_Low_output_High": 3,
+          "true_High_output_Low": 6,
+          "true_High_output_High": 9
+        },
+        {
+          "tool": "femba_features",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 11,
+          "true_Low_output_High": 1,
+          "true_High_output_Low": 8,
+          "true_High_output_High": 7
+        },
+        {
+          "tool": "femba_features",
+          "boundary": "calibrated_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 0,
+          "true_Low_output_High": 12,
+          "true_High_output_Low": 0,
+          "true_High_output_High": 15
+        },
+        {
+          "tool": "spectral",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 6,
+          "true_Low_output_High": 6,
+          "true_High_output_Low": 1,
+          "true_High_output_High": 14
+        },
+        {
+          "tool": "spectral",
+          "boundary": "calibrated_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 2,
+          "true_Low_output_High": 10,
+          "true_High_output_Low": 1,
+          "true_High_output_High": 14
+        },
+        {
+          "tool": "spatial_covariance",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 8,
+          "true_Low_output_High": 4,
+          "true_High_output_Low": 5,
+          "true_High_output_High": 10
+        },
+        {
+          "tool": "spatial_covariance",
+          "boundary": "calibrated_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 5,
+          "true_Low_output_High": 7,
+          "true_High_output_Low": 1,
+          "true_High_output_High": 14
+        },
+        {
+          "tool": "femba_mean",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 10,
+          "true_Low_output_High": 2,
+          "true_High_output_Low": 5,
+          "true_High_output_High": 10
+        },
+        {
+          "tool": "femba_mean",
+          "boundary": "calibrated_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 9,
+          "true_Low_output_High": 3,
+          "true_High_output_Low": 4,
+          "true_High_output_High": 11
+        },
+        {
+          "tool": "femba_temporal",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 9,
+          "true_Low_output_High": 3,
+          "true_High_output_Low": 4,
+          "true_High_output_High": 11
+        },
+        {
+          "tool": "spectral_compact",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 9,
+          "true_Low_output_High": 3,
+          "true_High_output_Low": 5,
+          "true_High_output_High": 10
+        },
+        {
+          "tool": "spectral_compact",
+          "boundary": "calibrated_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 2,
+          "true_Low_output_High": 10,
+          "true_High_output_Low": 0,
+          "true_High_output_High": 15
+        },
+        {
+          "tool": "filterbank_csp",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 9,
+          "true_Low_output_High": 3,
+          "true_High_output_Low": 6,
+          "true_High_output_High": 9
+        },
+        {
+          "tool": "filterbank_csp",
+          "boundary": "calibrated_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 9,
+          "true_Low_output_High": 3,
+          "true_High_output_Low": 4,
+          "true_High_output_High": 11
+        },
+        {
+          "tool": "case_retrieval",
+          "boundary": "raw_score_zero",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 6,
+          "true_Low_output_High": 6,
+          "true_High_output_Low": 9,
+          "true_High_output_High": 6
+        },
+        {
+          "tool": "case_retrieval",
+          "boundary": "calibrated_probability_0.5",
+          "paths": 27,
+          "subjects": 4,
+          "true_Low_output_Low": 2,
+          "true_Low_output_High": 10,
+          "true_High_output_Low": 2,
+          "true_High_output_High": 13
+        }
+      ]
+    },
+    "historical_to_no_rest_shift": {
+      "scope": "historical cached outputs do not equal current raw outputs; see window_alignment_audit.json"
+    },
+    "raw_worker_provenance": {
+      "fresh_raw_encoding": true,
+      "encoder_sha256": "0e2ab9109d87a32c6b25f0c307fb8b1102ef5e0e83e86b9b07f7dee166daaa27",
+      "model_sha256": "0d5c52a355ebb5759592f1379a00f41df4476ec22c8a9400bb36612c72688ea3",
+      "normalization_sha256": "4654fe895a458db1c7df94057e986068513f6df3ae2316eeeab1157803653233",
+      "numeric_first_sha256": "c2a8b435acaab1a2088d7ea6c3254d0a915b8ce7f9171303cef88f3207e6fae8",
+      "numeric_second_sha256": "c8c53cd81e5d76b0cdb62d8017b31da58c264d5ea1866de099eb1d41f4142581"
+    },
+    "limitations": [
+      "References are internal policy subjects excluded from MIL, seven EEG heads and calibrator fitting.",
+      "Policy subjects were reused for numerical selector/policy evaluation and selection; these are not fully untouched pipeline test subjects.",
+      "No selector output or query label is supplied. These are cached head-heldout examples, not fresh waveform inference.",
+      "Reference windows are the same current-raw app preprocessing/event extraction pipeline as queries; each reference is freshly encoded under the query outerfold frozen head.",
+      "The signal hash denotes aggregated policy reference paths, not a single recording."
+    ]
+  },
+  "provenance": {
+    "current_raw_policy_bank_sha256": "5ba89b03b612cfafb5a98a93e0d96ee866f0d0f27c5afb0c4fea2c3ff4103885",
+    "current_raw_policy_manifest_sha256": "d40cfb4d557263d1b3124d877e92bda714be7e046e710d8cf1de3b5f941f8254",
+    "current_raw_worker_result_sha256": "41c73268a3652919ab9d2c25570beee85c5936211d91691c72da9e6b26bf3279",
+    "raw_inference_original_source_sha256": "dc3855a655ae59d440709f260cc5037c356c426158883f2269146be808d46ab9",
+    "raw_inference_current_source_sha256": "8fe1a4127fd7ab8d32678444e101204307b985765f3c32ba80257d8d2356a20f",
+    "inference_attachment_verified": true
+  }
+}

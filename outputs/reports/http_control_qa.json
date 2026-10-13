@@ -1,0 +1,11 @@
+{
+  "health": 200,
+  "index": 200,
+  "javascript": 200,
+  "api_unconfigured": 400,
+  "parallel_conflict": 409,
+  "stop": 200,
+  "stopped_state": "completed",
+  "stop_recorded": true,
+  "run_id": "12cc672ecec4"
+}

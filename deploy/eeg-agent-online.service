@@ -1,0 +1,42 @@
+[Unit]
+Description=EEGAgent online CDT replay (CPU FP32, one worker)
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=eegagent
+Group=eegagent
+WorkingDirectory=/srv/eeg-agent-online
+StateDirectory=eeg-agent-online
+StateDirectoryMode=0750
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=OMP_NUM_THREADS=2
+Environment=OPENBLAS_NUM_THREADS=2
+Environment=MKL_NUM_THREADS=2
+Environment=XDG_CACHE_HOME=/var/lib/eeg-agent-online/cache
+ExecStart=/srv/eeg-agent-online/.venv/bin/python -m eeg_agent --config deploy/pi_online.yaml serve --host 0.0.0.0 --port 8880
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+KillSignal=SIGTERM
+UMask=0027
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadOnlyPaths=/srv/eeg-data /srv/eeg-agent-online
+ReadWritePaths=/var/lib/eeg-agent-online
+MemoryHigh=5G
+MemoryMax=6G
+StandardOutput=journal
+StandardError=journal
+LogNamespace=eeg-agent-online
+LogRateLimitIntervalSec=30s
+LogRateLimitBurst=1000
+
+[Install]
+WantedBy=multi-user.target

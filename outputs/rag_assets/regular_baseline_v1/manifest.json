@@ -1,0 +1,10 @@
+{
+  "schema": "regular_rag_snapshot_v1",
+  "files": {
+    "judge_protocol.json": "020f1a4d8360716413a927b07b990a7e7d95a19ed9e271a268587c7e95c72f7c",
+    "legacy_teaching.json": "4eae596c2c639dabd3214ca83985bb0b0f485199f86b7350f9b2f336c51d301a",
+    "legacy_system.json": "a84d03bf95a2de4b8903e9a1fc83da8fabe659b4b607461711c959f50d43ed99"
+  },
+  "retriever_sha256": "3cbe9678f8e2430baeaed6e70811f5bbc01e996fa70c736977712c0edd2bbffd",
+  "reference_manifest_sha256": "8e7c75aab8a1dc7957c555faa287ca8b6dff57bf09843f07c899246207b45ea1"
+}

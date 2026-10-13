@@ -1,0 +1,11 @@
+/var/lib/eeg-agent-online/benchmarks/*.samples.jsonl {
+    daily
+    maxsize 64M
+    rotate 3
+    compress
+    delaycompress
+    copytruncate
+    missingok
+    notifempty
+    su eegagent eegagent
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "raw_vrms_production_independent_judge_v1",
+  "created_at": "2026-10-10T18:24:59.500246+00:00",
+  "rag_schema": "raw_current_contrastive_rag_v2",
+  "rag_provenance": "fresh_same_fold_frozen_inference_on_saved_current_raw_policy_windows",
+  "rag_context_artifact": "D:\\桌面\\文献总\\EEGAGENT\\outputs\\vrms_rag_probes\\current_raw_contrastive_contexts_20261011_v2\\arm_contexts.json",
+  "rag_context_artifact_sha256": "3b526bb3d387e1b1a230baa5aef25514db959d929b966f5dc80a03f31bfa47ac",
+  "rag_bank_manifest": "D:\\桌面\\文献总\\EEGAGENT\\outputs\\vrms_case_rag\\v3_current_raw_policy_heldout_20261011\\manifest.json",
+  "rag_bank_manifest_sha256": "d40cfb4d557263d1b3124d877e92bda714be7e046e710d8cf1de3b5f941f8254",
+  "protected_source_hashes": {
+    "D:\\桌面\\2\\eeg_agent\\raw_independent_judge.py": "03ca06c95940fdbec85932c10057f140de2e9ef0029723594d9b143a79205dd2",
+    "D:\\桌面\\2\\eeg_agent\\raw_model.py": "367c453b1acf09eb9e82a76d335ba8aa3612c62f90bdce85e8be1684d53e4231",
+    "D:\\桌面\\2\\eeg_agent\\agents.py": "2b516244b718cb62c84e09a50d83a1cfcb2e07e7b8e0fb977d04ca3e460f3f34",
+    "D:\\桌面\\文献总\\EEGAGENT\\vrms_cloud\\raw_inference.py": "8fe1a4127fd7ab8d32678444e101204307b985765f3c32ba80257d8d2356a20f",
+    "D:\\桌面\\文献总\\EEGAGENT\\vrms_cloud\\raw_current_contrastive_rag.py": "b0c948b8d9b08507b94376f311bfea1a594419ba2d001bcc7afa1d6af92a0000"
+  },
+  "llm_protocol": {
+    "provider": "DeepSeek",
+    "model": "deepseek-flash",
+    "thinking": {
+      "type": "disabled"
+    },
+    "temperature": 0,
+    "reasoning_effort": null,
+    "max_tokens": 8192,
+    "timeout_seconds": 120,
+    "max_retries": 0,
+    "single_call": true,
+    "final_schema_fields": [
+      "final_class",
+      "confidence",
+      "explanation",
+      "supporting_tools",
+      "counterevidence_tools",
+      "rag_citations"
+    ],
+    "decision_source": "LLM_final_class_only",
+    "numeric_fallback": false
+  },
+  "rollback": "Existing raw_tool_agent.classify and historical experiment outputs retained; production default is independent judge."
+}

@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-10-05T15:57:43.139870",
+  "status": "local_prototype_implemented",
+  "data_candidates": 147,
+  "raw_complete_paths": 146,
+  "tests": ".....................                                                    [100%]\n21 passed in 2.90s",
+  "model_epoch": 2,
+  "onnx_random_max_abs_error": 4.172325134277344e-07,
+  "onnx_real_p0_p1_max_abs_error": 4.172325134277344e-07,
+  "controlled_injection": {
+    "reference": "synthetic known clean sine+noise; independent held-out injection; not natural EEG truth",
+    "rmse_before_uv": 10.243593073875937,
+    "rmse_after_uv": 0.2451684402582464,
+    "alpha_power_relative_error": 2.5641482488403256e-05,
+    "beta_power_relative_error": 0.0005421100571696424,
+    "calibration": {
+      "available": true,
+      "reason": "frozen prior unlabeled baseline",
+      "samples": 4096,
+      "cutoff_sample": 16384,
+      "condition": 1.019969149233415
+    }
+  },
+  "realtime_run": "056c4de65170",
+  "realtime_summary": {
+    "source_seconds": 130.0,
+    "wall_seconds": 130.0128624,
+    "block_processing_p95_seconds": 0.0006957650000117607,
+    "inference_p95_seconds": 0.0008947399999968296,
+    "window_completion_lag_p95_seconds": 0.07928597750000606,
+    "peak_process_rss_bytes": 152797184
+  },
+  "test_metrics": {
+    "fixed_p0": {
+      "total_paths": 23,
+      "accepted_paths": 17,
+      "rejected_paths": 6,
+      "path_coverage": 0.7391304347826086,
+      "conditional_on_accepted": true,
+      "BACC": 0.5763888888888888,
+      "AUROC": 0.611111111111111,
+      "Macro_F1": 0.5641025641025641,
+      "sensitivity": 0.7777777777777778,
+      "specificity": 0.375,
+      "confusion_matrix": [
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    "fixed_p1": {
+      "total_paths": 23,
+      "accepted_paths": 17,
+      "rejected_paths": 6,
+      "path_coverage": 0.7391304347826086,
+      "conditional_on_accepted": true,
+      "BACC": 0.5763888888888888,
+      "AUROC": 0.5972222222222223,
+      "Macro_F1": 0.5641025641025641,
+      "sensitivity": 0.7777777777777778,
+      "specificity": 0.375,
+      "confusion_matrix": [
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    "rules": {
+      "total_paths": 23,
+      "accepted_paths": 17,
+      "rejected_paths": 6,
+      "path_coverage": 0.7391304347826086,
+      "conditional_on_accepted": true,
+      "BACC": 0.5763888888888888,
+      "AUROC": 0.6111111111111112,
+      "Macro_F1": 0.5641025641025641,
+      "sensitivity": 0.7777777777777778,
+      "specificity": 0.375,
+      "confusion_matrix": [
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    "switch": {
+      "total_paths": 23,
+      "accepted_paths": 17,
+      "rejected_paths": 6,
+      "path_coverage": 0.7391304347826086,
+      "conditional_on_accepted": true,
+      "BACC": 0.5763888888888888,
+      "AUROC": 0.6111111111111112,
+      "Macro_F1": 0.5641025641025641,
+      "sensitivity": 0.7777777777777778,
+      "specificity": 0.375,
+      "confusion_matrix": [
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ]
+    }
+  },
+  "browser_qa": {
+    "status": "not_verified",
+    "reason": "cua browser tool: unsupported Codex auth method: apikey; alternative browser technology awaits explicit user choice"
+  },
+  "cloud_backend": "mock, no external calls",
+  "pi_status": "deployment config provided; hardware tests not performed",
+  "formal_fivefold_status": "entry point provided; not executed"
+}

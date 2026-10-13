@@ -1,0 +1,830 @@
+{
+  "schema": "eeg_boundary_applicability_graph_v3",
+  "kind": "same_fold_boundary_applicability_graph",
+  "algorithm_version": "same_fold_boundary_counterexamples_preserve_regular_v3",
+  "outer_subject": 11,
+  "bank_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310",
+  "nodes": [
+    {
+      "id": "fold-11",
+      "kind": "fold"
+    },
+    {
+      "id": "reference-000",
+      "kind": "reference_case",
+      "bank_offset": 0,
+      "reference_index": 5,
+      "reference_subject": 2,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-001",
+      "kind": "reference_case",
+      "bank_offset": 1,
+      "reference_index": 6,
+      "reference_subject": 2,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-002",
+      "kind": "reference_case",
+      "bank_offset": 2,
+      "reference_index": 7,
+      "reference_subject": 2,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-003",
+      "kind": "reference_case",
+      "bank_offset": 3,
+      "reference_index": 8,
+      "reference_subject": 2,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-004",
+      "kind": "reference_case",
+      "bank_offset": 4,
+      "reference_index": 9,
+      "reference_subject": 2,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-005",
+      "kind": "reference_case",
+      "bank_offset": 5,
+      "reference_index": 10,
+      "reference_subject": 2,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-006",
+      "kind": "reference_case",
+      "bank_offset": 6,
+      "reference_index": 11,
+      "reference_subject": 3,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-007",
+      "kind": "reference_case",
+      "bank_offset": 7,
+      "reference_index": 12,
+      "reference_subject": 3,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-008",
+      "kind": "reference_case",
+      "bank_offset": 8,
+      "reference_index": 13,
+      "reference_subject": 3,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-009",
+      "kind": "reference_case",
+      "bank_offset": 9,
+      "reference_index": 14,
+      "reference_subject": 3,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-010",
+      "kind": "reference_case",
+      "bank_offset": 10,
+      "reference_index": 15,
+      "reference_subject": 3,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-011",
+      "kind": "reference_case",
+      "bank_offset": 11,
+      "reference_index": 49,
+      "reference_subject": 9,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-012",
+      "kind": "reference_case",
+      "bank_offset": 12,
+      "reference_index": 50,
+      "reference_subject": 9,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-013",
+      "kind": "reference_case",
+      "bank_offset": 13,
+      "reference_index": 60,
+      "reference_subject": 12,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-014",
+      "kind": "reference_case",
+      "bank_offset": 14,
+      "reference_index": 61,
+      "reference_subject": 12,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-015",
+      "kind": "reference_case",
+      "bank_offset": 15,
+      "reference_index": 62,
+      "reference_subject": 12,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-016",
+      "kind": "reference_case",
+      "bank_offset": 16,
+      "reference_index": 63,
+      "reference_subject": 12,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-017",
+      "kind": "reference_case",
+      "bank_offset": 17,
+      "reference_index": 64,
+      "reference_subject": 12,
+      "reference_class": "High"
+    },
+    {
+      "id": "calibration-femba_features",
+      "kind": "calibrated_direction_profile",
+      "tool": "femba_features",
+      "whole_bank_calibration": {
+        "paths": 18,
+        "subjects": 4,
+        "High_outputs": 16,
+        "Low_outputs": 2,
+        "constant_direction": null,
+        "probability_range": [
+          0.41570886192364565,
+          0.8601304010599391
+        ],
+        "reference_Low_paths": 3,
+        "reference_High_paths": 15
+      }
+    },
+    {
+      "id": "boundary-femba_features-01",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "femba_features",
+      "raw_direction": "Low",
+      "calibrated_direction": "High",
+      "conditional_evidence": {
+        "paths": 4,
+        "subjects": 2,
+        "Low": 2,
+        "High": 2,
+        "raw_correct": 2,
+        "calibrated_correct": 2,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-01",
+            "paths": 3,
+            "subjects": 1,
+            "Low": 1,
+            "High": 2,
+            "raw_correct": 1,
+            "calibrated_correct": 2
+          },
+          {
+            "subject_group": "internal-subject-03",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 4,
+            "subjects": 2,
+            "Low": 2,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 2
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 3,
+            "subjects": 1,
+            "Low": 1,
+            "High": 2,
+            "raw_correct": 1,
+            "calibrated_correct": 2
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 4,
+            "subjects": 2,
+            "Low": 2,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 2
+          }
+        ],
+        "coverage_supported": false
+      }
+    },
+    {
+      "id": "calibration-spectral",
+      "kind": "calibrated_direction_profile",
+      "tool": "spectral",
+      "whole_bank_calibration": {
+        "paths": 18,
+        "subjects": 4,
+        "High_outputs": 12,
+        "Low_outputs": 6,
+        "constant_direction": null,
+        "probability_range": [
+          0.30566167512512554,
+          0.7414714839784329
+        ],
+        "reference_Low_paths": 3,
+        "reference_High_paths": 15
+      }
+    },
+    {
+      "id": "boundary-spectral-01",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "spectral",
+      "raw_direction": "Low",
+      "calibrated_direction": "High",
+      "conditional_evidence": {
+        "paths": 2,
+        "subjects": 2,
+        "Low": 0,
+        "High": 2,
+        "raw_correct": 0,
+        "calibrated_correct": 2,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-01",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          },
+          {
+            "subject_group": "internal-subject-02",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 2,
+            "subjects": 2,
+            "Low": 0,
+            "High": 2,
+            "raw_correct": 0,
+            "calibrated_correct": 2
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 2,
+            "subjects": 2,
+            "Low": 0,
+            "High": 2,
+            "raw_correct": 0,
+            "calibrated_correct": 2
+          }
+        ],
+        "coverage_supported": false
+      }
+    },
+    {
+      "id": "calibration-spatial_covariance",
+      "kind": "calibrated_direction_profile",
+      "tool": "spatial_covariance",
+      "whole_bank_calibration": {
+        "paths": 18,
+        "subjects": 4,
+        "High_outputs": 14,
+        "Low_outputs": 4,
+        "constant_direction": null,
+        "probability_range": [
+          0.4316127884923757,
+          0.6528519601995103
+        ],
+        "reference_Low_paths": 3,
+        "reference_High_paths": 15
+      }
+    },
+    {
+      "id": "calibration-femba_mean",
+      "kind": "calibrated_direction_profile",
+      "tool": "femba_mean",
+      "whole_bank_calibration": {
+        "paths": 18,
+        "subjects": 4,
+        "High_outputs": 17,
+        "Low_outputs": 1,
+        "constant_direction": null,
+        "probability_range": [
+          0.4411281701265309,
+          0.8084656902824723
+        ],
+        "reference_Low_paths": 3,
+        "reference_High_paths": 15
+      }
+    },
+    {
+      "id": "boundary-femba_mean-01",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "femba_mean",
+      "raw_direction": "Low",
+      "calibrated_direction": "High",
+      "conditional_evidence": {
+        "paths": 5,
+        "subjects": 3,
+        "Low": 2,
+        "High": 3,
+        "raw_correct": 2,
+        "calibrated_correct": 3,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-01",
+            "paths": 3,
+            "subjects": 1,
+            "Low": 1,
+            "High": 2,
+            "raw_correct": 1,
+            "calibrated_correct": 2
+          },
+          {
+            "subject_group": "internal-subject-02",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          },
+          {
+            "subject_group": "internal-subject-03",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 2,
+            "subjects": 2,
+            "Low": 1,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 1
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 4,
+            "subjects": 2,
+            "Low": 2,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 2
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 4,
+            "subjects": 2,
+            "Low": 1,
+            "High": 3,
+            "raw_correct": 1,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 5,
+            "subjects": 3,
+            "Low": 2,
+            "High": 3,
+            "raw_correct": 2,
+            "calibrated_correct": 3
+          }
+        ],
+        "coverage_supported": true
+      }
+    },
+    {
+      "id": "calibration-femba_temporal",
+      "kind": "calibrated_direction_profile",
+      "tool": "femba_temporal",
+      "whole_bank_calibration": {
+        "paths": 18,
+        "subjects": 4,
+        "High_outputs": 11,
+        "Low_outputs": 7,
+        "constant_direction": null,
+        "probability_range": [
+          0.1879001876019061,
+          0.9227431237792654
+        ],
+        "reference_Low_paths": 3,
+        "reference_High_paths": 15
+      }
+    },
+    {
+      "id": "calibration-spectral_compact",
+      "kind": "calibrated_direction_profile",
+      "tool": "spectral_compact",
+      "whole_bank_calibration": {
+        "paths": 18,
+        "subjects": 4,
+        "High_outputs": 12,
+        "Low_outputs": 6,
+        "constant_direction": null,
+        "probability_range": [
+          0.38393705305685927,
+          0.8376542692262979
+        ],
+        "reference_Low_paths": 3,
+        "reference_High_paths": 15
+      }
+    },
+    {
+      "id": "calibration-filterbank_csp",
+      "kind": "calibrated_direction_profile",
+      "tool": "filterbank_csp",
+      "whole_bank_calibration": {
+        "paths": 18,
+        "subjects": 4,
+        "High_outputs": 18,
+        "Low_outputs": 0,
+        "constant_direction": "High",
+        "probability_range": [
+          0.5046362866224113,
+          0.593968194692758
+        ],
+        "reference_Low_paths": 3,
+        "reference_High_paths": 15
+      }
+    },
+    {
+      "id": "boundary-filterbank_csp-01",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "filterbank_csp",
+      "raw_direction": "Low",
+      "calibrated_direction": "High",
+      "conditional_evidence": {
+        "paths": 7,
+        "subjects": 2,
+        "Low": 2,
+        "High": 5,
+        "raw_correct": 2,
+        "calibrated_correct": 5,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-01",
+            "paths": 6,
+            "subjects": 1,
+            "Low": 1,
+            "High": 5,
+            "raw_correct": 1,
+            "calibrated_correct": 5
+          },
+          {
+            "subject_group": "internal-subject-03",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 7,
+            "subjects": 2,
+            "Low": 2,
+            "High": 5,
+            "raw_correct": 2,
+            "calibrated_correct": 5
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 6,
+            "subjects": 1,
+            "Low": 1,
+            "High": 5,
+            "raw_correct": 1,
+            "calibrated_correct": 5
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 7,
+            "subjects": 2,
+            "Low": 2,
+            "High": 5,
+            "raw_correct": 2,
+            "calibrated_correct": 5
+          }
+        ],
+        "coverage_supported": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "reference-000",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-001",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-002",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-003",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-004",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-005",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-006",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-007",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-008",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-009",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-010",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-011",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-012",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-013",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-014",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-015",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-016",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "reference-017",
+      "to": "fold-11",
+      "relation": "belongs_to_fold",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_features-01",
+      "to": "calibration-femba_features",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_features-01",
+      "to": "reference-000",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_features-01",
+      "to": "reference-001",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_features-01",
+      "to": "reference-005",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_features-01",
+      "to": "reference-011",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-spectral-01",
+      "to": "calibration-spectral",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-spectral-01",
+      "to": "reference-004",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-spectral-01",
+      "to": "reference-009",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_mean-01",
+      "to": "calibration-femba_mean",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_mean-01",
+      "to": "reference-000",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_mean-01",
+      "to": "reference-001",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_mean-01",
+      "to": "reference-005",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_mean-01",
+      "to": "reference-009",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-femba_mean-01",
+      "to": "reference-011",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "calibration-filterbank_csp",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "reference-000",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "reference-001",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "reference-002",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "reference-003",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "reference-004",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "reference-005",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    },
+    {
+      "from": "boundary-filterbank_csp-01",
+      "to": "reference-011",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "6a91f6b34c34706c61b275fa1b0c41d4dc5c25ce72cf3883ef16a2cfa4110310"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "index_version": "vrms-bm25-1.0",
+  "chunk_characters": 600,
+  "overlap_characters": 100,
+  "maximum_results": 5,
+  "chunk_fields": ["citation_id", "source", "section", "version", "source_sha256", "content_sha256", "evidence_type", "text", "terms"],
+  "note": "模板说明；实际索引由 KnowledgeIndex.build 写入独立 output_root/knowledge/bm25_index.json。"
+}

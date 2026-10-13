@@ -1,0 +1,85 @@
+[
+  {
+    "id": "EEGPreprocessor",
+    "version": "vrms-tools-2.0",
+    "input": "arrived raw CDT samples/events",
+    "output": "P0 30x1280 windows and quality; optional causal-EOG-RLS P1; source intervals; baseline state",
+    "requires": [],
+    "unit": "uV",
+    "profile": "P0"
+  },
+  {
+    "id": "SignalQualityChecker",
+    "version": "vrms-tools-2.0",
+    "input": "raw and processed arrived samples",
+    "output": "quality measurements and usable gate",
+    "requires": [
+      "EEGPreprocessor"
+    ],
+    "unit": "uV"
+  },
+  {
+    "id": "EOGArtifactCleaner",
+    "version": "causal-eog-rls-v1",
+    "input": "arrived P0 EEG/EOG; prior-baseline initializer; causal per-sample RLS state",
+    "output": "P1 EEG; predict-before-update; pre/post measurements and usable gate; unavailable initialization blocks P1 inference",
+    "requires": [
+      "EEGPreprocessor",
+      "SignalQualityChecker"
+    ],
+    "unit": "uV",
+    "profile": "P1"
+  },
+  {
+    "id": "DeepVRMSDetector",
+    "version": "vrms-tools-2.0",
+    "input": "quality-valid model-contract-matched P0/P1 30x1280 EEG",
+    "output": "selected frozen model probability and availability",
+    "requires": [
+      "SignalQualityChecker"
+    ],
+    "unit": "probability",
+    "profiles": [
+      "P0",
+      "P1"
+    ]
+  },
+  {
+    "id": "BiomarkerCalculator",
+    "version": "vrms-tools-2.0",
+    "input": "quality-valid P0/P1 window; optional same-profile frozen baseline",
+    "output": "Welch PSD, band powers, ratios and prior-baseline changes; no symptom labels",
+    "requires": [
+      "SignalQualityChecker"
+    ],
+    "unit": "uV^2 and uV^2/Hz"
+  },
+  {
+    "id": "CovarianceAnalyzer",
+    "version": "vrms-tools-2.0",
+    "input": "quality-valid P0/P1 window; optional same-profile frozen baseline",
+    "output": "10% trace-shrunk covariance summary and unsigned AIRM state distance",
+    "requires": [
+      "SignalQualityChecker"
+    ],
+    "unit": "uV^2; dimensionless distance"
+  },
+  {
+    "id": "TemporalAnalyzer",
+    "version": "vrms-tools-2.0",
+    "input": "arrived selected-model probabilities and true intervals",
+    "output": "30s mean/slope/coverage, volatility, jumps and persistent model-high candidate events",
+    "requires": [
+      "DeepVRMSDetector"
+    ],
+    "unit": "probability; probability/minute; seconds"
+  },
+  {
+    "id": "VRMSReportGenerator",
+    "version": "vrms-tools-2.0",
+    "input": "validated evidence and cited local knowledge",
+    "output": "Chinese report and traceable JSON; categories rendered from local evidence",
+    "requires": [],
+    "unit": null
+  }
+]

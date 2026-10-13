@@ -1,0 +1,352 @@
+{
+  "schema": "eeg_evidence_graph_v2",
+  "kind": "reviewed_method_graph",
+  "algorithm_version": "same_fold_raw_calibration_conflict_two_hop_v2",
+  "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+  "nodes": [
+    {
+      "id": "tool-MIL",
+      "kind": "tool",
+      "tool": "MIL"
+    },
+    {
+      "id": "tool-femba_features",
+      "kind": "tool",
+      "tool": "femba_features"
+    },
+    {
+      "id": "tool-spectral",
+      "kind": "tool",
+      "tool": "spectral"
+    },
+    {
+      "id": "tool-spatial_covariance",
+      "kind": "tool",
+      "tool": "spatial_covariance"
+    },
+    {
+      "id": "tool-femba_mean",
+      "kind": "tool",
+      "tool": "femba_mean"
+    },
+    {
+      "id": "tool-femba_temporal",
+      "kind": "tool",
+      "tool": "femba_temporal"
+    },
+    {
+      "id": "tool-spectral_compact",
+      "kind": "tool",
+      "tool": "spectral_compact"
+    },
+    {
+      "id": "tool-filterbank_csp",
+      "kind": "tool",
+      "tool": "filterbank_csp"
+    },
+    {
+      "id": "tool-case_retrieval",
+      "kind": "tool",
+      "tool": "case_retrieval"
+    },
+    {
+      "id": "source-FEMBA",
+      "kind": "feature_source",
+      "source": "FEMBA",
+      "source_section": "证据相关性：九路共享信息与重复计数",
+      "source_excerpt": "MIL、femba_features、femba_mean、femba_temporal、case_retrieval共享FEMBA编码表征；spectral与spectral_compact共享频谱；spatial_covariance与filterbank_csp共享空间协方差；所有工具还共享当前原始窗口。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "source-spectral",
+      "kind": "feature_source",
+      "source": "spectral",
+      "source_section": "证据相关性：九路共享信息与重复计数",
+      "source_excerpt": "MIL、femba_features、femba_mean、femba_temporal、case_retrieval共享FEMBA编码表征；spectral与spectral_compact共享频谱；spatial_covariance与filterbank_csp共享空间协方差；所有工具还共享当前原始窗口。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "source-spatial",
+      "kind": "feature_source",
+      "source": "spatial",
+      "source_section": "证据相关性：九路共享信息与重复计数",
+      "source_excerpt": "MIL、femba_features、femba_mean、femba_temporal、case_retrieval共享FEMBA编码表征；spectral与spectral_compact共享频谱；spatial_covariance与filterbank_csp共享空间协方差；所有工具还共享当前原始窗口。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-MIL",
+      "kind": "method_definition",
+      "tool": "MIL",
+      "source_section": "MIL：mil_raw_high_probability 的来源与量纲",
+      "source_excerpt": "MIL是冻结FEMBA编码器与整路径注意力分类头。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-femba_features",
+      "kind": "method_definition",
+      "tool": "femba_features",
+      "source_section": "femba_features：表征均值与波动",
+      "source_excerpt": "femba_features使用同一路径525维窗口表征的均值和标准差，合为1050维输入，执行训练内选定并冻结的分类头。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-spectral",
+      "kind": "method_definition",
+      "tool": "spectral",
+      "source_section": "spectral：全通道频谱与路径内变化",
+      "source_excerpt": "spectral对每个五秒窗计算Welch频谱，得到30通道、delta/theta/alpha/beta四频带功率及相对功率，再汇总均值、标准差、路径后段减前段的对数功率差、参考变化与参考可用标记，共721维。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-spatial_covariance",
+      "kind": "method_definition",
+      "tool": "spatial_covariance",
+      "source_section": "spatial_covariance：空间关系而非有方向距离",
+      "source_excerpt": "spatial_covariance对合格窗的30通道协方差作收缩估计，按通道平均尺度归一化后取矩阵对数，保留上三角465个坐标及尺度描述，共497维。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-femba_mean",
+      "kind": "method_definition",
+      "tool": "femba_mean",
+      "source_section": "femba_mean：平均表征分类",
+      "source_excerpt": "femba_mean只使用同一路径525维窗口表征均值，执行冻结分类头，不包含femba_features的标准差部分。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-femba_temporal",
+      "kind": "method_definition",
+      "tool": "femba_temporal",
+      "source_section": "femba_temporal：整路径表征的前后差",
+      "source_excerpt": "femba_temporal将525维表征均值、标准差以及路径末三分之一均值减首三分之一均值拼接，形成1575维输入，执行冻结分类头。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-spectral_compact",
+      "kind": "method_definition",
+      "tool": "spectral_compact",
+      "source_section": "spectral_compact：脑区与频带的压缩摘要",
+      "source_excerpt": "spectral_compact将频谱按冻结六个通道组和四频带汇总，组合相对功率均值、波动、频带中心化对数功率、路径首末差、参考变化及可用标记，共121维。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-filterbank_csp",
+      "kind": "method_definition",
+      "tool": "filterbank_csp",
+      "source_section": "filterbank_csp：滤波器组空间模式",
+      "source_excerpt": "filterbank_csp在delta/theta/alpha/beta四个频带计算30×30通道协方差，并按trace归一化，共3600个输入坐标；监督CSP空间滤波器由内部训练High/Low样本拟合，随后固定。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "definition-case_retrieval",
+      "kind": "method_definition",
+      "tool": "case_retrieval",
+      "source_section": "case_retrieval：训练案例投票与距离",
+      "source_excerpt": "case_retrieval以路径525维表征均值作查询，在冻结训练案例的标准化空间计算均方根距离；距离无量纲，只适用于该训练缩放与特征空间。",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176"
+    },
+    {
+      "id": "protocol-current-no-rest",
+      "kind": "protocol",
+      "scope": "whole_path_current_raw_no_rest"
+    }
+  ],
+  "edges": [
+    {
+      "from": "tool-MIL",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-femba_features",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-femba_mean",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-femba_temporal",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-case_retrieval",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-spectral",
+      "to": "source-spectral",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-spectral_compact",
+      "to": "source-spectral",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "source-spectral",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "filterbank_csp：滤波器组空间模式"
+    },
+    {
+      "from": "tool-spatial_covariance",
+      "to": "source-spatial",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "source-spatial",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-MIL",
+      "to": "definition-MIL",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "MIL：mil_raw_high_probability 的来源与量纲"
+    },
+    {
+      "from": "tool-femba_features",
+      "to": "definition-femba_features",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "femba_features：表征均值与波动"
+    },
+    {
+      "from": "tool-spectral",
+      "to": "definition-spectral",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "spectral：全通道频谱与路径内变化"
+    },
+    {
+      "from": "tool-spatial_covariance",
+      "to": "definition-spatial_covariance",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "spatial_covariance：空间关系而非有方向距离"
+    },
+    {
+      "from": "tool-femba_mean",
+      "to": "definition-femba_mean",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "femba_mean：平均表征分类"
+    },
+    {
+      "from": "tool-femba_temporal",
+      "to": "definition-femba_temporal",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "femba_temporal：整路径表征的前后差"
+    },
+    {
+      "from": "tool-spectral_compact",
+      "to": "definition-spectral_compact",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "spectral_compact：脑区与频带的压缩摘要"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "definition-filterbank_csp",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "filterbank_csp：滤波器组空间模式"
+    },
+    {
+      "from": "tool-case_retrieval",
+      "to": "definition-case_retrieval",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "case_retrieval：训练案例投票与距离"
+    },
+    {
+      "from": "tool-MIL",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-femba_features",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-spectral",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-spatial_covariance",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-femba_mean",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-femba_temporal",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-spectral_compact",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-case_retrieval",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    }
+  ]
+}

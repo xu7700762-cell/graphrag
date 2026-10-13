@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>在线 EEG 回放 · EEGAgent</title>
+  <link rel="stylesheet" href="/assets/design-tokens.css">
+  <link rel="stylesheet" href="/assets/brain.css">
+  <link rel="stylesheet" href="/assets/online.css">
+</head>
+<body class="online-page">
+  <a class="skip-link" href="#onlineMain">跳到在线监测</a>
+  <header class="online-header">
+    <a class="online-brand" href="/">EEGAgent</a>
+    <nav aria-label="工作台导航"><a href="/">离线分析</a><a href="/online" aria-current="page">在线回放</a><a href="/monitor#cloud">API 配置</a></nav>
+    <span id="connectionStatus" class="connection-status" role="status">正在连接</span>
+  </header>
+  <main id="onlineMain" class="online-main">
+    <div class="online-heading"><div><h1>在线 EEG 回放</h1><p>同一原始记录按时间到达，三个 Agent 每 5 秒更新本地测量。</p></div><span id="sessionState" class="state-label">就绪</span></div>
+    <div id="onlineError" class="global-error" role="alert" hidden></div>
+    <form id="replayForm" class="replay-controls">
+      <label class="recording-control">原始记录<select id="recordingSelect" required aria-describedby="capabilityNote"><option value="">正在读取记录…</option></select></label>
+      <label>回放速度<select id="speedSelect"><option value="1" selected>1 倍 · 实时</option><option value="10">10 倍 · 验证</option><option value="max">最快 · 验证</option></select></label>
+      <label class="cloud-control"><input id="cloudEnabled" type="checkbox" checked><span>路径结束后请求云端判断</span></label>
+      <label>VRMS 证据检索<select id="ragMode"><option value="default" selected>默认版本</option><option value="regular">普通 RAG · 固定对照</option><option value="graph">GraphRAG</option></select></label>
+      <div class="playback-buttons"><button id="startReplay" type="submit" class="primary-button">启动回放</button><button id="pauseReplay" type="button" disabled>暂停</button><button id="resumeReplay" type="button" disabled>继续</button><button id="stopReplay" type="button" disabled>停止</button></div>
+      <p id="capabilityNote" class="control-note">正在检查本地模型和云端配置。</p>
+      <p id="ragVersionNote" class="control-note">创建回放时固定检索版本。</p>
+      <p class="control-note"><a id="ragComparisonLink" href="/rag-comparison">RAG 前后对比</a></p>
+    </form>
+    <div class="replay-metrics" aria-label="运行状态">
+      <div><span>数据已到达</span><strong id="positionValue">00:00</strong></div>
+      <div><span>当前片段</span><strong id="segmentValue">等待开始</strong></div>
+      <div><span>窗口覆盖率</span><strong id="coverageValue">—</strong></div>
+      <div><span>本地处理耗时</span><strong id="latencyValue">—</strong></div>
+      <div><span>已完成路径</span><strong id="pathCountValue">0</strong></div>
+    </div>
+    <section class="live-workspace" aria-label="当前 EEG 与领域测量">
+      <div class="signal-column">
+        <section class="signal-panel">
+          <div class="plot-heading"><h2>EEG 波形</h2><span id="waveformCaption">最近 30 秒，各通道自适应显示尺度（μV）</span></div>
+          <div class="canvas-wrap waveform-wrap"><canvas id="waveformCanvas" role="img" aria-label="最近三十秒的多通道 EEG 波形">波形需要支持 Canvas 的浏览器。</canvas><p id="waveformEmpty" class="plot-empty">启动回放后，完整窗口到达时显示波形。</p></div>
+          <div class="signal-footer"><span id="qualityValue">质量状态等待测量</span><span id="windowRange">五秒完整窗口</span></div>
+        </section>
+        <section class="signal-panel trend-panel">
+          <div class="plot-heading"><h2>最近 30 秒趋势</h2><span>各指标使用独立纵轴</span></div>
+          <div class="canvas-wrap trend-wrap"><canvas id="trendCanvas" role="img" aria-label="VRMS 未校准读数、疲劳指标和心理负荷趋势">趋势需要支持 Canvas 的浏览器。</canvas><p id="trendEmpty" class="plot-empty">有效窗口到达后显示指标趋势。</p></div>
+        </section>
+      </div>
+      <aside class="online-agents" aria-label="三个领域 Agent">
+        <article class="online-agent vrms-agent"><div class="agent-heading"><span class="agent-symbol">V</span><div><h2>VRMSAgent</h2><p>截至当前的路径估计</p></div><span id="vrmsStatus" class="agent-state">等待窗口</span></div><div class="agent-readout"><strong id="vrmsProbability">—</strong><span>High 读数，未经概率校准</span></div><dl><div><dt>MIL 暂定类别</dt><dd id="vrmsClass">—</dd></div><div><dt>数值工具暂定类别</dt><dd id="numericClass">—</dd></div></dl><p class="agent-boundary">前缀估计使用已到达窗口。完整路径结果在结束标记到达后形成，不能定位症状发生时刻。</p></article>
+        <article class="online-agent fatigue-agent"><div class="agent-heading"><span class="agent-symbol">F</span><div><h2>FatigueAgent</h2><p>疲劳相关 EEG 指标</p></div><span id="fatigueStatus" class="agent-state">等待窗口</span></div><div class="agent-readout"><strong id="thetaAlphaValue">—</strong><span>θ / α</span></div><dl><div><dt>θ / β</dt><dd id="thetaBetaValue">—</dd></div></dl><p class="agent-boundary">报告频谱测量，不将比值直接解释为主观疲劳类别。</p></article>
+        <article class="online-agent emotion-agent"><div class="agent-heading"><span class="agent-symbol">E</span><div><h2>EmotionAgent</h2><p>心理负荷与额区指标</p></div><span id="emotionStatus" class="agent-state">等待窗口</span></div><div class="agent-readout"><strong id="workloadValue">—</strong><span>额区 θ / 顶区 α</span></div><dl><div><dt>额区 α 不对称（FAA）</dt><dd id="faaValue">—</dd></div></dl><p class="agent-boundary">报告 EEG 指标，不发布未经验证的情绪分类。</p></article>
+      </aside>
+    </section>
+    <section class="completed-panel" aria-labelledby="completedTitle"><div class="plot-heading"><div><h2 id="completedTitle">已结束路径</h2><p>模型、数值工具与云端判断分别保留；云端失败时保留空类别。</p></div><div id="reportLinks" class="report-links" hidden><a id="jsonReport" href="#" download>JSON 报告</a><a id="markdownReport" href="#" download>Markdown 报告</a></div></div><div class="path-table-scroll"><table class="online-path-table"><thead><tr><th scope="col">路径</th><th scope="col">时间区间</th><th scope="col">覆盖率</th><th scope="col">VRMSModel</th><th scope="col">数值工具</th><th scope="col">云端判断</th><th scope="col">状态</th></tr></thead><tbody id="pathRows"><tr><td colspan="7" class="table-empty">路径结束后在此查看最终结果。</td></tr></tbody></table></div><p id="cloudNotice" class="cloud-notice" role="status">云端只接收已结束路径的证据；本地数值推理持续运行。</p></section>
+    <section class="completed-panel" aria-labelledby="explanationsTitle"><div class="plot-heading"><h2 id="explanationsTitle">路径报告与 Agent 解释</h2><span>展开查看本地结果、三个 Agent 与汇总</span></div><div id="pathExplanations" class="path-explanations"><p class="table-empty">完整路径结束后生成报告。</p></div></section>
+    <footer class="online-footer">本页回放已有数据集，保留原始时间轴；1 倍速用于实时性能验收，加速模式用于验证。问卷真值只用于事后评价。</footer>
+  </main>
+  <script src="/assets/online.js?v=20261012-rag-modes"></script>
+</body>
+</html>

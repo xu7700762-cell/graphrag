@@ -1,0 +1,35 @@
+{
+  "python": "3.9.25 (main, Nov  3 2025, 22:44:01) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "D:\\桌面\\2\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.6.1",
+    "onnx": "1.17.0",
+    "onnxruntime": "1.19.2",
+    "fastapi": "0.115.14",
+    "openai": "1.109.1",
+    "pydantic": "2.11.7",
+    "pytest": "8.4.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060",
+  "cuda": "12.8",
+  "source_environment_modified": false,
+  "source_hashes": {
+    "eeg_agent\\__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+    "eeg_agent\\__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+    "eeg_agent\\agents.py": "9055cf162464437e37b4acf6385bd00390655ab1f0e8545260cb2366ab5698d1",
+    "eeg_agent\\cli.py": "f19544d0497f22c0fd5b58af8fed8b5232be2a2a501dee11790b9eab8f06ee6f",
+    "eeg_agent\\config.py": "e0821afd4dc37f0fdfa297b5b4ed18311fbfd73893be750aa14a0fddaed207c1",
+    "eeg_agent\\data.py": "a55de552579630f3fb519b6b083876df30f364acd6008c59eb74e813b611f2f0",
+    "eeg_agent\\learning.py": "a6454cdea67a1d184e9f41fe4c109b88605f71cd57f49bab9bfd933215669c3e",
+    "eeg_agent\\runtime.py": "59cd9eefae9ecde6c42869cd3b656894e4012960e47729d388447cc502d25b33",
+    "eeg_agent\\service.py": "efcf8cc10fed5dea991fdb204fd8924dc85c0b43da301ece2cc3e0b68642634a",
+    "eeg_agent\\signal.py": "b0f484207591f14ec21043d3fc6ec53293749be672c51f501ed18146135644ed",
+    "eeg_agent\\web\\app.js": "a31a0ded8af4bb2f442bd9cf343673cec979695c4417ee6df92abb4c24b4b1f9",
+    "eeg_agent\\web\\index.html": "a02a41dd5b92947574ba711777dee2ba5bb9a13159d29c276e328cd387c38fe9",
+    "eeg_agent\\web\\style.css": "c39a3ff806838d710ff6b51d7d7a8b20c7b2bb0ccfa86739d2d0de994c377edb"
+  }
+}

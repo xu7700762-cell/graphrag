@@ -1,0 +1,14 @@
+[Unit]
+Description=EEG Agent local replay service
+After=network-online.target
+
+[Service]
+User=eegagent
+WorkingDirectory=/srv/eeg-agent
+EnvironmentFile=-/srv/eeg-agent/.env
+ExecStart=/srv/eeg-agent/.venv/bin/python -m eeg_agent --config deploy/pi.yaml serve --host 127.0.0.1 --port 8880
+Restart=on-failure
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

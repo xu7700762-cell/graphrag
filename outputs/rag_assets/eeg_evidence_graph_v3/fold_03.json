@@ -1,0 +1,1090 @@
+{
+  "schema": "eeg_boundary_applicability_graph_v3",
+  "kind": "same_fold_boundary_applicability_graph",
+  "algorithm_version": "same_fold_boundary_counterexamples_preserve_regular_v3",
+  "outer_subject": 3,
+  "bank_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1",
+  "nodes": [
+    {
+      "id": "fold-03",
+      "kind": "fold"
+    },
+    {
+      "id": "reference-000",
+      "kind": "reference_case",
+      "bank_offset": 0,
+      "reference_index": 40,
+      "reference_subject": 7,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-001",
+      "kind": "reference_case",
+      "bank_offset": 1,
+      "reference_index": 41,
+      "reference_subject": 7,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-002",
+      "kind": "reference_case",
+      "bank_offset": 2,
+      "reference_index": 88,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-003",
+      "kind": "reference_case",
+      "bank_offset": 3,
+      "reference_index": 89,
+      "reference_subject": 16,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-004",
+      "kind": "reference_case",
+      "bank_offset": 4,
+      "reference_index": 90,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-005",
+      "kind": "reference_case",
+      "bank_offset": 5,
+      "reference_index": 91,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-006",
+      "kind": "reference_case",
+      "bank_offset": 6,
+      "reference_index": 92,
+      "reference_subject": 16,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-007",
+      "kind": "reference_case",
+      "bank_offset": 7,
+      "reference_index": 106,
+      "reference_subject": 19,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-008",
+      "kind": "reference_case",
+      "bank_offset": 8,
+      "reference_index": 107,
+      "reference_subject": 19,
+      "reference_class": "High"
+    },
+    {
+      "id": "reference-009",
+      "kind": "reference_case",
+      "bank_offset": 9,
+      "reference_index": 108,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-010",
+      "kind": "reference_case",
+      "bank_offset": 10,
+      "reference_index": 109,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-011",
+      "kind": "reference_case",
+      "bank_offset": 11,
+      "reference_index": 110,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-012",
+      "kind": "reference_case",
+      "bank_offset": 12,
+      "reference_index": 111,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-013",
+      "kind": "reference_case",
+      "bank_offset": 13,
+      "reference_index": 112,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-014",
+      "kind": "reference_case",
+      "bank_offset": 14,
+      "reference_index": 113,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-015",
+      "kind": "reference_case",
+      "bank_offset": 15,
+      "reference_index": 114,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-016",
+      "kind": "reference_case",
+      "bank_offset": 16,
+      "reference_index": 115,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-017",
+      "kind": "reference_case",
+      "bank_offset": 17,
+      "reference_index": 116,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "reference-018",
+      "kind": "reference_case",
+      "bank_offset": 18,
+      "reference_index": 117,
+      "reference_subject": 20,
+      "reference_class": "Low"
+    },
+    {
+      "id": "calibration-femba_features",
+      "kind": "calibrated_direction_profile",
+      "tool": "femba_features",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 3,
+        "Low_outputs": 16,
+        "constant_direction": null,
+        "probability_range": [
+          0.03585900041256504,
+          0.9843039018247279
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "boundary-femba_features-10",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "femba_features",
+      "raw_direction": "High",
+      "calibrated_direction": "Low",
+      "conditional_evidence": {
+        "paths": 1,
+        "subjects": 1,
+        "Low": 0,
+        "High": 1,
+        "raw_correct": 1,
+        "calibrated_correct": 0,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-03",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 0,
+            "subjects": 0,
+            "Low": 0,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 0,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 0
+          }
+        ],
+        "coverage_supported": false
+      }
+    },
+    {
+      "id": "calibration-spectral",
+      "kind": "calibrated_direction_profile",
+      "tool": "spectral",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 3,
+        "Low_outputs": 16,
+        "constant_direction": null,
+        "probability_range": [
+          0.11891619709601334,
+          0.6588688191811655
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "boundary-spectral-10",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "spectral",
+      "raw_direction": "High",
+      "calibrated_direction": "Low",
+      "conditional_evidence": {
+        "paths": 3,
+        "subjects": 1,
+        "Low": 3,
+        "High": 0,
+        "raw_correct": 0,
+        "calibrated_correct": 3,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-04",
+            "paths": 3,
+            "subjects": 1,
+            "Low": 3,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 3
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 3,
+            "subjects": 1,
+            "Low": 3,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 3,
+            "subjects": 1,
+            "Low": 3,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 3,
+            "subjects": 1,
+            "Low": 3,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 0,
+            "subjects": 0,
+            "Low": 0,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 0
+          }
+        ],
+        "coverage_supported": false
+      }
+    },
+    {
+      "id": "calibration-spatial_covariance",
+      "kind": "calibrated_direction_profile",
+      "tool": "spatial_covariance",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 2,
+        "Low_outputs": 17,
+        "constant_direction": null,
+        "probability_range": [
+          0.2663775886517379,
+          0.5935290693182478
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "boundary-spatial_covariance-10",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "spatial_covariance",
+      "raw_direction": "High",
+      "calibrated_direction": "Low",
+      "conditional_evidence": {
+        "paths": 5,
+        "subjects": 3,
+        "Low": 3,
+        "High": 2,
+        "raw_correct": 2,
+        "calibrated_correct": 3,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-02",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 2,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 2
+          },
+          {
+            "subject_group": "internal-subject-03",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 0,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          },
+          {
+            "subject_group": "internal-subject-04",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 5,
+            "subjects": 3,
+            "Low": 3,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 3,
+            "subjects": 2,
+            "Low": 1,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 1
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 3,
+            "subjects": 2,
+            "Low": 3,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 4,
+            "subjects": 2,
+            "Low": 2,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 2
+          }
+        ],
+        "coverage_supported": true
+      }
+    },
+    {
+      "id": "calibration-femba_mean",
+      "kind": "calibrated_direction_profile",
+      "tool": "femba_mean",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 2,
+        "Low_outputs": 17,
+        "constant_direction": null,
+        "probability_range": [
+          0.08362719223044936,
+          0.7356037834271506
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "calibration-femba_temporal",
+      "kind": "calibrated_direction_profile",
+      "tool": "femba_temporal",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 5,
+        "Low_outputs": 14,
+        "constant_direction": null,
+        "probability_range": [
+          0.2624446240586263,
+          0.8261350825151872
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "boundary-femba_temporal-01",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "femba_temporal",
+      "raw_direction": "Low",
+      "calibrated_direction": "High",
+      "conditional_evidence": {
+        "paths": 2,
+        "subjects": 1,
+        "Low": 2,
+        "High": 0,
+        "raw_correct": 2,
+        "calibrated_correct": 0,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-04",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 2,
+            "High": 0,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 2,
+            "High": 0,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 2,
+            "High": 0,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 2,
+            "High": 0,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 0,
+            "subjects": 0,
+            "Low": 0,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 0
+          }
+        ],
+        "coverage_supported": false
+      }
+    },
+    {
+      "id": "calibration-spectral_compact",
+      "kind": "calibrated_direction_profile",
+      "tool": "spectral_compact",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 2,
+        "Low_outputs": 17,
+        "constant_direction": null,
+        "probability_range": [
+          0.04411942240203049,
+          0.8079642408981136
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "boundary-spectral_compact-10",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "spectral_compact",
+      "raw_direction": "High",
+      "calibrated_direction": "Low",
+      "conditional_evidence": {
+        "paths": 3,
+        "subjects": 2,
+        "Low": 3,
+        "High": 0,
+        "raw_correct": 0,
+        "calibrated_correct": 3,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-02",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          },
+          {
+            "subject_group": "internal-subject-04",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 2,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 2
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 3,
+            "subjects": 2,
+            "Low": 3,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 2,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 2
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 3,
+            "subjects": 2,
+            "Low": 3,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 1,
+            "subjects": 1,
+            "Low": 1,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 1
+          }
+        ],
+        "coverage_supported": false
+      }
+    },
+    {
+      "id": "calibration-filterbank_csp",
+      "kind": "calibrated_direction_profile",
+      "tool": "filterbank_csp",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 0,
+        "Low_outputs": 19,
+        "constant_direction": "Low",
+        "probability_range": [
+          0.4117184005753825,
+          0.4842042540845447
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "boundary-filterbank_csp-10",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "filterbank_csp",
+      "raw_direction": "High",
+      "calibrated_direction": "Low",
+      "conditional_evidence": {
+        "paths": 4,
+        "subjects": 2,
+        "Low": 0,
+        "High": 4,
+        "raw_correct": 4,
+        "calibrated_correct": 0,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-01",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 0,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          },
+          {
+            "subject_group": "internal-subject-03",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 0,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 0,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 4,
+            "subjects": 2,
+            "Low": 0,
+            "High": 4,
+            "raw_correct": 4,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 2,
+            "subjects": 1,
+            "Low": 0,
+            "High": 2,
+            "raw_correct": 2,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 4,
+            "subjects": 2,
+            "Low": 0,
+            "High": 4,
+            "raw_correct": 4,
+            "calibrated_correct": 0
+          }
+        ],
+        "coverage_supported": false
+      }
+    },
+    {
+      "id": "calibration-case_retrieval",
+      "kind": "calibrated_direction_profile",
+      "tool": "case_retrieval",
+      "whole_bank_calibration": {
+        "paths": 19,
+        "subjects": 4,
+        "High_outputs": 0,
+        "Low_outputs": 19,
+        "constant_direction": "Low",
+        "probability_range": [
+          0.42275157909217315,
+          0.44933505744955204
+        ],
+        "reference_Low_paths": 14,
+        "reference_High_paths": 5
+      }
+    },
+    {
+      "id": "boundary-case_retrieval-10",
+      "kind": "raw_calibration_conflict_condition",
+      "tool": "case_retrieval",
+      "raw_direction": "High",
+      "calibrated_direction": "Low",
+      "conditional_evidence": {
+        "paths": 4,
+        "subjects": 1,
+        "Low": 3,
+        "High": 1,
+        "raw_correct": 1,
+        "calibrated_correct": 3,
+        "by_subject": [
+          {
+            "subject_group": "internal-subject-02",
+            "paths": 4,
+            "subjects": 1,
+            "Low": 3,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 3
+          }
+        ],
+        "leave_subject_out": [
+          {
+            "removed_subject_group": "internal-subject-01",
+            "paths": 4,
+            "subjects": 1,
+            "Low": 3,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-02",
+            "paths": 0,
+            "subjects": 0,
+            "Low": 0,
+            "High": 0,
+            "raw_correct": 0,
+            "calibrated_correct": 0
+          },
+          {
+            "removed_subject_group": "internal-subject-03",
+            "paths": 4,
+            "subjects": 1,
+            "Low": 3,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 3
+          },
+          {
+            "removed_subject_group": "internal-subject-04",
+            "paths": 4,
+            "subjects": 1,
+            "Low": 3,
+            "High": 1,
+            "raw_correct": 1,
+            "calibrated_correct": 3
+          }
+        ],
+        "coverage_supported": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "reference-000",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-001",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-002",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-003",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-004",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-005",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-006",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-007",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-008",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-009",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-010",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-011",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-012",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-013",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-014",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-015",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-016",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-017",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "reference-018",
+      "to": "fold-03",
+      "relation": "belongs_to_fold",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-femba_features-10",
+      "to": "calibration-femba_features",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-femba_features-10",
+      "to": "reference-007",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral-10",
+      "to": "calibration-spectral",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral-10",
+      "to": "reference-009",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral-10",
+      "to": "reference-010",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral-10",
+      "to": "reference-013",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spatial_covariance-10",
+      "to": "calibration-spatial_covariance",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spatial_covariance-10",
+      "to": "reference-005",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spatial_covariance-10",
+      "to": "reference-006",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spatial_covariance-10",
+      "to": "reference-007",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spatial_covariance-10",
+      "to": "reference-008",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spatial_covariance-10",
+      "to": "reference-010",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-femba_temporal-01",
+      "to": "calibration-femba_temporal",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-femba_temporal-01",
+      "to": "reference-009",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-femba_temporal-01",
+      "to": "reference-011",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral_compact-10",
+      "to": "calibration-spectral_compact",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral_compact-10",
+      "to": "reference-006",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral_compact-10",
+      "to": "reference-009",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-spectral_compact-10",
+      "to": "reference-013",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-filterbank_csp-10",
+      "to": "calibration-filterbank_csp",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-filterbank_csp-10",
+      "to": "reference-000",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-filterbank_csp-10",
+      "to": "reference-001",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-filterbank_csp-10",
+      "to": "reference-007",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-filterbank_csp-10",
+      "to": "reference-008",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-case_retrieval-10",
+      "to": "calibration-case_retrieval",
+      "relation": "bounded_by_observed_calibration_scope",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-case_retrieval-10",
+      "to": "reference-003",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-case_retrieval-10",
+      "to": "reference-004",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-case_retrieval-10",
+      "to": "reference-005",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    },
+    {
+      "from": "boundary-case_retrieval-10",
+      "to": "reference-006",
+      "relation": "has_actual_boundary_state",
+      "source_sha256": "01c3c171fc93610bc19d8b38da0e464f5264f00819cfbda347f4aaa94213a8e1"
+    }
+  ]
+}

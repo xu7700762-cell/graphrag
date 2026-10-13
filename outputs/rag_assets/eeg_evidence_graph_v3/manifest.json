@@ -1,0 +1,40 @@
+{
+  "schema": "eeg_boundary_applicability_graph_v3",
+  "algorithm_version": "same_fold_boundary_counterexamples_preserve_regular_v3",
+  "reference_manifest_sha256": "8e7c75aab8a1dc7957c555faa287ca8b6dff57bf09843f07c899246207b45ea1",
+  "builder_sha256": "acbe3e26069a8d0d5178592d2591ca2dfb1298eaaea5e5705d451eab7a6fc370",
+  "coverage_rule": {
+    "matched_paths": 4,
+    "matched_subjects": 2,
+    "after_subject_deletion_paths": 2,
+    "after_subject_deletion_subjects": 2
+  },
+  "files": {
+    "method_source.md": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+    "method_graph.json": "c5df32cc6487ad97d12365d4ef144eae7ba0a5104ccf9269fab57ee10b16bef0",
+    "fold_01.json": "d2e826a6a2debcac2a9800944cc9b5b564473f11bb2dd4ca35c18a256e4b72bb",
+    "fold_02.json": "090fad9458d365901dba722f39ca553a0d799d0e31aa4a6386044c8dfcce4bbe",
+    "fold_03.json": "ae707d0fc8364fbfd2e0c5e48bb60eebd510019e1b857539afb90c64269842fb",
+    "fold_04.json": "bbe34863504fb8bdcb5208429c2f9fcfa25335c5d07d02b82b7a63873855f181",
+    "fold_05.json": "6e0700efff1fa14878aa83b12d7669cc8603ccf7c8d160085db74bcc637905e9",
+    "fold_06.json": "782c80b3129b8c2cc852f080b88d8a3c05b8a2f07936f99cfb5753eb6816e027",
+    "fold_07.json": "f9a2913c3f5a5a707414b816d9a5f0f6179aaac1feb4ac3d6621401c4fbf9ee1",
+    "fold_08.json": "ed0ec3be693760d05ecb4ffdf9221003373cf5944eae7ba65bad06e83323a4ea",
+    "fold_09.json": "b30fc9fdb6a999057e4f0e58d56915dd100e288b2e40ccb774e3674b3668dfbf",
+    "fold_10.json": "eb14742ff078c22326565a6b1b7f486ab0620f1e708153673962a44079d314bf",
+    "fold_11.json": "93c7e684f0a061646e6e2e3fd622a0ec849c22fc7e1d1db01e8856f116d5e258",
+    "fold_12.json": "042532ee07ef5e1e00ccc8a567e2a77b6117798c86ddb1eeab8a988c1e6bd623",
+    "fold_13.json": "dce0d36aacd425c84baf3c0f1ad2a8982038f4652841a1ec718f73e6aa86da7f",
+    "fold_14.json": "3b07184e0cf3b0cc78f45531174f3c18969d1a950419f664ae9b82e7f66449f2",
+    "fold_15.json": "6d36337f2a54e65384e89f0750c9bb2628ce06dbc514a6d37481db24cc513077",
+    "fold_16.json": "f2e4055ba2fdeaa7e0043faf055e40064d8569510e9e23353f0a860a4c31daa6",
+    "fold_17.json": "4734d8e39a738293b9132d4eb3faf259efc97610ecd490f22ffb442216072873",
+    "fold_18.json": "f72c4eaa7804892b0eb2562277b08deef9807a6da7b7ef154faf46fe53717f2a",
+    "fold_19.json": "b81b8d403fff5303a0d9ae8926d33d3d4948b16a2c05840a8ab099a378c8fa10",
+    "fold_20.json": "2d06d2f87362d2c224ac511c56b642bda891d611d2261e6ae925ec95ad46195d",
+    "fold_21.json": "eafdcac2ac663311a8a7fc7df2ac8d7cf139a35044d681e746db350daf6d0d4c",
+    "fold_23.json": "7124562361ca2752e6e2972222efbebdd0660694dd779eb26ecd348854188bfc",
+    "fold_24.json": "12520a0e7969995e9efa78aea7c715b5f1ccdf7e34fa34a5b5df9de2bcc958ec",
+    "fold_25.json": "ef8ccaeb8c23a06bb25822d4bf0cbba0af2efc40fbadcaf379f42c84bf4a6c0c"
+  }
+}

@@ -1,0 +1,36 @@
+# Online data must preserve /srv/eeg-data/data/raw/Acquisition xx.cdt + .dpo.
+data_root: /srv/eeg-data
+output_root: /var/lib/eeg-agent-online/offline_tools
+cloud_config_path: /var/lib/eeg-agent-online/.env
+online_output_root: /var/lib/eeg-agent-online/sessions
+online_model_manifest: /srv/eeg-agent-online/outputs/online_assets/seed2026/manifest.json
+online_cpu_threads: 2
+online_max_path_windows: 1000
+online_max_event_log_mb: 64
+knowledge_root: /srv/eeg-agent-online/knowledge
+knowledge_index_path: /var/lib/eeg-agent-online/knowledge/bm25_index.json
+# These legacy monitor keys satisfy load_config; the separate online raw
+# processor always uses its own frozen five-second warmup and no-rest contract.
+prefer_eog_models: false
+classification_profile: P0
+block_samples: 256
+warmup_seconds: 10
+calibration_min_seconds: 10
+calibration_max_seconds: 60
+window_seconds: 5
+minimum_path_windows: 3
+minimum_path_coverage: 0.8
+proposal_ttl_seconds: 10
+minimum_hold_seconds: 15
+agent_review_seconds: 30
+api_timeout_seconds: 10
+online_cloud_timeout_seconds: 120
+api_max_calls: 50
+qc:
+  raw_peak_to_peak_uv: 5000
+  peak_to_peak_uv: 500
+  flat_std_uv: 0.05
+  jump_uv: 200
+  line_ratio_warning: 0.25
+  eog_enter_correlation: 0.4
+  eog_exit_correlation: 0.25

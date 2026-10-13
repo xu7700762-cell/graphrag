@@ -1,0 +1,99 @@
+{
+  "schema": "raw_eeg_evidence_teaching_v1",
+  "available": true,
+  "input_definitions": [
+    {
+      "name": "MIL",
+      "citation_id": "brain-kb:484712966cc4e8fba0b0",
+      "text": "MIL是冻结FEMBA编码器与整路径注意力分类头。每个合格五秒窗的30×1280波形经训练期归一化后编码，窗口token平均得到525维表征；分类头对完整路径全部有效窗加权汇总，生成一个logit，sigmoid变换后得到mil_raw_high_probability。该数值无量纲，范围0到1，原始类别以0.5为阈值。此入口没有将该输出校准为当前查询真实High发生概率；0.01不能称“只有1%眩晕风险”。MIL是一路基线输入，既不是查询真值，也不是必须由其他工具服从的目标。注意力权重也不代表真实症状出现时间。"
+    },
+    {
+      "name": "femba_features",
+      "citation_id": "brain-kb:c86877ddb6eb5fc17e7e",
+      "text": "femba_features使用同一路径525维窗口表征的均值和标准差，合为1050维输入，执行训练内选定并冻结的分类头。表征坐标没有µV、秒或问卷分的物理量纲，坐标大小不能直接解释为不适严重程度。工具返回一个raw_decision_score与原始High/Low，可能另外返回校准概率。该工具保留表征整体波动，MIL另有注意力聚合，两者有不同聚合方式但共享编码器和窗口。不能把femba_features与MIL一致视为两份独立生理测量；单路标准差高也不意味着临床症状更严重。"
+    },
+    {
+      "name": "spectral",
+      "citation_id": "brain-kb:70f7a3da4c042af44e3d",
+      "text": "spectral对每个五秒窗计算Welch频谱，得到30通道、delta/theta/alpha/beta四频带功率及相对功率，再汇总均值、标准差、路径后段减前段的对数功率差、参考变化与参考可用标记，共721维。波形以µV计时，积分频带功率为µV²；相对功率是无量纲比例。代码以固定功率单位取自然对数，其差可理解为对数比；工具最终raw_decision_score仍是分类器分数，不是功率。当前无静息参考，参考变化项为零且可用标记为零，表示缺失分支，不能说“相对静息没有变化”。频帶增减的类别方向来自任务训练，不能用“theta增加必为High”等通用口诀替代。"
+    },
+    {
+      "name": "spatial_covariance",
+      "citation_id": "brain-kb:ac8a5932d82e1b3617a1",
+      "text": "spatial_covariance对合格窗的30通道协方差作收缩估计，按通道平均尺度归一化后取矩阵对数，保留上三角465个坐标及尺度描述，共497维。原始协方差有µV²量纲；归一化空间形状坐标无量纲，尺度项以固定单位取对数。冻结分类头将这些描述转换成一个raw_decision_score。该工具反映通道间空间关系，不是EEG幅值大小投票，也不是症状空间定位。原始入口没有使用静息参考白化距离；若其他工具给出协方差距离，其大小仅表示偏离程度，未经任务内方向验证不能直接对应High或Low。"
+    },
+    {
+      "name": "case_retrieval",
+      "citation_id": "brain-kb:5ac12aea9f0be41253bc",
+      "text": "case_retrieval以路径525维表征均值作查询，在冻结训练案例的标准化空间计算均方根距离；距离无量纲，只适用于该训练缩放与特征空间。数值估计器按冻结的k及是否距离加权选择不同内部被试，descriptive_vote是训练High标签的加权比例；raw_decision_score是该比例裁剪后取logit。high_count、low_count、different_subjects和closest_distance是描述字段，不是校准的查询概率。最近案例不是当前路径答案，单个邻居也不能证明可靠。训练案例真实类别可以作为匿名训练内参照，当前查询类别不能进入案例库或提示。"
+    },
+    {
+      "name": "femba_mean",
+      "citation_id": "brain-kb:aa824c6bddf397e1f60e",
+      "text": "femba_mean只使用同一路径525维窗口表征均值，执行冻结分类头，不包含femba_features的标准差部分。输入坐标是无物理量纲的学习表征，输出raw_decision_score是有方向的模型分数：以0为原始类别边界。它与femba_features、MIL和检索表征高度重叠，不是新增的独立传感器。若均值分类与含波动分类冲突，应描述“不同聚合或分类头发生冲突”，不能推断某一工具真实看到了更严重的症状。哪一聚合更可靠，需要匹配当前类别方向的独立内部验证支持。"
+    },
+    {
+      "name": "femba_temporal",
+      "citation_id": "brain-kb:2109eea3829438b9bc1e",
+      "text": "femba_temporal将525维表征均值、标准差以及路径末三分之一均值减首三分之一均值拼接，形成1575维输入，执行冻结分类头。前后差取自当前完整路径的真实有效窗，不是静息前后变化，也不是记录最初片段。三个分段按有效窗划分，存在被拒绝窗口时不保证等长连续物理时间。表征前后差没有问卷分或µV单位，不能把正负直接当症状加重或减轻。该工具与femba_mean、femba_features共享表征，只是在聚合中增加时间变化信息。"
+    },
+    {
+      "name": "spectral_compact",
+      "citation_id": "brain-kb:ccee305bc0ec94b9d9b0",
+      "text": "spectral_compact将频谱按冻结六个通道组和四频带汇总，组合相对功率均值、波动、频带中心化对数功率、路径首末差、参考变化及可用标记，共121维。相对功率与对数比无量纲；它与spectral共享相同频谱观测，只是更紧凑的区域描述。无静息参考时参考项与标记均为零。不要将该工具的raw_decision_score称作“TAR”或“额区theta/顶区alpha”；后两者由其他描述工具计算，也没有本入口通用的VRMS高低阈值。紧凑频谱与全频谱一致不能按两份独立票计算。"
+    },
+    {
+      "name": "filterbank_csp",
+      "citation_id": "brain-kb:90fe8d0c87c52547e882",
+      "text": "filterbank_csp在delta/theta/alpha/beta四个频带计算30×30通道协方差，并按trace归一化，共3600个输入坐标；监督CSP空间滤波器由内部训练High/Low样本拟合，随后固定。CSP投影后采用归一化方差的对数，再由分类头生成分数。归一化协方差与对数方差特征无量纲，最终分数不是µV²、单个电极异常程度或已校准风险。它与spatial_covariance共享空间关系，也与spectral共享频带处理。其High/Low方向来自任务内监督拟合，不能用某频带强弱直接替代。"
+    }
+  ],
+  "judgment_principles": [
+    {
+      "citation_id": "brain-kb:f57794e0ee17514a9fa3",
+      "text": "当前默认已隐藏组合估计，采用此独立判读流程。第一步，逐工具核对原始分数、零分边界、校准可用性及0.5边界；null是缺失，不能补成0.5。第二步，分别读取policy、raw_policy、calibrated_policy的验证路径数与BACC，不能把BACC最高的一路直接当作当前路径答案，AUROC也不是当前类别正确率。第三步，比较FEMBA聚合、频谱、空间三类信号的支持与反证；共享输入的多个头不重复计票，不虚构权重或把不同尺度的分数求平均。第四步，对照详细训练案例的同名字段，说明哪些模式相似、哪些关键字段不同，并检查相反训练标签的反例；案例是内部留出参考，参考被试曾参与selector开发，不能冒充独立外部验证。第五步，说明最终更采纳哪些互补证据、为何没有采纳最强反证及缺失何种方向验证。两侧仍有实质冲突时保持低置信；被要求二分类只表示必须选一类，不表示证据已经确定。引用ID证明来源，不能替代上述读取与取舍。"
+    },
+    {
+      "citation_id": "brain-kb:490338a052549a6ffdf7",
+      "text": "以下为假设教学，不是当前查询数值或已验证结果。假设A原始分数-0.40、原始Low、可用校准High概率0.64，内部raw_policy BACC为0.61、calibrated_policy BACC为0.68：应区分两种边界，有限保留校准High方向，但不能说当前必为High。B与A共享频谱，即使同向也不构成第二份独立票。空间工具C支持Low且内部BACC为0.66，是实质反证，不能只按0.68最大就忽略它。若详细训练Low例也出现多个校准概率大于0.5，说明这一组合并不保证High；若训练High例的MIL接近0，说明极小MIL也可能漏判。应比较同名工具、边界及不同信号模式，而非迁移案例标签。没有方向分层或组合模式验证时如实降低置信度；禁止把演示数字写成查询数据，禁止从已看过的查询真值选择规则。"
+    },
+    {
+      "citation_id": "brain-kb:b5783b44dc7ad60b4b92",
+      "text": "八工具的raw_decision_score通常来自decision_function；无该接口的分类器用预测比例裁剪后取logit。它无物理量纲且没有统一跨工具尺度。当前八工具以0为原始类别边界：分数≥0为High，<0为Low。+3不必比另一工具的+1更可靠，-5也不是“五倍Low证据”。原始分数先sigmoid只会变成0到1的数，不自动完成概率校准。MIL原始输出的类别边界为0.5，与这些工具的零分边界不同，比较之前必须区分字段。"
+    },
+    {
+      "citation_id": "brain-kb:5634847cd00cfc68b598",
+      "text": "calibrated_high_probability是冻结校准器对单路原始分数的映射，范围0到1、无量纲。校准器在内部meta被试的留一被试OOF分数与真实训练标签上拟合，并要求足够类别/被试支持及正向斜率；当前查询标签不参与。calibration_usable=True只表示存在符合代码条件的校准器，不保证外部可靠或此路径分类正确。False且概率为null时，不能补造0.5或把sigmoid原始分数冒充校准概率。即便可用，也要对照独立policy验证；样本少、分布漂移或校准后表现下降都会限制可信度。"
+    },
+    {
+      "citation_id": "brain-kb:67296093e64abcaceeb8",
+      "text": "raw_learned_class由原始分数零边界得到，而校准概率以校准后的0.5边界得到。正向Platt映射仍可因截距移动类别边界，所以原始Low与校准概率>0.5可以同时成立，并非必然数据错误。先核对同一工具、同一匿名查询、校准可用性和字段定义，再比较该工具raw_policy与calibrated_policy。只有实际返回的独立验证支持，才能说明选用哪一种边界更有依据；没有验证差异时如实列为冲突，不能按自己更喜欢的结果挑字段，也不能重新拟合校准器。"
+    },
+    {
+      "citation_id": "brain-kb:ac65024803e37686c1cb",
+      "text": "冻结数值融合用MIL logit与八路原始分数组成九维向量，由内部训练程序拟合的分类器决定组合；候选包括逻辑回归、核SVM与树模型，按内部policy被试OOF选择。权重不是语言模型临时分配，也不是九路各占固定百分比。历史融合入口执行该冻结映射，类别以融合分数0.5为界；当前默认独立LLM判读请求不提供这个融合类别或分数。uncalibrated_combined_score和raw_combined_score是同一融合估计在不同合同中的字段名；它们未经概率校准，不能写成真实风险。corrective_evidence是访问组合及实际工具证据的接口，不能再给它额外一票。"
+    },
+    {
+      "citation_id": "brain-kb:30a0cf00c9a506a00c33",
+      "text": "MIL、femba_features、femba_mean、femba_temporal、case_retrieval共享FEMBA编码表征；spectral与spectral_compact共享频谱；spatial_covariance与filterbank_csp共享空间协方差；所有工具还共享当前原始窗口。分组有重叠，不能称各组统计独立。先描述“哪类信号和聚合发生冲突”，再看独立内部验证，不做九票多数，也不把一致票数转成置信概率。相同方向的三个FEMBA头可能只是在重复同一信息；一个经过任务验证的互补工具，也不能因票少就被否定。"
+    },
+    {
+      "citation_id": "brain-kb:2f984ccce4cec569b383",
+      "text": "先确认整路径完整性、质量、字段来源和工具执行记录，逐路读取MIL和八工具的原始及校准读数。当前默认隐藏冻结数值融合类别与分数；LLM对照percentile_group检索的High、Low参考案例及内部验证资料独立给出最终类别。比较相同字段与来源组，明确支持、反证和缺失，不做相关工具多数票，不迁移最近案例标签，不虚构数值权重。最终输出六字段：final_class、confidence、explanation、supporting_tools、counterevidence_tools、rag_citations；不生成新的数值概率。历史融合优先实验是另一协议，不能覆盖当前默认。"
+    },
+    {
+      "citation_id": "brain-kb:d3d4e0ff6f6c8c831a6a",
+      "text": "方法RAG在云端分类前提供代码核对条目，解释九路字段、尺度和冲突。默认案例RAG为raw_decisive_rag_v4 / percentile_group，使用同折内部policy被试参考库，排除当前查询被试，参考被试未参与该折头与校准器拟合，但参与过selector开发。八工具分数转换为无标签经验百分位，按FEMBA、频谱、空间/CSP、案例检索四来源组等权比较；MIL不参与距离。每类选至多两条核心案例，优先覆盖不同被试，必要时补足，最多六条。提供真实参考High/Low、原始读数、校准值、距离、类别中位数/IQR、方向错误计数和组模式。参考标签不是查询答案，返回类别占比不是查询概率。24折资产经过来源与哈希核验；缺失时明确不可用，不退回训练内旧案例。在线CPU FP32与参考生成后端的精度差异不构成新的性能验证。"
+    }
+  ],
+  "sources": [
+    {
+      "source": "eeg_agent/raw_tool_agent.py:EvidenceRuntime; vrms_cloud/raw_inference.py:infer; vrms_cloud/raw_numeric.py:FrozenNumeric.predict; vrms_cloud/agent_tools_v1.py:predict_score,fit_calibrator; vrms_cloud/agent_tools_v2.py:compact_spectrum,FilterBankCSP; vrms_pilot/model_ablation_v3.py:PathMIL; vrms_pilot/data.py:spectral_features,covariance",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "document_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "version": "raw-only-nine-evidence-2.0",
+      "title": "VRMS 九路证据教学：MIL、八工具、量纲、校准、相关性与冲突判断"
+    }
+  ],
+  "missing_inputs": []
+}

@@ -1,0 +1,316 @@
+{
+  "schema": "eeg_evidence_graph_v1",
+  "kind": "reviewed_method_graph",
+  "algorithm_version": "same_fold_pattern_two_hop_v1",
+  "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+  "nodes": [
+    {
+      "id": "tool-MIL",
+      "kind": "tool",
+      "tool": "MIL"
+    },
+    {
+      "id": "tool-femba_features",
+      "kind": "tool",
+      "tool": "femba_features"
+    },
+    {
+      "id": "tool-spectral",
+      "kind": "tool",
+      "tool": "spectral"
+    },
+    {
+      "id": "tool-spatial_covariance",
+      "kind": "tool",
+      "tool": "spatial_covariance"
+    },
+    {
+      "id": "tool-femba_mean",
+      "kind": "tool",
+      "tool": "femba_mean"
+    },
+    {
+      "id": "tool-femba_temporal",
+      "kind": "tool",
+      "tool": "femba_temporal"
+    },
+    {
+      "id": "tool-spectral_compact",
+      "kind": "tool",
+      "tool": "spectral_compact"
+    },
+    {
+      "id": "tool-filterbank_csp",
+      "kind": "tool",
+      "tool": "filterbank_csp"
+    },
+    {
+      "id": "tool-case_retrieval",
+      "kind": "tool",
+      "tool": "case_retrieval"
+    },
+    {
+      "id": "source-FEMBA",
+      "kind": "feature_source",
+      "source": "FEMBA"
+    },
+    {
+      "id": "source-spectral",
+      "kind": "feature_source",
+      "source": "spectral"
+    },
+    {
+      "id": "source-spatial",
+      "kind": "feature_source",
+      "source": "spatial"
+    },
+    {
+      "id": "definition-MIL",
+      "kind": "method_definition",
+      "tool": "MIL"
+    },
+    {
+      "id": "definition-femba_features",
+      "kind": "method_definition",
+      "tool": "femba_features"
+    },
+    {
+      "id": "definition-spectral",
+      "kind": "method_definition",
+      "tool": "spectral"
+    },
+    {
+      "id": "definition-spatial_covariance",
+      "kind": "method_definition",
+      "tool": "spatial_covariance"
+    },
+    {
+      "id": "definition-femba_mean",
+      "kind": "method_definition",
+      "tool": "femba_mean"
+    },
+    {
+      "id": "definition-femba_temporal",
+      "kind": "method_definition",
+      "tool": "femba_temporal"
+    },
+    {
+      "id": "definition-spectral_compact",
+      "kind": "method_definition",
+      "tool": "spectral_compact"
+    },
+    {
+      "id": "definition-filterbank_csp",
+      "kind": "method_definition",
+      "tool": "filterbank_csp"
+    },
+    {
+      "id": "definition-case_retrieval",
+      "kind": "method_definition",
+      "tool": "case_retrieval"
+    },
+    {
+      "id": "protocol-current-no-rest",
+      "kind": "protocol",
+      "scope": "whole_path_current_raw_no_rest"
+    }
+  ],
+  "edges": [
+    {
+      "from": "tool-MIL",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-femba_features",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-femba_mean",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-femba_temporal",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-case_retrieval",
+      "to": "source-FEMBA",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-spectral",
+      "to": "source-spectral",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-spectral_compact",
+      "to": "source-spectral",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "source-spectral",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-spatial_covariance",
+      "to": "source-spatial",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "source-spatial",
+      "relation": "shares_feature_source",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "证据相关性：九路共享信息与重复计数"
+    },
+    {
+      "from": "tool-MIL",
+      "to": "definition-MIL",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "MIL definition"
+    },
+    {
+      "from": "tool-femba_features",
+      "to": "definition-femba_features",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "femba_features definition"
+    },
+    {
+      "from": "tool-spectral",
+      "to": "definition-spectral",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "spectral definition"
+    },
+    {
+      "from": "tool-spatial_covariance",
+      "to": "definition-spatial_covariance",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "spatial_covariance definition"
+    },
+    {
+      "from": "tool-femba_mean",
+      "to": "definition-femba_mean",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "femba_mean definition"
+    },
+    {
+      "from": "tool-femba_temporal",
+      "to": "definition-femba_temporal",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "femba_temporal definition"
+    },
+    {
+      "from": "tool-spectral_compact",
+      "to": "definition-spectral_compact",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "spectral_compact definition"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "definition-filterbank_csp",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "filterbank_csp definition"
+    },
+    {
+      "from": "tool-case_retrieval",
+      "to": "definition-case_retrieval",
+      "relation": "defined_by",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "case_retrieval definition"
+    },
+    {
+      "from": "tool-MIL",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-femba_features",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-spectral",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-spatial_covariance",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-femba_mean",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-femba_temporal",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-spectral_compact",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-filterbank_csp",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    },
+    {
+      "from": "tool-case_retrieval",
+      "to": "protocol-current-no-rest",
+      "relation": "applies_protocol",
+      "source_sha256": "4dd9fa3c6666b311eb314ade09d372a0d2029b249b8dac5b131dbe21bf03a176",
+      "source_section": "案例来源与限制：方法RAG和留出参考案例RAG"
+    }
+  ]
+}

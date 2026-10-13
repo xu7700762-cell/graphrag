@@ -1,0 +1,1467 @@
+{
+  "schema": "rag_comparison_recovery_v1",
+  "evaluation_schema": "graphrag_recovery_combined_score_v1",
+  "available": true,
+  "status": "completed_below_target",
+  "updated_at": "2026-10-12T15:34:09.835088+00:00",
+  "protocol": "gpt-6.1-sol · Responses · high · 8192",
+  "protocol_details": {
+    "model": "gpt-6.1-sol",
+    "api_protocol": "responses",
+    "reasoning_effort": "high",
+    "max_output_tokens": 8192,
+    "ordinary_new_calls": 0,
+    "graph_repeats": 1,
+    "original_attempt_bound": 154,
+    "recovery_authorized_attempt_bound": 9,
+    "combined_attempt_bound": 163
+  },
+  "arms": [
+    {
+      "id": "regular_baseline",
+      "label": "普通RAG（历史基线）",
+      "n": 146,
+      "valid": 146,
+      "correct": 107,
+      "accuracy": 0.7328767123287672,
+      "bacc": 0.7321428571428572,
+      "high_recall": 0.75,
+      "low_recall": 0.7142857142857143,
+      "failed": 0
+    },
+    {
+      "id": "graph_v1",
+      "label": "GraphRAG（失败恢复后合并）",
+      "n": 146,
+      "valid": 146,
+      "correct": 107,
+      "accuracy": 0.7328767123287672,
+      "bacc": 0.7327067669172932,
+      "high_recall": 0.7368421052631579,
+      "low_recall": 0.7285714285714285,
+      "failed": 0,
+      "pending": 0
+    }
+  ],
+  "paired": {
+    "corrected": 4,
+    "damaged": 4,
+    "fixed_denominator": 146,
+    "both_valid": 146,
+    "pending_excluded_from_change_counts": true,
+    "net_correct": 0
+  },
+  "notes": [
+    "普通RAG复用历史107/146判断，不新增调用；GraphRAG使用新判断，两臂不是同期随机实验。",
+    "历史普通RAG由CPA 127条与relay 19条接续；原生响应不能独立证明供应商路由或后端权重相同。",
+    "146条路径已反复用于开发，参考被试也参与过selector开发；结果不代表未见独立测试或在线实时准确率。",
+    "本次只替换RAG子上下文，保留历史实际读数、SYSTEM与high/8192设置；不增加未记录的坏导联信息。",
+    "图结构包含确定性计算的关系与描述性统计，不代表已验证的生理因果。",
+    "未做相同新增事实的平铺消融，收益不能全部归因于图表示。",
+    "GraphRAG同时改变参考选例、被试覆盖和上下文；比较衡量整个检索方案，不能单独归因为图结构。",
+    "原始GraphRAG最多146+8=154次尝试已冻结；用户另授权9次失败恢复，总上限163，不属于原八次重试。",
+    "原始结果和失败记录保留；合并优先原始首次有效答案，否则采用恢复首次有效答案；有效判断从不为提高分数而重采样。",
+    "逻辑CPA endpoint和model保持一致；服务重启前后上游路由/权重连续性不能由endpoint或原生model字段独立证明。"
+  ],
+  "original": {
+    "graph": {
+      "n": 146,
+      "valid": 137,
+      "correct": 100,
+      "accuracy": 0.684931506849315,
+      "bacc": 0.6838345864661655,
+      "high_recall": 0.7105263157894737,
+      "low_recall": 0.6571428571428571,
+      "failed": 9
+    },
+    "ledger": {
+      "attempts_started": 154,
+      "attempted_queries": 146,
+      "native_files": 137,
+      "valid_outputs": 137,
+      "input_tokens": 1029740,
+      "output_tokens": 153937,
+      "pending_queries": 0,
+      "in_flight_queries": 0,
+      "attempts_without_native_response": 17
+    }
+  },
+  "recovery": {
+    "ledger": {
+      "attempts_started": 9,
+      "attempted_queries": 9,
+      "native_files": 9,
+      "valid_outputs": 9,
+      "input_tokens": 68023,
+      "output_tokens": 8437,
+      "pending_queries": 0,
+      "in_flight_queries": 0,
+      "attempts_without_native_response": 0
+    },
+    "authorized_attempt_bound": 9
+  },
+  "combined": {
+    "graph": {
+      "n": 146,
+      "valid": 146,
+      "correct": 107,
+      "accuracy": 0.7328767123287672,
+      "bacc": 0.7327067669172932,
+      "high_recall": 0.7368421052631579,
+      "low_recall": 0.7285714285714285,
+      "failed": 0,
+      "pending": 0
+    },
+    "ledger": {
+      "attempts_started": 163,
+      "valid_outputs": 146,
+      "native_files": 146,
+      "input_tokens": 1097763,
+      "output_tokens": 162374
+    },
+    "promotion_gate": {
+      "passed": false,
+      "performance_passed": false,
+      "engineering_passed": true,
+      "target_correct": 112,
+      "minimum_bacc": 0.7321428571428572,
+      "all146_valid_required": true,
+      "production_strict_valid": 146,
+      "zero_citation_warnings_required": true
+    },
+    "result_source_counts": {
+      "original": 137,
+      "recovery": 9,
+      "failed": 0
+    },
+    "paired_accuracy_cluster_ci": {
+      "metric": "graph_minus_ordinary_path_accuracy",
+      "unit": "subject",
+      "subjects": 24,
+      "iterations": 10000,
+      "seed": 20261012,
+      "confidence": 0.95,
+      "method": "paired_subject_cluster_percentile_bootstrap",
+      "estimate": 0.0,
+      "lower": -0.04794520547945205,
+      "upper": 0.05232558139534884,
+      "scope": "development comparison; historical arm; not causal or unseen-test inference"
+    }
+  },
+  "rows": [
+    {
+      "query_id": "q001",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q002",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q003",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q004",
+      "regular_class": "High",
+      "regular_confidence": "low",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q005",
+      "regular_class": "High",
+      "regular_confidence": "low",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q006",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q007",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q008",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q009",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q010",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q011",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q012",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q013",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q014",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q015",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q016",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q017",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q018",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q019",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q020",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q021",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q022",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q023",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q024",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q025",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q026",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q027",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q028",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q029",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q030",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q031",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q032",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q033",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q034",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q035",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q036",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q037",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q038",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q039",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q040",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q041",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q042",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q043",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q044",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q045",
+      "regular_class": "High",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q046",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q047",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q048",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q049",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q050",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q051",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q052",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q053",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q054",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q055",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q056",
+      "regular_class": "High",
+      "regular_confidence": "low",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q057",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q058",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q059",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q060",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q061",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q062",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q063",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q064",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q065",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q066",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q067",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q068",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q069",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q070",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q071",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q072",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q073",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q074",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q075",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q076",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q077",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q078",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q079",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q080",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q081",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q082",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q083",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q084",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q085",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q086",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q087",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q088",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q089",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q090",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q091",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q092",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q093",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q094",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q095",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q096",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q097",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q098",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q099",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q100",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q101",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q102",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q103",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q104",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q105",
+      "regular_class": "High",
+      "regular_confidence": "low",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q106",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q107",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q108",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q109",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q110",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q111",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q112",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q113",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q114",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q115",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q116",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q117",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q118",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q119",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q120",
+      "regular_class": "Low",
+      "regular_confidence": "low",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q121",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q122",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q123",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q124",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q125",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q126",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q127",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q128",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q129",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q130",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q131",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "recovery"
+    },
+    {
+      "query_id": "q132",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q133",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q134",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q135",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q136",
+      "regular_class": "Low",
+      "regular_confidence": "high",
+      "graph_class": "Low",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q137",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q138",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q139",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q140",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q141",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q142",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q143",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "high",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q144",
+      "regular_class": "High",
+      "regular_confidence": "high",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q145",
+      "regular_class": "High",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "medium",
+      "status": "valid",
+      "result_source": "original"
+    },
+    {
+      "query_id": "q146",
+      "regular_class": "Low",
+      "regular_confidence": "medium",
+      "graph_class": "High",
+      "graph_confidence": "low",
+      "status": "valid",
+      "result_source": "original"
+    }
+  ]
+}

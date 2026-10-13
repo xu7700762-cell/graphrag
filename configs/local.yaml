@@ -1,0 +1,24 @@
+data_root: D:/桌面/数据集/城市巡航
+output_root: outputs/vrms_v2
+prefer_eog_models: true
+block_samples: 256
+warmup_seconds: 10
+calibration_min_seconds: 10
+calibration_max_seconds: 60
+window_seconds: 5
+minimum_path_windows: 3
+minimum_path_coverage: 0.8
+proposal_ttl_seconds: 10
+minimum_hold_seconds: 15
+agent_review_seconds: 30
+api_timeout_seconds: 10
+online_cloud_timeout_seconds: 120
+api_max_calls: 50
+qc:
+  raw_peak_to_peak_uv: 5000
+  peak_to_peak_uv: 500
+  flat_std_uv: 0.05
+  jump_uv: 200
+  line_ratio_warning: 0.25
+  eog_enter_correlation: 0.4
+  eog_exit_correlation: 0.25

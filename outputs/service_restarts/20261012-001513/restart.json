@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8880/online",
+  "previous_pid": 15716,
+  "service_pid": 23296,
+  "launcher_pid": 11972,
+  "health": "ok",
+  "online_http": 200,
+  "logs": "D:\\桌面\\2\\outputs\\service_restarts\\20261012-001513"
+}

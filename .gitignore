@@ -1,0 +1,22 @@
+.venv/
+.env
+cloud_profiles.json
+__pycache__/
+.pytest_cache/
+*.egg-info/
+outputs/cache/
+outputs/runs/
+outputs/models/
+# Generated runtime data and local deployment artifacts
+outputs/*
+!outputs/rag_assets/
+!outputs/rag_assets/**
+!outputs/graph_rag_audit/
+!outputs/graph_rag_audit/**
+!outputs/reports/
+!outputs/reports/**
+!outputs/vrms_rag_probes/
+!outputs/vrms_rag_probes/**
+!outputs/service_restarts/
+!outputs/service_restarts/**
+deploy/*.zip

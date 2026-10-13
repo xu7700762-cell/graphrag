@@ -1,0 +1,12 @@
+INFO:     127.0.0.1:62349 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57070 - "GET /api/online/catalog HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57071 - "GET /online HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56954 - "GET /api/online/sessions/2f0fe004db104a5a87f57b107fc4d726/report.md HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53786 - "GET /api/online/sessions?limit=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64347 - "GET /api/online/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64348 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64349 - "GET /api/brain/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62374 - "GET /api/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62375 - "GET /api/brain/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62376 - "GET /api/online/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62377 - "GET /api/cloud-settings HTTP/1.1" 200 OK

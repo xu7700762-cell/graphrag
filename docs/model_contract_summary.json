@@ -1,0 +1,169 @@
+{
+  "eegnet": {
+    "model_id": "eegnet",
+    "architecture": {
+      "name": "EEGNet",
+      "version": "vrms-eegnet-2",
+      "description": "8 temporal filters, depth multiplier 2, separable convolution; dropout 0.25",
+      "source": "https://doi.org/10.1088/1741-2552/aace8c"
+    },
+    "contract": {
+      "schema_version": 2,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F11",
+        "F7",
+        "F3",
+        "Fz",
+        "F4",
+        "F8",
+        "F12",
+        "FT11",
+        "FC3",
+        "FCz",
+        "FC4",
+        "FT12",
+        "T7",
+        "C3",
+        "Cz",
+        "C4",
+        "T8",
+        "CP3",
+        "CPz",
+        "CP4",
+        "P7",
+        "P3",
+        "Pz",
+        "P4",
+        "P8",
+        "O1",
+        "Oz",
+        "O2"
+      ],
+      "unit": "uV",
+      "reference": "(M1+M2)/2",
+      "input_hz": 1024,
+      "output_hz": 256,
+      "window_samples": 1280,
+      "filter": "notch50Q30; butter4 0.5-45; elliptic AA wp100 ws128 ripple0.1dB stop80dB; causal SOS",
+      "warmup_seconds": 10,
+      "calibration_min_seconds": 10,
+      "calibration_max_seconds": 60,
+      "qc": {
+        "raw_peak_to_peak_uv": 5000,
+        "peak_to_peak_uv": 500,
+        "flat_std_uv": 0.05,
+        "jump_uv": 200,
+        "line_ratio_warning": 0.25,
+        "eog_enter_correlation": 0.4,
+        "eog_exit_correlation": 0.25
+      },
+      "threshold_score": 30,
+      "equality": "high",
+      "classification_profiles": [
+        "P0"
+      ],
+      "window_boundary": "half-open 5120 raw samples; no gap or path mixing",
+      "calibration": "first pre-task arrived QC-valid complete windows only; frozen before task; no classifier adaptation",
+      "normalization": "training-only P0 channel mean/std"
+    },
+    "allowed_profiles": [
+      "P0"
+    ],
+    "threshold": 0.5,
+    "temperature": 0.6373754678771923,
+    "publication_policy": {
+      "window_seconds": 5,
+      "minimum_valid_windows": 3,
+      "minimum_duration_coverage": 0.8,
+      "aggregation": "mean of valid-window temperature-scaled high probabilities",
+      "class_rule": "high when probability >= frozen threshold"
+    },
+    "inference_contract_hash": "dda5502f5fcb37cbdb705bebba0f982b36ec1b96efd7bd9ae51f5a7e5076100f"
+  },
+  "eegconformer": {
+    "model_id": "eegconformer",
+    "architecture": {
+      "name": "EEGConformer",
+      "version": "vrms-conformer-1",
+      "description": "embedding 40; depth 6; heads 10; CNN 30 channels; 79 tokens; head 3160-256-32-2",
+      "source": "https://github.com/eeyhsong/EEG-Conformer",
+      "adaptation": "30-channel spatial convolution and binary head; supervised random initialization; no upstream training or test selection"
+    },
+    "contract": {
+      "schema_version": 2,
+      "channels": [
+        "Fp1",
+        "Fp2",
+        "F11",
+        "F7",
+        "F3",
+        "Fz",
+        "F4",
+        "F8",
+        "F12",
+        "FT11",
+        "FC3",
+        "FCz",
+        "FC4",
+        "FT12",
+        "T7",
+        "C3",
+        "Cz",
+        "C4",
+        "T8",
+        "CP3",
+        "CPz",
+        "CP4",
+        "P7",
+        "P3",
+        "Pz",
+        "P4",
+        "P8",
+        "O1",
+        "Oz",
+        "O2"
+      ],
+      "unit": "uV",
+      "reference": "(M1+M2)/2",
+      "input_hz": 1024,
+      "output_hz": 256,
+      "window_samples": 1280,
+      "filter": "notch50Q30; butter4 0.5-45; elliptic AA wp100 ws128 ripple0.1dB stop80dB; causal SOS",
+      "warmup_seconds": 10,
+      "calibration_min_seconds": 10,
+      "calibration_max_seconds": 60,
+      "qc": {
+        "raw_peak_to_peak_uv": 5000,
+        "peak_to_peak_uv": 500,
+        "flat_std_uv": 0.05,
+        "jump_uv": 200,
+        "line_ratio_warning": 0.25,
+        "eog_enter_correlation": 0.4,
+        "eog_exit_correlation": 0.25
+      },
+      "threshold_score": 30,
+      "equality": "high",
+      "classification_profiles": [
+        "P0"
+      ],
+      "window_boundary": "half-open 5120 raw samples; no gap or path mixing",
+      "calibration": "first pre-task arrived QC-valid complete windows only; frozen before task; no classifier adaptation",
+      "normalization": "training-only P0 channel mean/std"
+    },
+    "allowed_profiles": [
+      "P0"
+    ],
+    "threshold": 0.5,
+    "temperature": 0.7982220678534193,
+    "publication_policy": {
+      "window_seconds": 5,
+      "minimum_valid_windows": 3,
+      "minimum_duration_coverage": 0.8,
+      "aggregation": "mean of valid-window temperature-scaled high probabilities",
+      "class_rule": "high when probability >= frozen threshold"
+    },
+    "inference_contract_hash": "45660e91b7b4ad7afdd8240c9edc40eded8f649383998a10201a150c60f5c235"
+  }
+}
